@@ -6,10 +6,10 @@ A még nem regisztált felhasználó (guest), csak megtekinteni tudja az esemén
 Regisztrációt és belépést követően a user-nek lehetősége adódik arra, hogy jegyet tudjon vásárolni az oldalon.
 
 A jegyvásárláshoz elengedhetetlen adatok a következőek: 
-- kártya adatok,
-- teljes név,
-- születési idő,
-- lakcím, 
+- kártya adatok
+- teljes név
+- születési idő
+- lakcím
 - email cím
 - telefonszám
 
