@@ -1,4 +1,4 @@
-#Megfeleltetés, hogyan fedik le a használati esetek a követelményeket
+# Megfeleltetés, hogyan fedik le a használati esetek a követelményeket
 
 Jelenlegi használati esetek teljes mértékben lefedik a követelményeket.
 - Regisztráció
