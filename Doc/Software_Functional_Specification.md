@@ -4,25 +4,10 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+## 2. Jelenlegi helyzet 
+A mai modern társadalomnak nélkülözhetetlenné vált az internet és okostelefonok használata. Így minden területen térhódítás ment végbe. A "régi" hagyományos papír alapú jegyek használatát is megreformálta például. Ez mind a vevőnek, mind az eladónak egy újabb és kényelmes lehetőséget biztosít.
+Az ügyfélnek például nem kell hosszó sorokat végig állnia, így ki is zárul az a lehetőség, hogy a sor miatt lekésné az eseményt. Ebből következik, hogy a jegyet nem tudja elhagyni, hiszen ott van a telefonján. További előny, hogy a vevő kiválaszthatja a számára megfelelő időpontot vagy helyet, vagyis ez a fajta online jegyvásárlás rugalmassabb. Az átláthatóság is jobb online, az ügyfél láthatja a jegyek mennyiségét és árát és az események részletes leírását. A biztonság szempontjából is előnyben van, hiszen az online vásárlást számos biztonsági protokoll biztosítja, így nem kell attól félnünk, hogy elveszítenénk a pénzünket.
+Összességében az online jegyvásárlás egyre csak népszerűbb alternatíva, hiszen kényelmes, gyors és biztonságos a papír alapú jegyekhez képest.
 
 
 
@@ -40,3 +25,5 @@
 | K9 | Funkció | Jegy visszatérítés | A felhasználó itt tudja visszatéríteni a megvásárolt jegyét a vásárlás feltételei alapján. |
 | K10 | Funkció | Jegy érvényességének ellenőrzése | Az eseményen a belépéskor a személyzet ellenőrzi a jegy érvényességét a QR kód alapján. |
 | K11 | Felület | Események kezelése | Az admin felületen az adminisztrátor tud eseményeket létrehozni, módosítani, törölni és azokra jegyeket rendelni. |"
+
+

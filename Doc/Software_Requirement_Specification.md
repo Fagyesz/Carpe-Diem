@@ -1,15 +1,24 @@
 # Követelmény specifikáció
 
 ## 1. Áttekintés
-
+Laravel keretrendszeren alapuló weboldalunkat 4 sprint alatt kell elkészítenünk. Ehhez néhány előfeltételnek meg kell lennie, hogy munkához láthassunk. Először is meg kell lennie a kommunikációs csatornának, ahol minden egyes megbeszélést (pl.sprint review,daily meeting) meg lehet tartani. Ezen kívül rendelkeznie kell az eszközünknek php-val, composerrel, valamilyen adatbázis kezelővel, stb.
+Elsőként létrehozzuk az adatbázisunkat a dokumentációk alapján. Ezután telepítjük a Laravelt. Végül pedig a legbonyolultabb rész és a leg időigényesebb rész, maga a nyers fejlesztés. Legtöbb időt ez fog felemészteni az időből. Majd miután minden készen van, teszteljük a weboldalt különféle eszközökkel(pl. Cypress) a legnagyobb biztonság elérése érdekében.
 
 
 ## 2. A jelenlegi helyzet leírása
+A mai rohanó világban egyre többen használják az internetet vagy a mobiltelefonjukat jegyvásárlásra, legyen szó mozijegyekről, vonat- vagy buszjegyekről. Az online jegyvásárlás kényelmes és gyors alternatívát jelent a hagyományos papíralapú jegyekhez képest.
 
+Az online jegyvásárlásnak számos előnye van, például nem kell sorban állnunk, nem kell nyomtatni és magunkkal vinni a jegyet, illetve az online fizetési lehetőségek révén könnyedén és biztonságosan tudunk fizetni a jegyért. Amiatt sem kell aggódnunk, hogy az esetleges nagy sor miatt lekésnénk a járatunkat. Napokkal előre el tudunk tervezni egy utazást és be is tudunk szerezni minden szükséges jegyet hozzá. Emellett ezek a jegyek egyszerűbben kezelhetők, mint a hagyományos papíralapú jegyek, hiszen azokat nem lehet elveszíteni vagy elhagyni. Az online jegyvásárlás egyre népszerűbb és hasznos alternatívája a hagyományos jegyvásárlási módszereknek. Az online vásárolt jegyek kényelmesek, gyorsak és biztonságosak, így érdemes megfontolni azok használatát, ha rendszeresen használunk tömegközlekedési eszközöket vagy akár gyakran járunk moziba vagy színházba.
 
 
 ## 3. Vágyálomrendszer
+Célunk, hogy könnyen és egyszerűen lehessen jegyeket vásárolni különböző eseményekre, mint például mozik, koncertek vagy tömegközlekedési eszközök. Mindenképpen felhasználóbarát felületet szeretnénk biztosítani oldalunkhoz, hogy a látogatók/vevők gyorsan és könnyedén megtalálhatják a számukra megfelelő eseményeket, jegyeket különböző közlekedési eszközökhöz, kiválaszthatják a számukra legmegfelelőbb ülőhelyeket, és egyszerűen megvásárolhatják a jegyüket.
 
+A másik legfontosabb szempontunk, amit mindenképpen szem előtt tartunk, hogy szeretnénk biztosítani a látogatók számára a legmagasabb szintű biztonságot és védelmet. Különféle fizetési lehetőségeket szeretnénk kínálni, hogy minden felhasználó megtalálja a számára legegyszerűbb és legkényelmesebb fizetési lehetőséget.
+
+Fontosnak tartjuk, hogy  mindig naprakész információk legyenek elérhetők az eseményekről, a jegyekről és azok árairól. Emellett szeretnénk biztosítani a látogatók számára az ügyfélszolgálatunk elérhetőségét, hogy az esetleges problémákat minél gyorsabban megoldhassuk.
+
+Összességében arra törekszünk, hogy a lehető legjobb élményt nyújtsuk a látogatók számára, és segítsük őket abban, hogy egyszerűen és kényelmesen juthassanak hozzá a jegyeihez mindenféle különböző területen.
 
 
 ## 4. Jelenlegi üzleti folyamatok modellje
