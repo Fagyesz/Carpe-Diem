@@ -153,6 +153,21 @@ hogy a várható forgalmat kitudja szolgálni.
 ## 10. Implementációs terv
 
 
+1. Adatbázis tervezése és létrehozása: Az első lépés az adatbázis tervezése és létrehozása. Egy relációs adatbázist használunk, amelyben az eseményeket, a jegyeket és a felhasználók adatait tároljuk.
+
+2. Laravel projekt létrehozása: Létrehozzuk a Laravel projektet, amely a szerveroldali logikát és a kapcsolódást az adatbázishoz biztosítja.
+
+3. Felhasználói felület kialakítása: A felhasználói felületet a Bootstrap keretrendszerrel és a Laravel Blade sablonokkal készítjük el. Az oldalakat a funkcionális specifikációnak megfelelően alakítjuk ki.
+
+4. Jegyek kezelése: A jegyek kezelése az egyik legfontosabb része az alkalmazásnak. Egy adminisztrátori felületet készítünk, amely lehetővé teszi az események és a hozzájuk tartozó jegyek létrehozását, módosítását és törlését.
+
+5. Felhasználók kezelése: A felhasználók kezelése is fontos része az alkalmazásnak. Regisztráció után a felhasználók beléphetnek az alkalmazásba, megtekinthetik az eseményeket, kiválaszthatják a számukra megfelelő jegyeket, és megvásárolhatják azokat. Az alkalmazás lehetővé teszi a felhasználók számára, hogy mentse a jegyeket a Google Naptárba QR kód segítségével.
+
+6. Fizetési módok kezelése: Az alkalmazás lehetővé teszi a felhasználók számára a jegyek megvásárlását különböző fizetési módokkal, például bankkártyával vagy PayPal-lal. Az alkalmazás biztosítja az SSL titkosítást a biztonságos adatátvitelhez.
+
+7. Tesztelés és hibajavítás: Az alkalmazás tesztelése a projekt végén történik. A tesztelés során ellenőrizzük, hogy az alkalmazás minden funkciója helyesen működik-e, és kijavítjuk a hibákat, ha szükséges.
+
+8. Kész alkalmazás telepítése és karbantartása: Az elkészült alkalmazást telepítjük a szerverre, és karbantartjuk az esetleges hibák és frissítések miatt. Az alkalmazás frissítéseket és karbantartást igényelhet a továbbiakban is.
 
 ## 11. Tesztterv
 A tesztelések célja a rendszer funkcióinak alapos vizsgálata és ellenőrzése a rendszer által megvalósított üzleti szolgáltatások verifikálása érdekében. A teszteléseket a fejlesztő csapat tagjai elvégzik, és az eredményeket dokumentálják.
