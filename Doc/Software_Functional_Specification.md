@@ -1,0 +1,3 @@
+## 1. Áttekintés
+Laravel keretrendszeren alapuló weboldalunkat 4 sprint alatt kell elkészítenünk. Ehhez néhány előfeltételnek meg kell lennie, hogy munkához láthassunk. Először is meg kell lennie a kommunikációs csatornának, ahol minden egyes megbeszélést (pl.sprint review,daily meeting) meg lehet tartani. Ezen kívül rendelkeznie kell az eszközünknek php-val, composerrel, valamilyen adatbázis kezelővel, stb.
+Elsőként létrehozzuk az adatbázisunkat a dokumentációk alapján. Ezután telepítjük a Laravelt. Végül pedig a legbonyolultabb rész és a leg időigényesebb rész, maga a nyers fejlesztés. Legtöbb időt ez fog felemészteni az időből. Majd miután minden készen van, teszteljük a weboldalt különféle eszközökkel(pl. Cypress) a legnagyobb biztonság elérése érdekében.
