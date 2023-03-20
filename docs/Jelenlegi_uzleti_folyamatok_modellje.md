@@ -1,0 +1,4 @@
+# Jelenlegi üzleti folyamatok modellje
+
+A mai világban a jelenleg rendelkezésünkre álló technológiákkal könnyebbé, egyszerűbbé tehetjük a jegyek vásárlását. Ennek segítségével az adott esemény helyszínén nincs szükség kasszára és lassan haladó sorokra. Ennek a rendszer segítségével az adott eseményre az emberek beengedése sokkal gyorsabbsan tud haladni, mint a hagyományos módszerekkel. A QR kód segítéségvel a beléptetés lényegesen gyorsabban tud működni.
+A hagyományos jeggyel szembe ezt a digitális QR kódot megkapjuk emailben, illetve az adott weboldalon is elérhető saját fiókunkban. Ezáltal sokkal nehezebben tudjuk elhagyni akár. Ezáltal a jegyek nyomntatásának költségeit is meg lehet spórolni.
