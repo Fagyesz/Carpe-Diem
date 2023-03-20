@@ -155,7 +155,28 @@ hogy a várható forgalmat kitudja szolgálni.
 
 
 ## 11. Tesztterv
+A tesztelések célja a rendszer funkcióinak alapos vizsgálata és ellenőrzése a rendszer által megvalósított üzleti szolgáltatások verifikálása érdekében. A teszteléseket a fejlesztő csapat tagjai elvégzik, és az eredményeket dokumentálják.
+### Tesztesetek
+|Teszteset|	Elvárt eredmény|
+|---|---|
+|Bejelentkezés helytelen felhasználói névvel vagy jelszóval|	Sikertelen bejelentkezés és hibaüzenet megjelenése.|
+|Helyes bejelentkezés|	Sikeres bejelentkezés és az adatok megjelenítése.
+|Keresés nem létező felhasználóra |	Sikertelen keresés és hibaüzenet megjelenése.|
+|Keresés létező felhasználóra|	Sikeres keresés és az adatok megjelenítése.|
+|Felhasználó létrehozása|	Sikeres felhasználó létrehozása az adatbázisban.|
+|Tétel hozzáadása|	Sikeres tétel hozzáadása az adatbázishoz.|
+|Tétel törlése|	Sikeres tétel törlése az adatbázisból.|
+|Tétel módosítása|	Sikeres tétel módosítása az adatbázisban.|
+### A tesztelési jegyzőkönyv kitöltésére egy sablon:
 
+**Tesztelő:** Vezetéknév Keresztnév
+**Tesztelés dátuma:** Év.Hónap.Nap
+|Tesztszám|	Rövid leírás|	Várt eredmény|	Eredmény|	Megjegyzés|
+|---|---|---|---|---|
+|1|	Bejelentkezés helytelen adatokkal|	Sikertelen bejelentkezés és hibaüzenet megjelenése.|	Sikertelen bejelentkezés és a helyes hibaüzenet megjelenése.|	"A teszt sikeres volt."|
+|2|	Helyes bejelentkezés|	Sikeres bejelentkezés és az adatok megjelenítése.	|Sikeres bejelentkezés és a megfelelő adatok megjelenítése.|"	A teszt sikertelen volt."|
+|3|	Keresés nem létező felhasználóra|	Sikertelen keresés és hibaüzenet megjelenése.|	Sikertelen keresés és a helyes hibaüzenet megjelenése.|	|
+|4|	Keresés létező felhasználóra|	Sikeres keresés és az adatok megjelenítése.|	Sikeres keresés és a megfelelő adatok megjelenítése.||
 
 ## 12. Telepítési terv
 
