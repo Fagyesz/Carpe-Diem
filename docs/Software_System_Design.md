@@ -157,9 +157,19 @@ hogy a várható forgalmat kitudja szolgálni.
 ## 11. Tesztterv
 
 
-## 12. Telepítési terv
 
+## 12. Karbantartási terv
 
+Havi rendszeres ellenőrzés: Az alkalmazást havonta ellenőrizzük, hogy biztosítsuk annak megfelelő működését. Az ellenőrzés során a következőket végzik el:
 
-## 13. Karbantartási terv
+  * Ellenőrzik, hogy az alkalmazás a megfelelő adatbázist használja-e, és hogy az adatbázis kapcsolatok működnek-e.
+  * Ellenőrzik, hogy az alkalmazás frissítve van-e a legújabb verzióra.
+  * Ellenőrzik, hogy az alkalmazás nem hibás-e és az összes folyamat megfelelően működik-e.
 
+1. Rendszeres biztonsági mentések: Az alkalmazás rendszeres biztonsági mentéseket készít az adatbázisról és a felhasználói adatokról. A biztonsági mentések naponta kerülnek mentésre, így ha bármilyen adatvesztés vagy hiba történik, az adatok visszaállíthatók.
+
+2. Automatikus frissítések: Az alkalmazás automatikusan frissül a legújabb verzióra, így a legújabb funkciókat és biztonsági javításokat tartalmazza.
+
+3.  Hiba- és probléma kezelés: Ha bármilyen hiba vagy probléma merül fel az alkalmazásban, a csapatunk azonnal reagál és megoldja a problémát. Ha szükséges, javítócsomagot adunk ki, hogy az alkalmazás zavartalanul működjön.
+
+4.  Felhasználói visszajelzések kezelése: Az alkalmazás felhasználói visszajelzéseit rendszeresen figyeljük és feldolgozzuk. Ha szükséges, az alkalmazást az észrevételek alapján frissítjük vagy javítjuk.
