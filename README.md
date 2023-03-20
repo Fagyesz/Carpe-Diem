@@ -2,6 +2,13 @@
 
 This project is an event management system that allows users to purchase tickets for events and scan a QR code for verification at the event. It includes a user interface for purchasing tickets, a database for storing event and ticket information, and integration with a third-party QR code scanning API.
 
+## Contributors
+
+* [Vincze Flórián](https://github.com/Fagyesz)
+* [Katona Bálint](https://github.com/katonaBalintSandor)
+* [Ádám Bence](https://github.com/Lisense05)
+* [Tóth Tamás](https://github.com/C901EE)
+
 ## Getting Started with Laravel environment 
 This guide will walk you through the steps to set up a development environment for Laravel, a PHP web application framework.
 ### Prerequisites
