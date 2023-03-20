@@ -63,11 +63,20 @@ A mérföldkövek későbbi fázisai előzetes eggyeztetés alapján megbeszéle
 
 ### 3.1 Üzleti szereplők
 
-
+  * Felhasználó: Aki használja a Laravel projektet a szükséges funkciók eléréséhez.
+  * Vendég: Nem Bejelentkezett felhasználó.
+  * User: Bejelentkezett felhasználó
+  * Adminisztrátor: Aki azonosítja és kezeli a felhasználókat, valamint felügyeli a rendszer működését és biztonságát.
 
 ### 3.2 Üzleti folyamatok
 
-
+  * Felhasználói regisztráció: A felhasználók regisztrálják magukat a rendszerbe, megadva a szükséges információkat, mint például az e-mail cím, felhasználónév és jelszó.
+  * Bejelentkezés: A regisztrált felhasználók bejelentkezhetnek a rendszerbe az e-mail címük és jelszavuk megadásával.
+  * Felhasználói profil kezelése: A felhasználók lehetőséget kapnak a profiljuk szerkesztésére, valamint azonosító és jelszó módosítására.
+  * Termékek böngészése: A felhasználók áttekinthetik a rendelkezésre álló termékeket, kategóriákra és árak szerint rendezhetik azokat.
+  *  Kosár kezelése: A felhasználók kosárba helyezhetik a kiválasztott termékeket, és lehetőségük van azok módosítására és eltávolítására is.
+  *  Rendelés leadása: A felhasználók véglegesíthetik a kosárban lévő termékeiket és leadhatnak rendelést.
+  *  Adminisztrátori felület kezelése: Az adminisztrátorok azonosíthatják a felhasználókat, kezelhetik a rendeléseket, módosíthatják a termékek adatait, illetve statisztikákat készíthetnek a rendszer használatáról.
 
 ## 4. Követelmények
 
