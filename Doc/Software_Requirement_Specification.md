@@ -6,7 +6,9 @@ Elsőként létrehozzuk az adatbázisunkat a dokumentációk alapján. Ezután t
 
 
 ## 2. A jelenlegi helyzet leírása
+A mai rohanó világban egyre többen használják az internetet vagy a mobiltelefonjukat jegyvásárlásra, legyen szó mozijegyekről, vonat- vagy buszjegyekről. Az online jegyvásárlás kényelmes és gyors alternatívát jelent a hagyományos papíralapú jegyekhez képest.
 
+Az online jegyvásárlásnak számos előnye van, például nem kell sorban állnunk, nem kell nyomtatni és magunkkal vinni a jegyet, illetve az online fizetési lehetőségek révén könnyedén és biztonságosan tudunk fizetni a jegyért. Amiatt sem kell aggódnunk, hogy az esetleges nagy sor miatt lekésnénk a járatunkat. Napokkal előre el tudunk tervezni egy utazást és be is tudunk szerezni minden szükséges jegyet hozzá. Emellett ezek a jegyek egyszerűbben kezelhetők, mint a hagyományos papíralapú jegyek, hiszen azokat nem lehet elveszíteni vagy elhagyni. Az online jegyvásárlás egyre népszerűbb és hasznos alternatívája a hagyományos jegyvásárlási módszereknek. Az online vásárolt jegyek kényelmesek, gyorsak és biztonságosak, így érdemes megfontolni azok használatát, ha rendszeresen használunk tömegközlekedési eszközöket vagy akár gyakran járunk moziba vagy színházba.
 
 
 ## 3. Vágyálomrendszer
