@@ -109,21 +109,8 @@ Later
    5. Az alkalmazás az új jegyrekordhoz egyedi QR-kódot generál, amelyet elküld az e-mail címre, amelyet a felhasználó megadott a tranzakció során. Az e-mailben szerepelnie kell egy linknek is, amelyre kattintva a felhasználó visszajut az alkalmazásba.
    6. Az alkalmazás várja a felhasználó további utasításait, és nem adja hozzá automatikusan az eseményt a Google naptárhoz. Az alkalmazás egy felugró ablakban felajánlja a felhasználónak, hogy hozzáadja az eseményt a Google naptárához, és lehetőséget ad a felhasználónak a hozzáadás elutasítására.
    7. Ha a felhasználó elfogadja a naptárhoz adást, akkor az alkalmazás az esemény adatai alapján automatikusan létrehoz egy új naptári eseményt a felhasználó Google naptárában. A felhasználó ezt az eseményt az eseménynaptárban láthatja, és módosíthatja, törölheti vagy hozzáadhatja más eseményekhez.
-## 10. Funkció - követelmény megfeleltetése
 
-
-## 10. Funkció - követelmény megfeleltetése
-
-Alapvetően 3 jogosultság létezik. Guest, User, Admin
-
-- Guest felhasználóként, kizárólag az oldalon elérhető eseményeket tudja keresni/böngészni. Az eseményhez tartozó részletes információkat eléri. pl: Időpont, helyszín, ár, elérhető DB szám. Megvásárláshoz már be kell jelentkeznie.
-
-- User felhasználóként már bejelentkezve elérhető a vásárlás a megfelelő adatok megadásával. Adott jegy vásárlás után a User megkapja a részletes információkat, illetve külön fülön láthatja az adott megvásárolt jegyeit. Ezek a jegyek QR kóddal vannak ellátva. A megvásárolt jegyet akár beillesztheti a User a saját google calendarjába.
-
-- Admin felhasználóként bejelentkezve elérhetjük az admin felületet, ahol létre lehet hozni eventeket illetve módosítani, törölni. Az eventeken belül kezelni a jegyeket külön is akár. Alapvető statisztikákat látni az adott eventtel kapcsolatosan.
-
-
-## 11 Fogalomszótár
+## 10. Fogalomszótár
 
 * Admin: Egy felhasználói szerepkör teljes hozzáféréssel és irányítással az alkalmazás összes funkciójához és lehetőségéhez.
 * Felhasználó: Az a személy, aki a webalkalmazást használja jegyek vásárlására, események megtekintésére és jegyeinek kezelésére.
