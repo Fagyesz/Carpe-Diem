@@ -1,4 +1,6 @@
+@extends('layout')
 
+@section('content')
 @unless(count($events) == 0)
 
 @foreach ($events as $event)
@@ -14,6 +16,8 @@
 @else
 <p>No events found</p>
 @endunless
+
+@endsection
 
 
 
