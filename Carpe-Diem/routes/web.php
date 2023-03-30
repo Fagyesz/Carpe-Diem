@@ -20,6 +20,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//Show crate form
+//Show create form
 Route::get('/events/new_event', [EventController::class, 'create']);
 
