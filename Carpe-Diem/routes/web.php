@@ -1,7 +1,8 @@
 <?php
 
+use App\Http\Controllers\EventController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ListingController;
+use App\Models\Event;
 
 
 /*
@@ -19,9 +20,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//Show event create form
-Route::get('/events/create_form', [ListingController::class, 'index']);
-
-//Store event listing data
-Route::post('/events', [ListingController::class, 'store']);
+//Show crate form
+Route::get('/events/new_event', [EventController::class, 'create']);
 
