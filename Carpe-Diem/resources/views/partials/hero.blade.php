@@ -1,5 +1,5 @@
 <section
-class="relative h-72 bg-yellow-300 flex flex-col justify-center align-center text-center space-y-3 mb-3"
+class="relative h-72 bg-laravel flex flex-col justify-center align-center text-center space-y-3 mb-3"
 >
 <div
     class="absolute top-0 left-0 w-full h-full opacity-10 bg-no-repeat bg-center"
