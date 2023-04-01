@@ -53,4 +53,6 @@
             <a href="events/create" class="absolute top-1/4 right-10 bg-black text-white py-2 px-5">Post a new event</a>
            {{-- @endif --}} 
         </footer>
+
+        <x-flash-message />
 </html>
