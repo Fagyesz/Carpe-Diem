@@ -23,3 +23,5 @@ Route::get('/', function () {
 //Show create form
 Route::get('/events/new_event', [EventController::class, 'create']);
 
+//Store create form data
+Route::post('/create', [EventController::class, 'store']);
