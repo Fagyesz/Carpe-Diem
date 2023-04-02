@@ -26,32 +26,20 @@
     <title>CarpeDiem</title>
 </head>
 <body>
-    <nav class="flex justify-end items-center mb-4 relative top-2">
-        <ul class="flex right-12 space-x-6 mr-6 text-lg ">
-            <li class="nav-item">
-                <a class="nav-link" href="/">Events</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/">Contact</a>
-            </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="/">Profile</a>
-            </li>
+    <x-navbar :links="['Events', 'Contact', 'Profile']" />
 
-        </ul>
-    </nav>
     <main>
         @yield('content')
     </main>
-    
+
 </body>
 <footer
             class="fixed bottom-0 left-0 w-full  flex  items-center justify-start font-bold bg-laravel text-white h-20 mt-24 opacity-90 md:justify-center">
             <p class="ml-2">Copyright &copy; 2023, All Rights reserved</p>
             {{-- @if($admin) --}}
             <a href="/events/new_event" class="absolute top-1/4 right-10 bg-black text-white py-2 px-5">Post a new event</a>
-           {{-- @endif --}} 
+           {{-- @endif --}}
         </footer>
 
         <x-flash-message />
