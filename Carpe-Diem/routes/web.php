@@ -21,8 +21,6 @@ use App\Models\Event;
 Route::get('/', [EventController::class, 'index']);
 
 
-
-
 Route::get('/login',[LoginController::class,"index"]);
 
 //Show create form
