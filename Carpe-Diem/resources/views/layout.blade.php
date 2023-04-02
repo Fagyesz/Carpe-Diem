@@ -27,7 +27,6 @@
 </head>
 <body>
     <x-navbar :links="['Events', 'Contact', 'Profile']" />
-
     <main>
         @yield('content')
     </main>
