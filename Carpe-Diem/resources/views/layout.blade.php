@@ -36,6 +36,6 @@
 
 
 
-    <x-footer />
+    {{-- <x-footer /> --}}
     <x-flash-message />
 </html>
