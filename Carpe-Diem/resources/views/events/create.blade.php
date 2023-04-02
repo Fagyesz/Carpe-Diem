@@ -32,7 +32,7 @@
 
             <div class="mb-6">
                 <label for="organizer" class="inline-block text-lg mb-2">Organizer</label>
-                <input type="text" class="border border-gray-200 rounded p-2 w-full" name="location"
+                <input type="text" class="border border-gray-200 rounded p-2 w-full" name="organizer"
                     value="{{ old('organizer') }}" placeholder="" />
                 @error('organizer')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
@@ -71,7 +71,7 @@
 
             <div class="mb-6">
                 <label for="start_time" class="inline-block text-lg mb-2">Starting time</label>
-                <input type="datetime-local" class="border border-gray-200 rounded p-2 w-full" name="location"
+                <input type="datetime-local" class="border border-gray-200 rounded p-2 w-full" name="start_time"
                     value="{{ old('start_time') }}" placeholder="" />
                 @error('start_time')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
@@ -80,7 +80,7 @@
 
             <div class="mb-6">
                 <label for="start_time" class="inline-block text-lg mb-2">Ending time</label>
-                <input type="datetime-local" class="border border-gray-200 rounded p-2 w-full" name="location"
+                <input type="datetime-local" class="border border-gray-200 rounded p-2 w-full" name="end_time"
                     value="{{ old('end_time') }}" placeholder="" />
                 @error('end_time')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
