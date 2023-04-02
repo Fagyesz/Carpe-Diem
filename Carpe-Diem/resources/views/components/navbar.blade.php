@@ -10,6 +10,23 @@
                     </div>
                 </div>
             </div>
+            <div class="flex items-center">
+                @auth
+                    <div class="ml-4">
+                        <div class="flex items-center">
+                            <span class="text-white text-sm font-medium mr-2">{{ auth()->user()->name }}</span>
+                            <form action="{{ route('logout') }}" method="post">
+                                @csrf
+                                <button type="submit" class="text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Logout</button>
+                            </form>
+                        </div>
+                    </div>
+                @else
+                    <div>
+                        <a href="{{ route('login') }}" class="text-white hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Login</a>
+                    </div>
+                @endauth
+            </div>
         </div>
     </div>
 </div>
