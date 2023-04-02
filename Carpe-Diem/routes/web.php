@@ -1,7 +1,11 @@
 <?php
 
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\EventController;
+
 use Illuminate\Support\Facades\Route;
+use App\Models\Event;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -18,4 +22,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::get('/login',[LoginController::class,"index"]);
+
+//Show create form
+Route::get('/events/new_event', [EventController::class, 'create']);
+
+//Store create form data
+Route::post('/create', [EventController::class, 'store']);
+

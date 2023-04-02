@@ -77,25 +77,40 @@ Jelenlegi használati esetek teljes mértékben lefedik a követelményeket.
 ## 8. Képernyőtervek
 
 ### Főablak:
-
+Later
 ### Beállítások:
-
+Later
 
 ## 9. Forgatókönyvek
 
 
-## 10. Funkció - követelmény megfeleltetése
+### Regisztráció
+   1. A felhasználó a kezdőoldalon kiválasztja a "Regisztráció" gombot.
+   2. Az alkalmazás a felhasználói regisztrációs űrlapot jeleníti meg, ahol a felhasználó megadhatja a felhasználónevét, e-mail címét és jelszavát.
+   3. Az űrlapon lehetőség van arra, hogy a felhasználó megadja a választható opciós telefonszámát.
+   4. A felhasználó kitölti a regisztrációs űrlapot és elküldi az űrlapot az alkalmazás számára.
+   5. Az alkalmazás ellenőrzi a felhasználó által megadott adatokat. Ha a felhasználónév vagy az e-mail cím már használatban van, az alkalmazás figyelmezteti a felhasználót, hogy válasszon egy másikat. Ha az összes adat helyes, az alkalmazás rögzíti az új felhasználót a users táblában.
+   6. A felhasználó bejelentkezik az alkalmazásba a regisztrált e-mail címével és jelszavával.
+### Bejelentkezés
+   1. A felhasználó a kezdőoldalon kiválasztja a "Bejelentkezés" gombot.
+   2. Az alkalmazás a felhasználói bejelentkezési űrlapot jeleníti meg, ahol a felhasználó megadhatja az e-mail címét és jelszavát.
+   3. A felhasználó kitölti a bejelentkezési űrlapot és elküldi az űrlapot az alkalmazás számára.
+   4. Az alkalmazás ellenőrzi a felhasználó által megadott adatokat. Ha az adatok helyesek, az alkalmazás engedélyezi a felhasználó bejelentkezését.
+   5. Ha a felhasználó regisztrált a Google vagy a GitHub szolgáltatásra, akkor lehetősége van az alkalmazáshoz való bejelentkezésre is.
+   6. A felhasználó választja a Google vagy a GitHub bejelentkezést.
+   7. Az alkalmazás átirányítja a felhasználót a Google vagy a GitHub bejelentkezési oldalára.
+   8. A felhasználó bejelentkezik a Google vagy a GitHub fiókjával.
+   9. Az alkalmazás engedélyezi a felhasználó bejelentkezését és átirányítja a felhasználót a kezdőoldalra.
+### Általános folyamat
+   1. A felhasználó bejelentkett a jegykezelő alkalmazásba, majd megtekinti az aktuális események listáját a kezdőoldalon.
+   2. A felhasználó kiválasztja az eseményt, amelyre jegyet szeretne vásárolni, majd megadja a kívánt jegyek számát.
+   3. Az alkalmazás kiszámolja a tranzakció összegét, majd a felhasználót átirányítja a fizetési oldalra.
+   4. A felhasználó megadja a számlázási és fizetési információit, majd elküldi a tranzakciót. Az alkalmazás sikeres fizetés esetén létrehoz egy új jegyrekordot a tickets táblában.
+   5. Az alkalmazás az új jegyrekordhoz egyedi QR-kódot generál, amelyet elküld az e-mail címre, amelyet a felhasználó megadott a tranzakció során. Az e-mailben szerepelnie kell egy linknek is, amelyre kattintva a felhasználó visszajut az alkalmazásba.
+   6. Az alkalmazás várja a felhasználó további utasításait, és nem adja hozzá automatikusan az eseményt a Google naptárhoz. Az alkalmazás egy felugró ablakban felajánlja a felhasználónak, hogy hozzáadja az eseményt a Google naptárához, és lehetőséget ad a felhasználónak a hozzáadás elutasítására.
+   7. Ha a felhasználó elfogadja a naptárhoz adást, akkor az alkalmazás az esemény adatai alapján automatikusan létrehoz egy új naptári eseményt a felhasználó Google naptárában. A felhasználó ezt az eseményt az eseménynaptárban láthatja, és módosíthatja, törölheti vagy hozzáadhatja más eseményekhez.
 
-Alapvetően 3 jogosultság létezik. Guest, User, Admin
-
-- Guest felhasználóként, kizárólag az oldalon elérhető eseményeket tudja keresni/böngészni. Az eseményhez tartozó részletes információkat eléri. pl: Időpont, helyszín, ár, elérhető DB szám. Megvásárláshoz már be kell jelentkeznie.
-
-- User felhasználóként már bejelentkezve elérhető a vásárlás a megfelelő adatok megadásával. Adott jegy vásárlás után a User megkapja a részletes információkat, illetve külön fülön láthatja az adott megvásárolt jegyeit. Ezek a jegyek QR kóddal vannak ellátva. A megvásárolt jegyet akár beillesztheti a User a saját google calendarjába.
-
-- Admin felhasználóként bejelentkezve elérhetjük az admin felületet, ahol létre lehet hozni eventeket illetve módosítani, törölni. Az eventeken belül kezelni a jegyeket külön is akár. Alapvető statisztikákat látni az adott eventtel kapcsolatosan.
-
-
-## 11 Fogalomszótár
+## 10. Fogalomszótár
 
 * Admin: Egy felhasználói szerepkör teljes hozzáféréssel és irányítással az alkalmazás összes funkciójához és lehetőségéhez.
 * Felhasználó: Az a személy, aki a webalkalmazást használja jegyek vásárlására, események megtekintésére és jegyeinek kezelésére.
