@@ -26,27 +26,16 @@
     <title>CarpeDiem</title>
 </head>
 <body>
-    <nav class="flex justify-end items-center mb-4 relative top-2">
-        <ul class="flex right-12 space-x-6 mr-6 text-lg ">
-            <li class="nav-item">
-                <a class="nav-link" href="/">Events</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/">Contact</a>
-            </li>
+    <x-navbar :links="['Events', 'Contact', 'Profile']" />
 
-            <li class="nav-item">
-                <a class="nav-link" href="/">Profile</a>
-            </li>
-
-        </ul>
-    </nav>
     <main>
         @yield('content')
     </main>
-    
+
 </body>
 
 
-        <x-flash-message />
+
+    <x-footer />
+    <x-flash-message />
 </html>
