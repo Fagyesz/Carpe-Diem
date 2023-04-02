@@ -90,8 +90,8 @@
             
 
             <div class="mb-6">
-                <button class="bg-laravel text-black rounded py-2 px-4 hover:bg-white">
-                    Create the event
+                <button class="bg-laravel text-black rounded py-2 px-4 hover:bg-black text-white ">
+                    Create the event 
                 </button>
 
                 <a href="/" class="text-black ml-4"> Back </a>

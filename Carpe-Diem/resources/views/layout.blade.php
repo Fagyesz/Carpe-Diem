@@ -34,6 +34,8 @@
 
 </body>
 
+
+
     <x-footer />
     <x-flash-message />
 </html>
