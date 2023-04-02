@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 use App\Models\Event;
 
@@ -32,5 +33,13 @@ class EventController extends Controller
 
         return redirect('/')->with('message', 'Event created succesfully!');
     }
+    //show all listings
+    public function index()
+    {
+        //dd(request());
+        return view('events.index');
+        
+    }
+
 
 }
