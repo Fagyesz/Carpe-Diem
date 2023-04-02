@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\EventController;
 use Illuminate\Support\Facades\Route;
+use App\Models\Event;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +19,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+//Show create form
+Route::get('/events/new_event', [EventController::class, 'create']);
+
+//Store create form data
+Route::post('/create', [EventController::class, 'store']);
