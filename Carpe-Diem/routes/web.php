@@ -21,9 +21,6 @@ use App\Models\Event;
 Route::get('/', [EventController::class, 'index']);
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 
 Route::get('/login',[LoginController::class,"index"]);
