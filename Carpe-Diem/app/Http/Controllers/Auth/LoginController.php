@@ -41,22 +41,24 @@ class LoginController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      */
     public function login(Request $request)
-    {
-        $request->validate([
-            'username_or_email' => 'required|string',
-            'password' => 'required|string',
-        ]);
+{
+    $request->validate([
+        'email' => 'required|string|email',
+        'password' => 'required|string',
+    ]);
 
-        $credentials = $request->only('username', 'email', 'password');
+    $credentials = $request->only('email', 'password');
 
-        if (Auth::attempt($credentials)) {
-            return redirect()->intended('/home');
-        }
-
-        return back()->withErrors([
-            'username_or_email' => 'These credentials do not match our records.',
-        ]);
+    if (Auth::attempt($credentials)) {
+        return redirect()->route('home');
     }
+
+    return back()->withErrors([
+        'email' => 'These credentials do not match our records.',
+    ]);
+}
+
+
 
     /**
      * Log the user out of the application.

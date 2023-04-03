@@ -11,18 +11,18 @@
             @csrf
             <h3 class="text-2xl font-medium mb-6">Login</h3>
             <div class="mb-4">
-                <label class="block font-bold mb-2" for="username_or_email">
-                    Username or Email
+                <label class="block font-bold mb-2" for="email">
+                    Email
                 </label>
                 <input
                     class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    id="username_or_email"
-                    type="text"
-                    name="username_or_email"
-                    value="{{ old('username_or_email') }}"
+                    id="email"
+                    type="email"
+                    name="email"
+                    value="{{ old('email') }}"
                     required
                 >
-                @error('username_or_email')
+                @error('email')
                     <p class="text-red-500 text-xs italic">{{ $message }}</p>
                 @enderror
             </div>
