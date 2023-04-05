@@ -22,7 +22,13 @@
     },
     // Use 'forwardPorts' to make a list of ports inside the container available locally.
     "forwardPorts": [80],
-
+"runArgs": [
+    "-e", "DB_HOST=${{ secrets.DB_HOST }}",
+    "-e", "DB_PORT=3306",
+    "-e", "DB_DATABASE=laravel",
+    "-e", "DB_USERNAME=root",
+    "-e", "DB_PASSWORD=${{ secrets.DB_PASSWORD }}"
+  ],
     // Use 'postCreateCommand' to run commands after the container is created.
 	"postCreateCommand": "cp .env.example .env && composer install && php artisan key:generate && yarn install && yarn run development",
 	"portsAttributes": {
