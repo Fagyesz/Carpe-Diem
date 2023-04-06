@@ -10,6 +10,7 @@
                     </div>
                 </div>
             </div>
+            @include('partials.search')
             <div class="flex items-center">
                 @auth
                     <div class="ml-4">
