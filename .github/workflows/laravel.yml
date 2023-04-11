@@ -1,0 +1,26 @@
+name: Laravel
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  laravel-tests:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: shivammathur/setup-php@15c43e89cdef867065b0213be354c2841860869e
+      with:
+        php-version: '8.0'
+    - uses: actions/checkout@v3
+    - name: Copy .env
+      run: |
+        file_exists('.env') || copy('.env.example', '.env');
+        sed -i "s/DB_HOST=/DB_HOST=${{ secrets.DB_HOST }}/g" .env
+        sed -i "s/DB_PASSWORD=/DB_PASSWORD=${{ secrets.DB_PASSWORD }}/g" .env
+        sed -i "s/GOOGLE_CLIENT_ID=/GOOGLE_CLIENT_ID=${{ secrets.GOOGLE_CLIENT_ID }}/g" .env
+        sed -i "s/GOOGLE_CLIENT_SECRET=/GOOGLE_CLIENT_SECRET=${{ secrets.GOOGLE_CLIENT_SECRET }}/g" .env
+        sed -i "s/GOOGLE_REDIRECT=/GOOGLE_REDIRECT=${{ secrets.GOOGLE_REDIRECT }}/g" .env
