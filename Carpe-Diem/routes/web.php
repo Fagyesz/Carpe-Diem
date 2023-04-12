@@ -54,9 +54,11 @@ Route::post('/contact', [ContactController::class, 'sendEmail'])->name('contact.
 Route::get('/send-test-email', function () {
     Mail::to('vinczefo@gmail.com')->send(new TestEmail());
     return 'Test email sent!';
+});
 
 // API routes
 Route::middleware(['api', 'auth:sanctum'])->group(function () {
     // Your authenticated API routes here
 
 });
+
