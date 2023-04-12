@@ -20,31 +20,31 @@ use App\Models\Event;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-// Show main page
-Route::get('/', [EventController::class, 'index']);
 
-
-// Login routes
-Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
-Route::post('/login', [LoginController::class, 'login']);
-
-// Registration routes
-Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
-Route::post('/register', [RegisterController::class, 'register']);
-
-// Logout route
-Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
-
-//Show create form
-Route::get('/events/new_event', [EventController::class, 'create']);
-
-//Store create form data
-Route::post('/create', [EventController::class, 'store']);
-
+// Public routes
 Route::get('/', [EventController::class, 'index'])->name('home');
 
+// Authentication routes
+Route::middleware(['guest'])->group(function () {
+    Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+    Route::post('/login', [LoginController::class, 'login']);
 
-// Socialite routes
+    Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+    Route::post('/register', [RegisterController::class, 'register']);
+});
+
+// Authenticated routes
+Route::middleware(['auth'])->group(function () {
+    Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
+    // Show create form
+    Route::get('/events/new_event', [EventController::class, 'create']);
+
+    // Store create form data
+    Route::post('/create', [EventController::class, 'store']);
+});
+
+
 Route::get('/auth/{provider}', [SocialController::class, 'redirectToProvider']);
 Route::get('/auth/{provider}/callback', [SocialController::class, 'handleProviderCallback']);
 
@@ -54,4 +54,9 @@ Route::post('/contact', [ContactController::class, 'sendEmail'])->name('contact.
 Route::get('/send-test-email', function () {
     Mail::to('vinczefo@gmail.com')->send(new TestEmail());
     return 'Test email sent!';
+
+// API routes
+Route::middleware(['api', 'auth:sanctum'])->group(function () {
+    // Your authenticated API routes here
+
 });
