@@ -2,12 +2,13 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use App\Models\Ticket;
 
 class CreateTicketTable extends Migration {
 
 	public function up()
 	{
-		Schema::create('Ticket', function(Blueprint $table) {
+		Schema::create('tickets', function(Blueprint $table) {
 			$table->id();
             $table->unsignedBigInteger('event_id');
             $table->foreign('event_id')->references('id')->on('events')->onDelete('cascade');
@@ -23,6 +24,6 @@ class CreateTicketTable extends Migration {
 
 	public function down()
 	{
-		Schema::drop('Ticket');
+		Schema::drop('tickets');
 	}
 }

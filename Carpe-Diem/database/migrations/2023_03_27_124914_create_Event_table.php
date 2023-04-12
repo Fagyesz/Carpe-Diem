@@ -12,7 +12,8 @@ class CreateEventTable extends Migration {
 			$table->string('title', 255);
             $table->text('description');
 			$table->string('location', 255);
-			$table->string('organizer', 255);
+			$table->unsignedBigInteger('organizer_id');
+            $table->foreign('organizer_id')->references('id')->on('users')->onDelete('cascade');
 			$table->decimal('ticket_price', 15);
 			$table->integer('tickets_available');
 
