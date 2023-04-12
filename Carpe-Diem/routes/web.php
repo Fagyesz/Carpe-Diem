@@ -1,9 +1,11 @@
 <?php
 
-
-use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\SocialController;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\TestEmail;
 use Illuminate\Support\Facades\Route;
 use App\Models\Event;
 
@@ -42,7 +44,19 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/create', [EventController::class, 'store']);
 });
 
+
+Route::get('/auth/{provider}', [SocialController::class, 'redirectToProvider']);
+Route::get('/auth/{provider}/callback', [SocialController::class, 'handleProviderCallback']);
+
+
+//test
+Route::post('/contact', [ContactController::class, 'sendEmail'])->name('contact.sendEmail');
+Route::get('/send-test-email', function () {
+    Mail::to('vinczefo@gmail.com')->send(new TestEmail());
+    return 'Test email sent!';
+
 // API routes
 Route::middleware(['api', 'auth:sanctum'])->group(function () {
     // Your authenticated API routes here
+
 });
