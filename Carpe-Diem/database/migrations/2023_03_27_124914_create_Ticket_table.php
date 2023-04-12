@@ -2,24 +2,28 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use App\Models\Ticket;
 
 class CreateTicketTable extends Migration {
 
 	public function up()
 	{
-		Schema::create('Ticket', function(Blueprint $table) {
-			$table->increments('id');
-			$table->integer('event_id');
-			$table->integer('user_id');
-			$table->string('ticket_type', 255);
-			$table->decimal('ticket_price', 15);
-			$table->integer('ticket_quantity');
-			$table->string('qr_code', 255);
+		Schema::create('tickets', function(Blueprint $table) {
+			$table->id();
+            $table->unsignedBigInteger('event_id');
+            $table->foreign('event_id')->references('id')->on('events')->onDelete('cascade');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->string('ticket_type');
+            $table->decimal('ticket_price', 15, 2);
+            $table->integer('ticket_quantity');
+            $table->timestamps();
+
 		});
 	}
 
 	public function down()
 	{
-		Schema::drop('Ticket');
+		Schema::drop('tickets');
 	}
 }
