@@ -41,6 +41,13 @@ return [
             'provider' => 'users',
         ],
     ],
+    'guards' => [
+        // ...
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins',
+        ],
+    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -64,12 +71,26 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Roles\Admin::class,
+        ],
+        'Organizer' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Roles\Organizer::class,
+        ],
+        'api' => [
+            'driver' => 'sanctum',
+            'provider' => 'users',
+            'hash' => false,
+        ],
 
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
     ],
+
 
     /*
     |--------------------------------------------------------------------------
