@@ -8,7 +8,7 @@
             <h2 class="text-center text-2xl font-medium mb-6">Create Account</h2>
             <div class="mb-4">
                 <label class="block font-bold mb-2" for="name">
-                    Name
+                    Full Name
                 </label>
                 <input
                     class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -22,6 +22,23 @@
                 @error('name')
                     <p class="text-red-500 text-xs italic">{{ $message }}</p>
                 @enderror
+            </div>
+            <div class="mb-4">
+                <label class="block font-bold mb-2" for="name">
+                        Nickname
+                    </label>
+                    <input
+                        class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        id="username"
+                        type="text"
+                        name="username"
+                        value="{{ old('username') }}"
+                        required
+                        autofocus
+                    >
+                    @error('username')
+                        <p class="text-red-500 text-xs italic">{{ $message }}</p>
+                    @enderror
             </div>
             <div class="mb-4">
                 <label class="block font-bold mb-2" for="email">
