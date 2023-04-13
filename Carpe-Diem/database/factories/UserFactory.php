@@ -17,9 +17,25 @@ class UserFactory extends Factory
     {
         return [
             'name' => $this->faker->name,
+            'username' => $this->faker->name,
             'email' => $this->faker->unique()->safeEmail,
             'password' => bcrypt('password'),
             'remember_token' => Str::random(10),
+            'avatar' => $this->faker->imageUrl(200, 200),
+            'provider' => null,
+            'provider_id' => null,
+            'provider_token' => null,
+            'bio' => $this->faker->text(200),
+            'birthdate' => $this->faker->date(),
+            'gender' => $this->faker->randomElement(['male', 'female']),
+            'phone' => $this->faker->phoneNumber,
+            'address' => $this->faker->address,
+            'country' => $this->faker->country,
+            'timezone' => $this->faker->timezone,
+            'language' => $this->faker->languageCode,
+            'is_active' => $this->faker->boolean,
+            'last_login_at' => $this->faker->dateTimeBetween('-1 year', 'now'),
+            'email_notifications_enabled' => $this->faker->boolean,
         ];
     }
 
