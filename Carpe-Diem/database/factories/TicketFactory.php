@@ -12,12 +12,8 @@ class TicketFactory extends Factory
     public function definition()
     {
         return [
-            'event_id' => function () {
-                return \App\Models\Event::factory()->create()->id;
-            },
-            'user_id' => function () {
-                return \App\Models\User::factory()->create()->id;
-            },
+            'event_id' => null, // Set default value to null
+            'user_id' => null, // Set default value to null
             'ticket_type' => $this->faker->word,
             'ticket_price' => $this->faker->randomFloat(2, 0, 100),
             'ticket_quantity' => $this->faker->numberBetween(1, 10),

@@ -28,6 +28,17 @@ class User extends Authenticatable
         'provider',
         'provider_id',
         'provider_token',
+        'bio',
+        'birthdate',
+        'gender',
+        'phone',
+        'address',
+        'country',
+        'timezone',
+        'language',
+        'is_active',
+        'last_login_at',
+        'email_notifications_enabled',
     ];
 
     /**
@@ -48,4 +59,25 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function events()
+    {
+        return $this->hasMany(Event::class, 'organizer_id');
+    }
+
+    public function tickets()
+    {
+        return $this->hasMany(Ticket::class);
+    }
+
+    public function posts()
+{
+    return $this->hasMany(Post::class);
+}
+
+public function comments()
+{
+    return $this->hasMany(Comment::class);
+}
 }
