@@ -1,14 +1,12 @@
 <?php
 
-use App\Http\Controllers\EventController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\SocialController;
-use Illuminate\Support\Facades\Mail;
+use App\Http\Controllers\EventController;
 use App\Mail\TestEmail;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
-use App\Models\Event;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +17,7 @@ use App\Models\Event;
 | routes are loaded by the RouteServiceProvider and all of them will
 | be assigned to the "web" middleware group. Make something great!
 |
-*/
+ */
 
 // Public routes
 Route::get('/', [EventController::class, 'index'])->name('home');
@@ -31,6 +29,8 @@ Route::middleware(['guest'])->group(function () {
 
     Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
     Route::post('/register', [RegisterController::class, 'register']);
+
+
 });
 
 // Authenticated routes
@@ -44,10 +44,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/create', [EventController::class, 'store']);
 });
 
-
 Route::get('/auth/{provider}', [SocialController::class, 'redirectToProvider']);
 Route::get('/auth/{provider}/callback', [SocialController::class, 'handleProviderCallback']);
-
 
 //test
 Route::post('/contact', [ContactController::class, 'sendEmail'])->name('contact.sendEmail');
@@ -61,4 +59,3 @@ Route::middleware(['api', 'auth:sanctum'])->group(function () {
     // Your authenticated API routes here
 
 });
-

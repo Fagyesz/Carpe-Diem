@@ -6,18 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
-use App\Services\AuthService;
 
 class SocialController extends Controller
 {
-
-    private $authService;
-
-    public function __construct(AuthService $authService)
-    {
-        $this->authService = $authService;
-    }
-
     public function redirectToProvider($provider)
     {
         return Socialite::driver($provider)->redirect();
@@ -25,19 +16,16 @@ class SocialController extends Controller
 
     public function handleProviderCallback($provider)
     {
-
         $user = Socialite::driver($provider)->user();
         // Find or create a user based on the OAuth provider's user object
         $authUser = $this->findOrCreateUser($user, $provider);
         \Log::info("message");
-
 
         // Log the user in
         Auth::login($authUser, true);
 
         return redirect('/'); // Redirect to the desired page after successful login
     }
-
 
     protected function findOrCreateUser($providerUser, $provider)
     {
@@ -63,5 +51,4 @@ class SocialController extends Controller
 
         return $user;
     }
-
 }
