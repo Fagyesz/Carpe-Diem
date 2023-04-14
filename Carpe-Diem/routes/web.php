@@ -44,6 +44,9 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/create', [EventController::class, 'store']);
 });
 
+//Show event listing page
+ Route::get('/events', [EventController::class, 'showEvents']);
+
 Route::get('/auth/{provider}', [SocialController::class, 'redirectToProvider']);
 Route::get('/auth/{provider}/callback', [SocialController::class, 'handleProviderCallback']);
 
