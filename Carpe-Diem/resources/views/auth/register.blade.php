@@ -3,7 +3,7 @@
 @section('content')
 <div class="flex justify-center items-center h-screen">
     <div class="w-full max-w-md">
-        <form method="POST" action="{{ route('register') }}" class="bg-white shadow-lg rounded px-8 pt-6 pb-8 mb-4">
+        <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data" class="bg-white shadow-lg rounded px-8 pt-6 pb-8 mb-4">
             @csrf
             <h2 class="text-center text-2xl font-medium mb-6">Create Account</h2>
             <div class="mb-4">
@@ -82,6 +82,21 @@
                     name="password_confirmation"
                     required
                 >
+            </div>
+            <div class="mb-4">
+                <label class="block font-bold mb-2" for="avatar">
+                    Avatar
+                </label>
+                <input
+                    class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="avatar"
+                    type="file"
+                    name="avatar"
+                    required
+                >
+                @error('avatar')
+                    <p class="text-red-500 text-xs italic">{{ $message }}</p>
+                @enderror
             </div>
             <div class="flex items-center justify-between">
                 <button
