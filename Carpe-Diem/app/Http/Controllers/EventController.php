@@ -11,6 +11,11 @@ class EventController extends Controller
         return view('events.create');
     }
 
+    //Show event listing page
+    public function showEvents() {
+        return view('events.events_listing');
+    }
+
     //Store event create Data
     public function store(Request $request)
     {
@@ -31,6 +36,7 @@ class EventController extends Controller
 
         return redirect('/')->with('message', 'Event created succesfully!');
     }
+    
     //show all listings
     public function index()
     {
