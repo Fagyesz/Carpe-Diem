@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\API;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +19,23 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+
+Route::get("/users", [API::class, "getAllUsers"]);
+Route::get("/users/{id}", [API::class, "getUserById"]);
+
+Route::post("/users", [API::class, "createUser"]);
+
+Route::put("/users", [API::class, "updateUser"]);
+
+Route::delete("/users/{id}", [API::class, "deleteUser"]);
+
+Route::get("/events", [API::class, "getAllEvents"]);
+Route::get("/events/{id}", [API::class, "getEventById"]);
+
+Route::post("/events", [API::class, "createEvent"]);
+
+Route::put("/events", [API::class, "updateEvent"]);
+
+Route::delete("/events/{id}", [API::class, "deleteEvent"]);
