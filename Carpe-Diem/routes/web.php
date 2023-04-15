@@ -42,6 +42,10 @@ Route::middleware(['auth'])->group(function () {
 
     // Store create form data
     Route::post('/create', [EventController::class, 'store']);
+
+    //Show edit form
+    Route::get('/events/{event}/edit', [EventController::class, 'edit']);
+
 });
 
 //Show event listing page
