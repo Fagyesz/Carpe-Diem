@@ -14,7 +14,7 @@ class EventController extends Controller
     //Show event listing page
     public function showEvents() {
         return view('events.events_listing', [
-            'events' => Event::latest()->paginate(10)
+            'events' => Event::latest()->paginate(9)
         ]);
     }
 
