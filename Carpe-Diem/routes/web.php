@@ -49,6 +49,9 @@ Route::middleware(['auth'])->group(function () {
     //Update the event by the edit form
     Route::put('events/{event}', [EventController::class, 'update']);
 
+    //Delete Event
+    Route::delete('/events/{event}', [EventController::class, 'destroy']);
+
 });
 
 //Show event listing page
