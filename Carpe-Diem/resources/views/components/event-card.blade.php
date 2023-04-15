@@ -3,7 +3,7 @@
 
 <x-card>
     <div class="flex">
-        <img class="hidden w-48 h-56 mr-6 md:block"
+        <img class="hidden w-50 h-56 mr-4 md:block"
             src="{{ $event->event_image ? asset('storage/' . $event->event_image) : asset('/images/no_image.jpg') }}"
             alt="" />
             

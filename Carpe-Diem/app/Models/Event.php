@@ -20,6 +20,21 @@ class Event extends Model
         'tickets_available'
     ];
 
+    public function scopeFilter($query, array $filters)
+    {
+            if($filters['search'] ?? false)
+            {
+                $query -> where('title', 'like', '%' . request('search') . '%')
+                    -> orWhere('description', 'like', '%' . request('search') . '%')
+                    -> orWhere('ticket_price', 'like', '%' . request('search') . '%')
+                    -> orWhere('location', 'like', '%' . request('search') . '%')
+                    -> orWhere('start_time', 'like', '%' . request('search') . '%')
+
+
+                    ;
+            }
+    }
+
     public function organizer()
     {
         return $this->belongsTo(User::class, 'organizer_id');
