@@ -60,7 +60,6 @@ class EventController extends Controller
             'start_time' => 'required',
             'end_time' => 'required',
             'location' => 'required',
-            'organizer' => 'required',
             'ticket_price' => 'required',
             'tickets_available' => 'required'
         ]);
@@ -69,11 +68,9 @@ class EventController extends Controller
             $formFields['event_image'] = $request->file('event_image')->store('event_images', 'public');
         }
 
-        $formFields['organizer_id'] = $request->user()->id;
-
         $event->update($formFields);
 
-        return redirect('/events')->with('message', 'Event updated succesfully!');
+        return back()->with('message', 'Event updated succesfully!');
     }
     
     //show all listings
