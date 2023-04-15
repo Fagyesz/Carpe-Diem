@@ -1,6 +1,8 @@
 @extends('layout')
 
  @section('content')
+ <body class="bg-scroll" style="background-image:url({{ url('images/single_listing_bg.jpg') }}); background-size: cover; background-position: center center">
+
     <x-card class="p-10 max-w-lg mx-auto mt-24">
 
         <header class="text-center">
@@ -115,4 +117,5 @@
         </form>
         </div>
     </x-card>
+ </body>
  @endsection
