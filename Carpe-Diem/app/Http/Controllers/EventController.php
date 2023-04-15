@@ -72,6 +72,14 @@ class EventController extends Controller
 
         return back()->with('message', 'Event updated succesfully!');
     }
+
+    //Delete event
+    public function destroy(Event $event)
+    {
+        $event->delete();
+
+        return redirect('/events')->with('message', 'Event deleted succesfully!');
+    }
     
     //show all listings
     public function index()
