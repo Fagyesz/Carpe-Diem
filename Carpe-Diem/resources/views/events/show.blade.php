@@ -1,8 +1,9 @@
 @extends('layout')
 
 @section('content')
-    <div class="mx-6" style="margin-left: 30rem; margin-right: 30rem">
-        <x-card class="p-10">
+<body class="bg-scroll" style="background-image:url({{ url('images/single_listing_bg.jpg') }}); background-size: cover; background-position: center center">
+    <div class="mx-6" style="margin-left: 30rem; margin-right: 30rem; margin-top: 5%; ">
+        <x-card class="p-5">
             <div class="flex flex-col items-center justify-center text-center">
                 <img class="hidden w-80 mr-6 md:block"
             src="{{ $event->event_image ? asset('storage/' . $event->event_image) : asset('/images/no_image.jpg') }}"
@@ -33,7 +34,7 @@
                                         <i class="fa fa-cart-plus"
                                            aria-hidden="true">
                                         </i>
-                                        Buy
+                                        Buy ticket
                                     </a>
                                 </button>
                         </form>
@@ -55,4 +56,5 @@
             </form>
         </x-card>
     </div>
+</body>
 @endsection
