@@ -62,3 +62,7 @@ Route::middleware(['api', 'auth:sanctum'])->group(function () {
     // Your authenticated API routes here
 
 });
+
+
+//Single listing 
+Route::get('/events/{event}', [EventController::class, 'show']);
