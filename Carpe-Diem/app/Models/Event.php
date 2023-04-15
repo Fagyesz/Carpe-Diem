@@ -17,8 +17,25 @@ class Event extends Model
         'location',
         'organizer_id',
         'ticket_price',
-        'tickets_available'
+        'tickets_available',
+        'event_image'
+
     ];
+
+    public function scopeFilter($query, array $filters)
+    {
+            if($filters['search'] ?? false)
+            {
+                $query -> where('title', 'like', '%' . request('search') . '%')
+                    -> orWhere('description', 'like', '%' . request('search') . '%')
+                    -> orWhere('ticket_price', 'like', '%' . request('search') . '%')
+                    -> orWhere('location', 'like', '%' . request('search') . '%')
+                    -> orWhere('start_time', 'like', '%' . request('search') . '%')
+
+
+                    ;
+            }
+    }
 
     public function organizer()
     {

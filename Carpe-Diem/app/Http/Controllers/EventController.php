@@ -11,10 +11,17 @@ class EventController extends Controller
         return view('events.create');
     }
 
+    //Show event listing page
+    public function showEvents() {
+        return view('events.events_listing', [
+            'events' => Event::latest()->filter(request(['search']))->paginate(9)
+        ]);
+    }
+
     //Store event create Data
     public function store(Request $request)
     {
-        //dd($request -> all());
+        //dd($request -> file('event_image'));
         $formFields = $request->validate([
             'title' => 'required',
             'description' => 'required',
@@ -26,11 +33,17 @@ class EventController extends Controller
             'tickets_available' => 'required'
         ]);
 
+        if ($request->hasFile('event_image')) {
+            $formFields['event_image'] = $request->file('event_image')->store('event_images', 'public');
+        }
+
+        $formFields['organizer_id'] = $request->user()->id;
 
         Event::create($formFields);
 
         return redirect('/')->with('message', 'Event created succesfully!');
     }
+    
     //show all listings
     public function index()
     {
