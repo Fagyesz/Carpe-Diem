@@ -14,7 +14,7 @@ class EventController extends Controller
     //Store event create Data
     public function store(Request $request)
     {
-        //dd($request -> all());
+        //dd($request -> file('event_image'));
         $formFields = $request->validate([
             'title' => 'required',
             'description' => 'required',
@@ -26,6 +26,11 @@ class EventController extends Controller
             'tickets_available' => 'required'
         ]);
 
+        if ($request->hasFile('event_image')) {
+            $formFields['event_image'] = $request->file('event_image')->store('event_images', 'public');
+        }
+
+        $formFields['organizer_id'] = $request->user()->id;
 
         Event::create($formFields);
 

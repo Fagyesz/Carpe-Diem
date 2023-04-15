@@ -16,6 +16,8 @@ class CreateEventTable extends Migration {
             $table->foreign('organizer_id')->references('id')->on('users')->onDelete('cascade');
 			$table->decimal('ticket_price', 15);
 			$table->integer('tickets_available');
+			$table->string('event_image')->nullable();
+
 
 			$table->datetime('start_time');
 			$table->datetime('end_time');

@@ -59,6 +59,16 @@
             </div>
 
             <div class="mb-6">
+                <label for="event_image" class="inline-block text-lg mb-2">
+                    Image
+                </label>
+                <input type="file" class="border border-gray-200 rounded p-2 w-full" name="event_image" />
+                @error('event_image')
+                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                @enderror
+            </div>
+
+            <div class="mb-6">
                 <label for="description" class="inline-block text-lg mb-2">
                     Description
                 </label>
