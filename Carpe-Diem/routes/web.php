@@ -46,6 +46,9 @@ Route::middleware(['auth'])->group(function () {
     //Show edit form
     Route::get('/events/{event}/edit', [EventController::class, 'edit']);
 
+    //Update the event by the edit form
+    Route::put('events/{event}', [EventController::class, 'update']);
+
 });
 
 //Show event listing page
