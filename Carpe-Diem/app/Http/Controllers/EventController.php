@@ -18,6 +18,12 @@ class EventController extends Controller
         ]);
     }
 
+    //Show event edit page
+    public function edit(Event $event)
+    {
+        return view('events.edit', ['event' => $event]);
+    }
+
     //Store event create Data
     public function store(Request $request)
     {
