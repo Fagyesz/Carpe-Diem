@@ -67,7 +67,9 @@ class EventController extends Controller
             
         )
         ->facebook()
-        ->twitter();
+        ->twitter()
+        ->whatsapp()
+        ->reddit();
 
         return view('events.show', [
             'event' => $event,

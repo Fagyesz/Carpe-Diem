@@ -50,7 +50,7 @@
                         padding-inline: 1rem;
                     }
                 </style>
-                <div class="flex justify-center pb-8 text-4xl font-bold mb-2">
+                <div class="flex justify-center pb-8 text-4xl font-bold pt-6">
                     {!! $shareButtons !!}
                 </div>
                 
