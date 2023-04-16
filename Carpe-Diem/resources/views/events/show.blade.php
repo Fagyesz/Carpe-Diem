@@ -9,7 +9,7 @@
             src="{{ $event->event_image ? asset('storage/' . $event->event_image) : asset('/images/no_image.jpg') }}"
             alt="" />
 
-                <h3 class=" flex justify-center text-2xl font-bold mb-2">{{ $event->title }}</h3>
+                <h3 class=" flex justify-center pb-8 text-2xl font-bold mb-2">{{ $event->title }}</h3>
                 <div class="text-xl mb-4"> <i class='fa-solid fa-location-dot'></i> Location: {{ $event->location }} </div>
                 <div class="text-xl mb-4"><h3><i class="fa-solid fa-person"></i>Organizer: {{ $organizer[0] }} </h3></div>
                 <div class="text-xl mb-4"><i class="fa-solid fa-hourglass-start"></i> Starting time: {{ Carbon\Carbon::parse($event->start_time)->format('Y.m.d h:m')}} </div>
@@ -19,6 +19,21 @@
 
 
                 <div class="flex justify-center text-xl font-bold mb-4">Ticket price: {{ $event->ticket_price }} €</div>
+                <div class="flex justify-center text-lg space-y-6 pb-8">
+                    @csrf
+                    @method('POST')
+                        <input type="hidden" value="{{ $event }}" name="id">
+                        <button>
+                            <a target="_blank"
+                               class=" block bg-black text-white py-3 px-2 rounded-xl hover:opacity-80">
+                                <i class="fa fa-cart-plus"
+                                   aria-hidden="true">
+                                </i>
+                                Buy ticket
+                            </a>
+                        </button>
+                </form>
+            </div>
                 <div class="border border-gray-200 w-full mb-6"></div>
                     <h3 class="flex justify-center text-3xl font-bold mb-4">
                         Description 
@@ -26,26 +41,11 @@
                 <div class="text-xl mb-4">
                     <p>{{ $event->description }}<p>
                 </div>
-                    <div class="flex justify-center text-lg space-y-6">
-                            @csrf
-                            @method('POST')
-                                <input type="hidden" value="{{ $event }}" name="id">
-                                <button>
-                                    <a target="_blank"
-                                       class=" block bg-black text-white py-3 px-2 rounded-xl hover:opacity-80">
-                                        <i class="fa fa-cart-plus"
-                                           aria-hidden="true">
-                                        </i>
-                                        Buy ticket
-                                    </a>
-                                </button>
-                        </form>
-                    </div>
 
             </div>
         </x-card>
         <x-card class="mt-4 p-2 flex space-x-6">
-            <a href="/events/{{ $event->id }}/edit">
+            <a class="flex justify-start" href="/events/{{ $event->id }}/edit">
                 <i class="fa-solid fa-pencil"></i>Edit
             </a>
 
