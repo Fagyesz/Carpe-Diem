@@ -13,7 +13,8 @@
             </h3>
             <div class="text-xl mb-4"><i class="fa-regular fa-calendar-days fa-xs"></i> {{ date('Y.m.d.', strtotime($event->start_time)) }} </div>
             <div class="text-m mb-4"><i class='fa-solid fa-location-dot'></i> {{ $event->location }} </div>
-            <div class="text-xl font-bold mb-4">{{ $event->ticket_price }} €</div>
+            <div class="text-xl font-bold mb-4">{{ $event->ticket_price }} €  </div>
+                  
 
             {{-- <x-listing-tags :tagsCsv="$events->tags" /> --}}
 
