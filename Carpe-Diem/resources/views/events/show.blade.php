@@ -43,6 +43,18 @@
                 </div>
 
             </div>
+            <div>
+                <style>
+                    #social-links ul li {
+                        display:inline-block;
+                        padding-inline: 1rem;
+                    }
+                </style>
+                <div class="flex justify-center pb-8 text-4xl font-bold mb-2">
+                    {!! $shareButtons !!}
+                </div>
+                
+            </div>
         </x-card>
         <x-card class="mt-4 p-2 flex space-x-6">
             <a class="flex justify-start" href="/events/{{ $event->id }}/edit">
