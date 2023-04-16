@@ -196,6 +196,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\AppServiceProvider::class,
+        Jorenvh\Share\Providers\ShareServiceProvider::class,
+
     ],
 
     /*
