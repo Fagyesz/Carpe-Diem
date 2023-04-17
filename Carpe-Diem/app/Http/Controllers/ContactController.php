@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ContactMail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
@@ -23,10 +25,10 @@ class ContactController extends Controller
             'name' => $name,
             'username' => $username,
             'email' => $email,
-            'text' => $request -> message
+            'message' => $request -> message
         ];
 
-        dd($data);
+        Mail::to('99c901ee@gmail.com')->send(new ContactMail($data));
 
 
         // Redirect the user or display a success message
