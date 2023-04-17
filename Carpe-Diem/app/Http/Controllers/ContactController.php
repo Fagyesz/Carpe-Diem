@@ -12,7 +12,7 @@ class ContactController extends Controller
 
 
         // Redirect the user or display a success message
-        return redirect()->back()->with('message', 'Email sent successfully!');
+        return redirect('/')->with('message', 'Email sent succesfully!');
     }
 
     public function showContactPage() 

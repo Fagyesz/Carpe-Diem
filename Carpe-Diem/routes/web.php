@@ -53,6 +53,9 @@ Route::middleware(['auth'])->group(function () {
     //Delete Event
     Route::delete('/events/{event}', [EventController::class, 'destroy']);
 
+    //Show contact page
+    Route::get('/contact', [ContactController::class, 'showContactPage']);
+
 });
 
 //Show event listing page
@@ -64,12 +67,10 @@ Route::get('/auth/{provider}/callback', [SocialController::class, 'handleProvide
 //test
 Route::post('/contact/send', [ContactController::class, 'sendEmail'])->name('contact.sendEmail');
 Route::get('/send-test-email', function () {
-    Mail::to('vinczefo@gmail.com')->send(new TestEmail());
+    Mail::to('99c901ee@gmail.com')->send(new TestEmail('alma'));
     return 'Test email sent!';
 });
 
-//Show contact page
-Route::get('/contact', [ContactController::class, 'showContactPage']);
 
 // API routes
 Route::middleware(['api', 'auth:sanctum'])->group(function () {
