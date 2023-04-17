@@ -65,7 +65,7 @@ Route::get('/auth/{provider}', [SocialController::class, 'redirectToProvider']);
 Route::get('/auth/{provider}/callback', [SocialController::class, 'handleProviderCallback']);
 
 //test
-Route::post('/contact/send', [ContactController::class, 'sendEmail'])->name('contact.sendEmail');
+Route::post('/contact/send', [ContactController::class, 'sendEmail'])->name('send.email');
 Route::get('/send-test-email', function () {
     Mail::to('99c901ee@gmail.com')->send(new TestEmail('alma'));
     return 'Test email sent!';

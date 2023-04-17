@@ -24,7 +24,10 @@
                         Your message:
                     </label>
                     <textarea class="border border-gray-200 rounded p-2 w-full" name="message" rows="10"
-                    placeholder="Here you can share us your thoughts, idead, or problems with the site... "></textarea>
+                    placeholder="Here you can share us your thoughts, ideas, or problems with the site... "></textarea>
+                    @error('message')
+                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                @enderror
                 </div>
                 <div class="mb-6 flex justify-center">
                     <button class="bg-laravel text-black rounded py-2 px-4 hover:bg-black text-white ">

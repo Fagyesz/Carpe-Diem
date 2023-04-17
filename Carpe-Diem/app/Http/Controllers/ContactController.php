@@ -10,6 +10,24 @@ class ContactController extends Controller
     {
         // Validate the request data, process the form, etc.
 
+        $request->validate([
+            'message' => 'required'
+        ]);
+
+
+
+        $name = $request->user()->name;
+        $username = $request->user()->username;
+        $email = $request->user()->email;
+        $data=[
+            'name' => $name,
+            'username' => $username,
+            'email' => $email,
+            'text' => $request -> message
+        ];
+
+        dd($data);
+
 
         // Redirect the user or display a success message
         return redirect('/')->with('message', 'Email sent succesfully!');
