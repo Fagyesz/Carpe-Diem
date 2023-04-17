@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;
+use Carbon\Carbon;
 use App\Models\Event;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class EventController extends Controller
 {
@@ -28,7 +30,6 @@ class EventController extends Controller
             'start_time' => 'required',
             'end_time' => 'required',
             'location' => 'required',
-            'organizer' => 'required',
             'ticket_price' => 'required',
             'tickets_available' => 'required'
         ]);
@@ -51,6 +52,24 @@ class EventController extends Controller
         return view('events.index');
 
     }
+    //show single listing
+    public function show(Event $event)
+    {
+
+        $organizer = DB::table('users')->where('id', $event['organizer_id'])->pluck('name');
+
+        $startTime = Carbon::parse($event->start_time);
+        $endTime = Carbon::parse($event->end_time);
+    
+        $totalDuration =  $startTime->diffInHours($endTime)." Hours";
+
+        return view('events.show', [
+            'event' => $event,
+            'organizer' => $organizer,
+            'totalDuration' => $totalDuration
+        ]);
+    }
+
 
 
 }
