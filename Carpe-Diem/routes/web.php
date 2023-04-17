@@ -1,12 +1,12 @@
 <?php
 
-use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\Auth\SocialController;
-use App\Http\Controllers\EventController;
 use App\Mail\TestEmail;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\SocialController;
+use App\Http\Controllers\Auth\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -73,6 +73,8 @@ Route::middleware(['api', 'auth:sanctum'])->group(function () {
 
 });
 
+//Social media share
+Route::get('events/{event}/post', [ShareButtonsController::class, 'share']);
 
 //Single listing 
 Route::get('/events/{event}', [EventController::class, 'show']);

@@ -196,6 +196,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\AppServiceProvider::class,
+        Jorenvh\Share\Providers\ShareServiceProvider::class,
+
     ],
 
     /*
@@ -211,6 +213,8 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
+        'Share' => Jorenvh\Share\ShareFacade::class,
+
     ])->toArray(),
     'Socialite' => Laravel\Socialite\Facades\Socialite::class,
 

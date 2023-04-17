@@ -99,12 +99,20 @@ class EventController extends Controller
         $endTime = Carbon::parse($event->end_time);
     
         $totalDuration =  $startTime->diffInHours($endTime)." Hours";
+        $shareButtons=\Share::page(
+            url('/events', $event->id)
+            
+        )
+        ->facebook()
+        ->twitter()
+        ->whatsapp()
+        ->reddit();
 
         return view('events.show', [
             'event' => $event,
             'organizer' => $organizer,
             'totalDuration' => $totalDuration
-        ]);
+        ],compact('shareButtons'));
     }
 
 
