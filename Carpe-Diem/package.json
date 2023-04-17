@@ -3,6 +3,7 @@
     "scripts": {
         "dev": "vite",
         "build": "vite build",
+        "watch": "vite build --watch",
         "env": "chmod +x env.sh && ./env.sh"
     },
     "devDependencies": {
