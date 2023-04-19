@@ -12,7 +12,7 @@
     <div class="px-6">
       <div class="flex flex-wrap justify-center">
         <div class="w-full px-4 flex justify-center">
-            <div class="relative">
+            <div class="relative rounded-full">
                 <img alt="" src="{{ $user->avatar ? asset('storage/' . $user->avatar) : asset('/images/avatar_placeholder.png') }}" class="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-150-px">
               </div>
         </div>
