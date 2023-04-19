@@ -12,7 +12,7 @@
     <div class="px-6">
       <div class="flex flex-wrap justify-center">
         <div class="w-full px-4 flex justify-center">
-            <div class="relative rounded-full">
+            <div class="relative">
                 <img alt="" src="{{ $user->avatar ? asset('storage/' . $user->avatar) : asset('/images/avatar_placeholder.png') }}" class="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-150-px">
               </div>
         </div>
@@ -20,9 +20,9 @@
           <div class="flex justify-center py-4 lg:pt-4 pt-8">
             <div class="mr-4 p-3 text-center">
               <span class="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
-                {{ $user->name}}
+                {{ $listedEvents}}
               </span>
-              <span class="text-sm text-blueGray-400">Friends</span>
+              <span class="text-sm text-blueGray-400">Announced events by you</span>
             </div>
             <div class="mr-4 p-3 text-center">
               <span class="text-xl font-bold block uppercase tracking-wide text-blueGray-600">

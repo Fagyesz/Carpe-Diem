@@ -14,6 +14,7 @@ class UserController extends Controller
         $user = Auth::user();
         $listedEvents = DB::table('events')->where('organizer_id', $user['id'])->count();
 
-        return view('auth.profile', ['user'=> $user]);
+        return view('auth.profile', ['user'=> $user,
+                                    'listedEvents' => $listedEvents]);
     }
 }
