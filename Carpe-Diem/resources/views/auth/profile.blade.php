@@ -43,6 +43,9 @@
         <h3 class="text-xl font-semibold leading-normal mb-2 text-blueGray-700 mb-2">
           {{ $user->name }}
         </h3>
+        <p class="mb-6">
+            ({{ $user->username }})
+        </p>
         <div class="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
           <i class="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i>
           Los Angeles, California
