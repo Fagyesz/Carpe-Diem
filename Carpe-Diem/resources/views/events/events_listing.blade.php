@@ -1,21 +1,27 @@
 @extends('layout')
 
-@section('content')
-    @include('partials.hero')
-    
-    <div class="lg:grid lg:grid-cols-3 gap-4 space-y-4 md:space-y-0 mx-4">
+    @section('content')
+        
 
-        @if (count($events) == 0)
-            <p>
-                No events found
-            </p>
+        <div class="flex-1 bg-cover bg-center bg-no-repeat" style="background-image: url('images/single_listing_bg.jpg')">
+        @if (!auth()->user())
+            @include('partials.hero')
         @endif
-        @foreach ($events as $event)
-            <x-event-card :event="$event" />
-        @endforeach
-    </div>
+        
+        <div class="lg:grid lg:grid-cols-3 gap-4 space-y-4 md:space-y-0 mx-4 pt-6">
 
-    <div class="mt-6 p-4">
-        {{ $events->links() }}
+            @if (count($events) == 0)
+                <p>
+                    No events found
+                </p>
+            @endif
+            @foreach ($events as $event)
+                <x-event-card :event="$event" />
+            @endforeach
+        </div>
+
+        <div class="mt-6 p-4">
+            {{ $events->links() }}
+        </div>
     </div>
-@endsection
+    @endsection
