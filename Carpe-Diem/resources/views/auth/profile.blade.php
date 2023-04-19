@@ -22,26 +22,26 @@
               <span class="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
                 {{ $listedEvents}}
               </span>
-              <span class="text-sm text-blueGray-400">Announced events by you</span>
+              <span class="text-sm text-blueGray-400">Your Events</span>
             </div>
             <div class="mr-4 p-3 text-center">
               <span class="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
-                10
+                22 {{-- ide majd kell egy sold ticket count --}}
               </span>
-              <span class="text-sm text-blueGray-400">Photos</span>
+              <span class="text-sm text-blueGray-400">Sold</span>
             </div>
             <div class="lg:mr-4 p-3 text-center">
               <span class="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
-                89
+                115 {{-- ide majd kell egy bought ticket count --}}
               </span>
-              <span class="text-sm text-blueGray-400">Comments</span>
+              <span class="text-sm text-blueGray-400">Bought</span>
             </div>
           </div>
         </div>
       </div>
       <div class="text-center mt-12">
         <h3 class="text-xl font-semibold leading-normal mb-2 text-blueGray-700 mb-2">
-          Jenna Stones
+          {{ $user->name }}
         </h3>
         <div class="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
           <i class="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i>
