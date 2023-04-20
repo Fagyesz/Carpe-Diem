@@ -62,10 +62,14 @@
         </div>
       </div>
       <div class="mt-10 py-10 border-t border-blueGray-200 text-center">
-        <div class="flex flex-wrap justify-center">
+        <div class="flex flex-wrap justify-center"> 
           <div class="w-full lg:w-9/12 px-4">
+            <div class="flex justify-center"><i class="fa-solid fa-book text-lg text-blueGray-400"></i></div>
             <p class="mb-4 text-lg leading-relaxed text-blueGray-700">
               {{ $user->bio }}
+              @if ($user->bio == null)
+              *not given
+              @endif
             </p>
           </div>
         </div>
