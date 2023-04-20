@@ -43,9 +43,16 @@
         <h3 class="text-xl font-semibold leading-normal text-blueGray-700 mb-2">
           {{ $user->name }}
         </h3>
-        <p class="mb-6">
+        <p>
             ({{ $user->username }})
         </p>
+        <div class="text-sm leading-normal mt-0 mb-8">
+          {{ $user->gender }}
+          @if ($user->gender == null)
+          *gender not given
+          @endif
+        </div>
+        
         <div class="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold">
           <i class="fa-solid fa-envelope mr-2 text-lg text-blueGray-400"></i>
           {{ $user->email }}
@@ -57,6 +64,22 @@
           <i class="fa-solid fa-cake-candles text-lg text-blueGray-400"></i>
           {{ $user->birthdate }}
           @if ($user->birthdate == null)
+            *not given
+          @endif
+        </div>
+        <div class="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold">
+          <i class="fa-solid fa-phone text-lg text-blueGray-400"></i>
+          {{ $user->phone }}
+          @if ($user->phone == null)
+            *not given
+          @endif
+        </div>
+        <div class="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold">
+          <i class="fa-solid fa-location-dot text-lg text-blueGray-400"></i>
+            
+          @if (!$user->country == null or !$user->address == null )
+            {{ $user->country }}, {{ $user->address }}
+          @else
             *not given
           @endif
         </div>
@@ -72,6 +95,9 @@
               @endif
             </p>
           </div>
+        </div>
+        <div>
+          <i class="fa-solid fa-pen-to-square text-3xl"></i>
         </div>
       </div>
     </div>
