@@ -72,6 +72,12 @@
                             <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                         @enderror
                     </div>
+                    <div class="mb-6 pt-6 pl-4 flex justify-center">
+                        <div class="flex pr-4"><a href="/profile"> <i class="fa-solid fa-backward text-3xl max-w-xs transition duration-300 ease-in-out hover:scale-125"></i></a></div>
+                        <button class="bg-laravel text-black rounded py-2 px-4 hover:bg-black text-white ">
+                            Edit profile 
+                        </button>
+                    </div>
                 </form>
             </div>
       </div>

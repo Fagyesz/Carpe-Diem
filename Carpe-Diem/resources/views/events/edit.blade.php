@@ -107,12 +107,11 @@
 
             
 
-            <div class="mb-6">
+            <div class="mb-6 flex justify-center">
+                <a href="/events/{{ $event->id }}"> <i class="fa-solid fa-backward pr-4 text-3xl max-w-xs transition duration-300 ease-in-out hover:scale-125"></i></a>
                 <button class="bg-laravel text-black rounded py-2 px-4 hover:bg-black text-white ">
                     Edit the event 
                 </button>
-
-                <a href="/events" class="text-black ml-4"> Back </a>
             </div>
         </form>
     </div>
