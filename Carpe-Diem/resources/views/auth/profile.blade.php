@@ -46,9 +46,11 @@
         <p class="mb-6">
             ({{ $user->username }})
         </p>
-        <div class="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
-          <i class="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i>
-          Los Angeles, California
+        <div class="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold">
+          <i class="fa-solid fa-envelope mr-2 text-lg text-blueGray-400"></i>
+          {{ $user->email }} @if ($user->email_verified_at == null)
+            <h6>*not verified</h6>
+          @endif
         </div>
         <div class="mb-2 text-blueGray-600 mt-10">
           <i class="fas fa-briefcase mr-2 text-lg text-blueGray-400"></i>
