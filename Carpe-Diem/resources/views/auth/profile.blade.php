@@ -72,10 +72,16 @@
         </div>
         <div class="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold">
           <i class="fa-solid fa-location-dot text-lg text-blueGray-400"></i>
-            
-          @if (!$user->country == null or !$user->address == null )
-            {{ $user->country }}, {{ $user->address }}
-          @else
+          @if ($user->country == null && $user->address != null)
+             {{ $user->address }}
+          @endif
+          @if ($user->country != null && $user->address == null)
+          {{ $user->country }}
+          @endif
+          @if ($user->country != null && $user->address != null)
+          {{ $user->country }}, {{ $user->address }}
+          @endif
+          @if ($user->country == null && $user->address == null)
             *not given
           @endif
         </div>
