@@ -60,6 +60,10 @@ Route::middleware(['auth'])->group(function () {
     //show the logged in user profile page
     Route::get('/profile', [UserController::class, 'show']);
 
+    //show profile edit page
+    Route::get('/profile/edit', [UserController::class, 'showEdit']);
+
+
 });
 
 //Show event listing page

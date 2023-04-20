@@ -17,4 +17,11 @@ class UserController extends Controller
         return view('auth.profile', ['user'=> $user,
                                     'listedEvents' => $listedEvents]);
     }
+
+    public function showEdit() 
+    {
+        $user = Auth::user();
+
+        return view('auth.editProfile', ['user'=> $user]);
+    }
 }

@@ -96,8 +96,9 @@
             </p>
           </div>
         </div>
-        <div>
-          <i class="fa-solid fa-pen-to-square text-3xl"></i>
+        <div><a href="/profile/edit"><i class="fa-solid fa-pen-to-square text-3xl max-w-xs transition duration-300 ease-in-out hover:scale-125"></i>
+            </a>
+          
         </div>
       </div>
     </div>
