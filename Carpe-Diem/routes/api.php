@@ -39,3 +39,9 @@ Route::post("/events", [API::class, "createEvent"]);
 Route::put("/events", [API::class, "updateEvent"]);
 
 Route::delete("/events/{id}", [API::class, "deleteEvent"]);
+
+
+Route::get("/search/tickets", [API::class, "getTickets"]);
+Route::get("/search/posts", [API::class, "getPosts"]);
+Route::get("/search/comments", [API::class, "getComments"]);
+Route::get("/search/events", [API::class, "getEvents"]);

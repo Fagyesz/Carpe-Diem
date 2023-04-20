@@ -146,5 +146,38 @@ class API extends Controller
         }
     }
 
+    function getTickets(Request $request){
+        $query = $request->input('q');
+        
+        $ticket = DB::table('tickets')->where('ticket_type', 'like', '%'.$query.'%')->get();
+        return ["Result" => $ticket];
+    }
+
+    function getPosts(Request $request){
+        $query = $request->input('q');
+        
+        $title = DB::table('posts')->where('title', 'like', '%'.$query.'%')->get();
+        $content = DB::table('posts')->where('content', 'like', '%'.$query.'%')->get();
+        $result = $title->merge($content);
+        return ["Result" => $result];
+    }
+
+    function getComments(Request $request){
+        $query = $request->input('q');
+        
+        $ticket = DB::table('comments')->where('body', 'like', '%'.$query.'%')->get();
+        return ["Result" => $ticket];
+    }
+
+    function getEvents(Request $request){
+        $query = $request->input('q');
+        
+        $title = DB::table('events')->where('title', 'like', '%'.$query.'%')->get();
+        $desc = DB::table('events')->where('description', 'like', '%'.$query.'%')->get();
+        $location = DB::table('events')->where('location', 'like', '%'.$query.'%')->get();
+        $result = $title->merge($desc)->merge($location);
+        return ["Result" => $result];
+    }
+
 
 }
