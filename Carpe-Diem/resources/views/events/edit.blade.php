@@ -11,7 +11,7 @@
             </h2>
             <p class="mb-4">Edit the current event</p>
         </header>
-
+        <div class="p-4">
         <form method="POST" action="/events/{{ $event->id }}" enctype="multipart/form-data">
             @csrf
             @method('PUT')
@@ -115,6 +115,7 @@
                 <a href="/events" class="text-black ml-4"> Back </a>
             </div>
         </form>
+    </div>
         </div>
     </x-card>
  </body>
