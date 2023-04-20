@@ -78,8 +78,6 @@ Route::middleware(['api', 'auth:sanctum'])->group(function () {
 
 });
 
-//Social media share
-Route::get('events/{event}/post', [ShareButtonsController::class, 'share']);
 
 //Single listing 
 Route::get('/events/{event}', [EventController::class, 'show']);
