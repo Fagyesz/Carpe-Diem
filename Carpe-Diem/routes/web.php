@@ -63,6 +63,9 @@ Route::middleware(['auth'])->group(function () {
     //show profile edit page
     Route::get('/profile/edit', [UserController::class, 'showEdit']);
 
+    //update profile 
+    Route::put('/profile/edit', [UserController::class, 'update']);
+
 
 });
 

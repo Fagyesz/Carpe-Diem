@@ -24,4 +24,29 @@ class UserController extends Controller
 
         return view('auth.editProfile', ['user'=> $user]);
     }
+
+    //Update profile
+    public function update(Request $request)
+    {
+        $user = Auth::user();
+        $formFields = $request->validate([
+            'username' => 'required',
+            'name' => 'required',
+            'email' => 'required',
+            'birthdate' => 'nullable',
+            'phone' => 'nullable',
+            'country' => 'nullable',
+            'address' => 'nullable',
+            'gender' => 'nullable',
+            'bio' => 'nullable'
+        ]);
+
+        if ($request->hasFile('avatar')) {
+            $formFields['avatar'] = $request->file('avatar')->store('avatars', 'public');
+        }
+
+        $user->update($formFields);
+
+        return back()->with('message', 'Profile edited succesfully!');
+    }
 }
