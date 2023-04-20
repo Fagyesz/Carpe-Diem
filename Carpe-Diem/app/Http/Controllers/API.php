@@ -6,6 +6,7 @@ use DB;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Event;
+use App\Models\Ticket;
 use Illuminate\Support\Facades\Hash;
 
 class API extends Controller
@@ -146,6 +147,7 @@ class API extends Controller
         }
     }
 
+
     function getTickets(Request $request){
         $query = $request->input('q');
         
@@ -178,6 +180,71 @@ class API extends Controller
         $result = $title->merge($desc)->merge($location);
         return ["Result" => $result];
     }
+
+
+    function getAllTickets(){
+        $tickets = DB::table('tickets')->get();
+        return $tickets;
+    }
+
+    function getTicketById($id)
+    {
+        $user = DB::table('tickets')->where('id', $id)->get();
+        return $user;
+    }
+
+    function createTicket(Request $request){
+        $ticket = Ticket::create([
+            'event_id' => $request->event_id,
+            'user_id' => $request->user_id,
+            'ticket_type' => $request->ticket_type,
+            'ticket_price' => $request->ticket_price,
+            'ticket_quantity' => $request->ticket_quantity, 
+        ]);
+
+        $result = $ticket->save();
+        if($result)
+        {
+            return ["Result" => "Data has been saved"];
+        }
+        else
+        {
+            return ["Result" => "Operation failed"];
+        }
+    }
+
+    function updateTicket(Request $request) {
+        $data = Ticket::find($request->event_id);
+        $data->event_id = $request->event_id;
+        $data->user_id = $request->user_id;
+        $data->ticket_type = $request->ticket_type;
+        $data->ticket_price = $request->ticket_price;
+        $data->ticket_quantity = $request->ticket_quantity;
+
+        $result = $data->save();
+        if($result)
+        {
+            return ["Result" => "Data has been updated"];
+        }
+        else
+        {
+            return ["Result" => "Operation failed"];
+        }
+    }
+
+    function deleteTicket($id){
+        $data = Ticket::find($id);
+        $result = $data->delete();
+        if($result)
+        {
+            return ["Result" => "Data has been deleted"];
+        }
+        else
+        {
+            return ["Result" => "Operation failed"];
+        }
+    }
+    
 
 
 }

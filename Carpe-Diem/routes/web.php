@@ -4,6 +4,7 @@ use App\Mail\TestEmail;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\SocialController;
 use App\Http\Controllers\Auth\RegisterController;
@@ -52,6 +53,9 @@ Route::middleware(['auth'])->group(function () {
     //Delete Event
     Route::delete('/events/{event}', [EventController::class, 'destroy']);
 
+    //Show contact page
+    Route::get('/contact', [ContactController::class, 'showContactPage']);
+
 });
 
 //Show event listing page
@@ -61,11 +65,12 @@ Route::get('/auth/{provider}', [SocialController::class, 'redirectToProvider']);
 Route::get('/auth/{provider}/callback', [SocialController::class, 'handleProviderCallback']);
 
 //test
-Route::post('/contact', [ContactController::class, 'sendEmail'])->name('contact.sendEmail');
+Route::post('/contact/send', [ContactController::class, 'sendEmail']);
 Route::get('/send-test-email', function () {
-    Mail::to('vinczefo@gmail.com')->send(new TestEmail());
+    Mail::to('99c901ee@gmail.com')->send(new TestEmail('alma'));
     return 'Test email sent!';
 });
+
 
 // API routes
 Route::middleware(['api', 'auth:sanctum'])->group(function () {
@@ -73,8 +78,6 @@ Route::middleware(['api', 'auth:sanctum'])->group(function () {
 
 });
 
-//Social media share
-Route::get('events/{event}/post', [ShareButtonsController::class, 'share']);
 
 //Single listing 
 Route::get('/events/{event}', [EventController::class, 'show']);
