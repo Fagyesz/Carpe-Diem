@@ -106,7 +106,7 @@
                         @enderror
                     </div>
                     <div class="grid justify-items-stretch">
-                        <div class="flex flex-row">
+                        <div class="flex flex-row mt-8">
                             <div class="justify-self-start pr-4"><a href="/profile"> <i
                                         class="flex justify-start fa-solid fa-backward text-3xl max-w-xs transition duration-300 ease-in-out hover:scale-125"></i></a>
                             </div>
