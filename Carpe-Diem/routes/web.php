@@ -57,8 +57,12 @@ Route::middleware(['auth'])->group(function () {
     //Show contact page
     Route::get('/contact', [ContactController::class, 'showContactPage']);
 
-
+    //Show ticket
     Route::get('/tickets/{ticket}', [QrCodeController::class, 'index']);
+
+    //Generating ticket
+    Route::post('/events/{event}/buy_ticket', [QrCodeController::class, 'store']);
+
 
 });
 

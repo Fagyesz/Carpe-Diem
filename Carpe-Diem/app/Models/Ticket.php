@@ -3,6 +3,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
+
 
 class Ticket extends Model
 {
@@ -14,7 +16,7 @@ class Ticket extends Model
         'ticket_type',
         'ticket_price',
         'ticket_code',
-        'ticket_img_url'
+        'ticket_image_url'
 
     ];
 
