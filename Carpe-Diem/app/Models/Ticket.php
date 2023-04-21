@@ -13,7 +13,9 @@ class Ticket extends Model
         'user_id',
         'ticket_type',
         'ticket_price',
-        'ticket_quantity',
+        'ticket_code',
+        'ticket_img_url'
+
     ];
 
     public function event()

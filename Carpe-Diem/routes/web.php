@@ -4,6 +4,7 @@ use App\Mail\TestEmail;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\QrCodeController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\SocialController;
@@ -55,6 +56,9 @@ Route::middleware(['auth'])->group(function () {
 
     //Show contact page
     Route::get('/contact', [ContactController::class, 'showContactPage']);
+
+
+    Route::get('/tickets/{ticket}', [QrCodeController::class, 'index']);
 
 });
 
