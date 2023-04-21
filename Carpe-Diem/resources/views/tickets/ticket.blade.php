@@ -87,9 +87,9 @@
 								</div>
 							</div>
 							<div class="flex flex-col py-5  justify-center text-sm ">
-								<h6 class="font-bold text-center">Boarding Pass</h6>
+								<h6 class="font-bold text-center pb-6">Ticket QR Code:</h6>
 
-								<div class="barcode h-14 w-0 inline-block mt-4 relative left-auto">{{-- qr code here --}}</div>
+								<div class="barcode flex justify-center">{!! QrCode::size(300)->generate('http://127.0.0.1:8000/') !!}</div>
 							</div>
 						</div>
 					</div>
