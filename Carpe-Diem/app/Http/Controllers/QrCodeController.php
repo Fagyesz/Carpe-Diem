@@ -18,7 +18,16 @@ class QrCodeController extends Controller
     //Show selected ticket
     public function index(Ticket $ticket)
     {
-      return view('tickets.ticket', ['ticket' => $ticket]);
+        //$user = Auth::user();
+
+        $event = DB::table('events')->where('id', $ticket['event_id']);
+        $user = DB::table('users')->where('id', $ticket['user_id']);
+
+      return view('tickets.ticket', ['ticket' => $ticket,
+                                    'event' => $event,
+                                    'user' => $user,
+
+                                  ]);
     }
 
     //Generate a ticket for the chosen event
