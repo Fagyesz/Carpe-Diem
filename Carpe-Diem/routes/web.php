@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\QrCodeController;
+use App\Http\Controllers\TicketController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\SocialController;
@@ -62,6 +63,9 @@ Route::middleware(['auth'])->group(function () {
 
     //Generating ticket
     Route::post('/events/{event}/buy_ticket', [QrCodeController::class, 'store']);
+
+    //Show personal ticket list
+    Route::get('/my%20tickets', [TicketController::class, 'showTickets'])
 
 
 });
