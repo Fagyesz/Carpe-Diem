@@ -72,13 +72,16 @@
 								<div class="absolute rounded-full w-5 h-5 bg-blue-900 -mt-2 -left-2"></div>
 								<div class="absolute rounded-full w-5 h-5 bg-blue-900 -mt-2 -right-2"></div>
 							</div>
-							<div class="flex flex-col py-5  justify-center text-sm ">
+							<div class="flex flex-col pt-5  justify-center text-sm ">
 								<h6 class="font-bold text-center pb-6">Ticket QR Code:</h6>
 
 								<div class="barcode flex justify-center">
 									<img class="hidden w-60 md:block"
                     					src="{{ url('storage/' . $ticket->ticket_image_url) }}"
                    						alt="" />
+								</div>
+								<div class="flex justify-center text-center italic pt-8">
+									Ticket bought: {{ \Carbon\Carbon::parse($ticket->created_at)->format('Y.m.d H:m:i') }}
 								</div>
 							</div>
 						</div>
