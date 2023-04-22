@@ -1,4 +1,5 @@
 @props(['ticket'])
+<a href="/tickets/{{ $ticket->id }}" class="max-w transition duration-300 ease-in-out hover:scale-105">
 	<div class=" bg-blue-800 w-2/3 rounded-3xl">
 		<div class="flex flex-col">
 			<div class="bg-white relative drop-shadow-2xl  rounded-3xl p-4 m-4">
@@ -45,5 +46,6 @@
 				</div>
 			</div>
 		</div>
+</a>
 
 
