@@ -22,7 +22,12 @@
                 <div class="text-xl mb-4"> <i class="fa-solid fa-flag-checkered"></i> Ending time: {{
                     Carbon\Carbon::parse($event->end_time)->format('Y.m.d h:m') }} </div>
                 <div class="text-xl mb-4"> <i class="fa-solid fa-clock"></i> Duration: {{ $totalDuration}} </div>
-
+                @if ($event->tickets_available != 0)
+                    <div class="text-xl mb-4 font-bold text-green-600 text-center">  Available
+                @else
+                    <div class="text-xl mb-4 font-bold text-red-600 text-center"> Unavailable </div>
+                @endif
+                
 
 
                 <div class="flex justify-center text-xl font-bold mb-4">Ticket price: {{ $event->ticket_price }} €</div>
