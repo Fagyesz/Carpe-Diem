@@ -12,8 +12,8 @@
 					<div class="flex-auto justify-evenly">
 						<div class="flex items-center">
 							<div class="flex flex-col">
-								<div class="flex text-xs text-gray-400 my-1 justify-center">
-									<span class="mr-1 ">{{ \Carbon\Carbon::parse($event->start_time)->format('m.d')}}</span>
+								<div class="flex text-xs text-gray-400  justify-center">
+									<span class=" ">{{ \Carbon\Carbon::parse($event->start_time)->format('y.m.d')}}</span>
 								</div>
 								<div class="w-full py-1 flex-none text-lg text-blue-800 font-bold leading-none">{{ $ticket->ticket_type }}</div>
 								<div class="text-xs flex justify-center">Ticket</div>
@@ -24,8 +24,8 @@
 
 								</div>
 								<div class="flex flex-col ">
-									<div class="flex text-xs text-gray-400 my-1 justify-center">
-										<span class="mr-1">{{ \Carbon\Carbon::parse($event->end_time)->format('m.d')}}</span>
+									<div class="flex text-xs text-gray-400  justify-center">
+										<span class="">{{ \Carbon\Carbon::parse($event->end_time)->format('y.m.d')}}</span>
 									</div>
 									<div class="w-full py-1 flex-none text-lg text-blue-800 font-bold leading-none">{{ $ticket->ticket_type }}</div>
 									<div class="text-xs flex justify-center">Ticket</div>
@@ -36,32 +36,35 @@
 								<div class="absolute rounded-full w-5 h-5 bg-blue-900 -mt-2 -left-2"></div>
 								<div class="absolute rounded-full w-5 h-5 bg-blue-900 -mt-2 -right-2"></div>
 							</div>
-							<div class="flex items-center mb-5 p-5 text-sm">
-								<div class="flex flex-col">
-									<span class="text-sm">Flight</span>
-									<div class="font-semibold">Airbus380</div>
+							<div class="flex items-center mb-5 pt-3 text-sm">
+								<div class="flex flex-col mt-auto">
+									<span class="text-sm font-bold">Location</span>
+									<div class="font-semibold">{{ $event->location }}</div>
 
 								</div>
-								<div class="flex flex-col ml-auto">
-									<span class="text-sm">Gate</span>
-									<div class="font-semibold">B3</div>
+								<div class="flex flex-col ml-auto mt-auto">
+									<span class="text-sm font-bold">Status</span>
+									<div class="font-semibold">Unused</div>
 
 								</div>
 							</div>
 							<div class="flex items-center mb-4 px-5">
 								<div class="flex flex-col text-sm">
-									<span class="">Board</span>
-									<div class="font-semibold">11:50AM</div>
+									<span class="font-bold flex justify-center">Start</span>
+									<div class="font-semibold">{{ \Carbon\Carbon::parse($event->start_time)->format('h:i') }}</div>
 
 								</div>
 								<div class="flex flex-col mx-auto text-sm">
-									<span class="">Departs</span>
-									<div class="font-semibold">11:30Am</div>
+									<span class="flex justify-center font-bold">Date</span>
+									<div class="font-semibold text-center">{{ \Carbon\Carbon::parse($event->start_time)->format('y.m.d') }} <br>
+										- <br>
+										{{ \Carbon\Carbon::parse($event->end_time)->format('y.m.d') }}
+									</div>
 
 								</div>
-								<div class="flex flex-col text-sm">
-									<span class="">Arrived</span>
-									<div class="font-semibold">2:00PM</div>
+								<div class="flex flex-col  text-sm">
+									<span class="font-bold flex justify-center">End</span>
+									<div class="font-semibold">{{ \Carbon\Carbon::parse($event->end_time)->format('h:i') }}</div>
 
 								</div>
 							</div>
