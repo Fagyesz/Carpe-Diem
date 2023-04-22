@@ -42,9 +42,9 @@
 									<div class="font-semibold">{{ $event->location }}</div>
 
 								</div>
-								<div class="flex flex-col ml-auto mt-auto">
-									<span class="text-sm font-bold">Status</span>
-									<div class="font-semibold">Unused</div>
+								<div class="flex flex-col justify-center ml-auto mt-auto">
+									<span class="text-sm text-center font-bold">Status</span>
+									<div class="font-semibold text-center">{{ $ticket->ticket_status }}</div>
 
 								</div>
 							</div>
