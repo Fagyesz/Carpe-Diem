@@ -57,7 +57,13 @@ class QrCodeController extends Controller
       ]);
 
 
-        Ticket::create($ticket); 
+        Ticket::create($ticket);
+        $available = $event['tickets_available'] - 1;
+        
+        DB::table('events')
+              ->where('id', $event->id)
+              ->update(['tickets_available' => $available]);
+        
 
         return back()->with('message', 'Ticket generated succesfully!');
     }
