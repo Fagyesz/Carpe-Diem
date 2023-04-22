@@ -4,7 +4,7 @@
 <div class="flex flex-col min-h-screen bg-center bg-cover pb-6"
 	style="background-image: url(../images/ticket_listing.webp)">
 
-    <div class="lg:grid lg:grid-cols-3 gap-3 space-y-3 md:space-y-0 mx-4 pt-6" >
+    <div class="lg:grid lg:grid-cols-3 gap-3 pl-32 space-y-3 md:space-y-0 mx-4 pt-6" >
 
         @if (count($tickets) == 0)
             <p>
