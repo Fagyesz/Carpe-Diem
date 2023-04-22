@@ -20,7 +20,7 @@ class QrCodeController extends Controller
     {
         //$user = Auth::user();
 
-        $event = DB::table('events')->where('id', $ticket['event_id']);
+        $event = DB::table('events')->where('id', $ticket['event_id'])->first();
         $user = DB::table('users')->where('id', $ticket['user_id']);
 
       return view('tickets.ticket', ['ticket' => $ticket,

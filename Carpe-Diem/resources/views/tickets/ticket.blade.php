@@ -12,11 +12,11 @@
 					<div class="flex-auto justify-evenly">
 						<div class="flex items-center">
 							<div class="flex flex-col">
-								<div class="flex-auto text-xs text-gray-400 my-1">
-									<span class="mr-1 ">MO</span><span>19 22</span>
+								<div class="flex text-xs text-gray-400 my-1 justify-center">
+									<span class="mr-1 ">{{ \Carbon\Carbon::parse($event->start_time)->format('m.d')}}</span>
 								</div>
-								<div class="w-full flex-none text-lg text-blue-800 font-bold leading-none">COK</div>
-								<div class="text-xs">Cochi</div>
+								<div class="w-full py-1 flex-none text-lg text-blue-800 font-bold leading-none">{{ $ticket->ticket_type }}</div>
+								<div class="text-xs flex justify-center">Ticket</div>
 
 							</div>
 							<div class="flex flex-col mx-auto">
@@ -24,15 +24,15 @@
 
 								</div>
 								<div class="flex flex-col ">
-									<div class="flex-auto text-xs text-gray-400 my-1">
-										<span class="mr-1">MO</span><span>19 22</span>
+									<div class="flex text-xs text-gray-400 my-1 justify-center">
+										<span class="mr-1">{{ \Carbon\Carbon::parse($event->end_time)->format('m.d')}}</span>
 									</div>
-									<div class="w-full flex-none text-lg text-blue-800 font-bold leading-none">DXB</div>
-									<div class="text-xs">Dubai</div>
+									<div class="w-full py-1 flex-none text-lg text-blue-800 font-bold leading-none">{{ $ticket->ticket_type }}</div>
+									<div class="text-xs flex justify-center">Ticket</div>
 
 								</div>
 							</div>
-							<div class="border-b border-dashed border-b-2 my-5 pt-5">
+							<div class="border-b border-dashed border-b-2  pb-5">
 								<div class="absolute rounded-full w-5 h-5 bg-blue-900 -mt-2 -left-2"></div>
 								<div class="absolute rounded-full w-5 h-5 bg-blue-900 -mt-2 -right-2"></div>
 							</div>
@@ -65,26 +65,9 @@
 
 								</div>
 							</div>
-							<div class="border-b border-dashed border-b-2 my-5 pt-5">
+							<div class="border-b border-dashed border-b-2 mt-5 pt-5">
 								<div class="absolute rounded-full w-5 h-5 bg-blue-900 -mt-2 -left-2"></div>
 								<div class="absolute rounded-full w-5 h-5 bg-blue-900 -mt-2 -right-2"></div>
-							</div>
-							<div class="flex items-center px-5 pt-3 text-sm">
-								<div class="flex flex-col">
-									<span class="">Passanger</span>
-									<div class="font-semibold">Ajimon</div>
-
-								</div>
-								<div class="flex flex-col mx-auto">
-									<span class="">Class</span>
-									<div class="font-semibold">Economic</div>
-
-								</div>
-								<div class="flex flex-col">
-									<span class="">Seat</span>
-									<div class="font-semibold">12 E</div>
-
-								</div>
 							</div>
 							<div class="flex flex-col py-5  justify-center text-sm ">
 								<h6 class="font-bold text-center pb-6">Ticket QR Code:</h6>
