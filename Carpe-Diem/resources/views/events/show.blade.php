@@ -23,7 +23,7 @@
                     Carbon\Carbon::parse($event->end_time)->format('Y.m.d h:m') }} </div>
                 <div class="text-xl mb-4"> <i class="fa-solid fa-clock"></i> Duration: {{ $totalDuration}} </div>
                 @if ($event->tickets_available != 0)
-                    <div class="text-xl mb-4 font-bold text-green-600 text-center">  Available
+                    <div class="text-xl mb-4 font-bold text-green-600 text-center">  Available </div>
                 @else
                     <div class="text-xl mb-4 font-bold text-red-600 text-center"> Unavailable </div>
                 @endif
