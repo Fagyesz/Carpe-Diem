@@ -56,6 +56,11 @@ class QrCodeController extends Controller
 
       ]);
 
+        if($event['tickets_available'] - 1 < 0) 
+        {
+          return back()->with('message', 'No remaining tickets! Transaction cancelled!');
+        }
+
 
         Ticket::create($ticket);
         $available = $event['tickets_available'] - 1;
