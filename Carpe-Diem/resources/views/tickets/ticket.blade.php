@@ -47,8 +47,11 @@
 								</div>
 								<div class="flex flex-col justify-center ml-auto mt-auto">
 									<span class="text-sm text-center font-bold">Status</span>
-									<div class="font-semibold text-center">{{ $ticket->ticket_status }}</div>
-
+									@if ($ticket->ticket_status != 'Unused')
+										<div class="font-semibold text-center text-red-600">{{ $ticket->ticket_status }}</div>
+									@else
+										<div class="font-semibold text-center text-green-600">{{ $ticket->ticket_status }}</div>
+									@endif	
 								</div>
 							</div>
 							<div class="flex items-center mb-4 px-5">
