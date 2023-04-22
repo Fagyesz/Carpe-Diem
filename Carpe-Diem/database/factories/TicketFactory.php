@@ -10,7 +10,7 @@ class TicketFactory extends Factory
 {
     protected $model = Ticket::class;
 
-    public function definition()
+     public function definition()
     {
         return [
             'event_id' => null, // Set default value to null
@@ -20,5 +20,5 @@ class TicketFactory extends Factory
             'ticket_code'=> $this->faker->asciify('******************************'),
             'ticket_image_url'=> $this->faker->url(20)
         ];
-    }
+    } 
 }
