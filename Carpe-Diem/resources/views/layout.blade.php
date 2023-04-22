@@ -26,7 +26,7 @@
     <title>CarpeDiem</title>
 </head>
 <body>
-    <x-navbar :links="['Events', 'Contact', 'Profile', 'My Tickets']" />
+    <x-navbar :links="['Events', 'Contact', 'Profile', 'Tickets']" />
     <main>
         @yield('content')
     </main>

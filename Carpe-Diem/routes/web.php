@@ -65,7 +65,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/events/{event}/buy_ticket', [QrCodeController::class, 'store']);
 
     //Show personal ticket list
-    Route::get('/my%20tickets', [TicketController::class, 'showTickets'])
+    Route::get('/tickets', [TicketController::class, 'showTickets']);  
 
 
 });
