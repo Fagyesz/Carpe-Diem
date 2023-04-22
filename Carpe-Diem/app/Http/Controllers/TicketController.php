@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Carbon\Carbon;
 use App\Models\Event;
 use App\Models\Ticket;
 use Illuminate\Http\Request;
@@ -17,7 +17,7 @@ class TicketController extends Controller
         
 
         return view('tickets.ticketListing', [
-            'tickets' => Ticket::all()->where('user_id', $user['id'])
+            'tickets' => Ticket::where('user_id', $user['id'])->paginate(6)
 
         ]);
     }
