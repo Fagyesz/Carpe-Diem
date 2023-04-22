@@ -51,7 +51,8 @@ class QrCodeController extends Controller
           'ticket_image_url' => $imgurl,
           'event_id' => $event->id,
           'ticket_type' => 'QR Code',
-          'ticket_price' => $event->ticket_price
+          'ticket_price' => $event->ticket_price,
+          'ticket_status' => 'Unused'
 
       ]);
 

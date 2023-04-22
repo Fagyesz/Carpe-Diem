@@ -18,6 +18,8 @@ class CreateTicketTable extends Migration {
             $table->decimal('ticket_price', 15, 2);
 			$table->string('ticket_code');
 			$table->string('ticket_image_url');
+			$table->string('ticket_status');
+
             $table->timestamps();
 
 		});

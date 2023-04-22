@@ -16,7 +16,8 @@ class Ticket extends Model
         'ticket_type',
         'ticket_price',
         'ticket_code',
-        'ticket_image_url'
+        'ticket_image_url',
+        'ticket_status'
 
     ];
 
