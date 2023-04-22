@@ -32,6 +32,9 @@
 
 								</div>
 							</div>
+							<div class="flex flex-col justify-center text-center font-bold text-xl pt-2">
+								{{ $event->title }}
+							</div>
 							<div class="border-b border-dashed border-b-2  pb-5">
 								<div class="absolute rounded-full w-5 h-5 bg-blue-900 -mt-2 -left-2"></div>
 								<div class="absolute rounded-full w-5 h-5 bg-blue-900 -mt-2 -right-2"></div>
