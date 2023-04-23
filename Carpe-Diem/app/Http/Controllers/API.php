@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Event;
 use App\Models\Ticket;
+use App\Models\Comment;
 use Illuminate\Support\Facades\Hash;
 
 class API extends Controller
@@ -210,7 +211,74 @@ class API extends Controller
         }
     }
     
+    function getAllComments(){
+        $comments = DB::table('comments')->get();
+        if(!empty($comments) && $comments->count()>0){
+            return ["Result" => $comments];
+        } else {
+            return ["Result" => "No comments found"];
+        } 
+    }
 
+    function getCommentById($id)
+    {
+        $comment = DB::table('comments')->where('id', $id)->get();
+        if(!empty($comment) && $comment->count()>0){
+            return ["Result" => $comment];
+        } else {
+            return ["Result" => "No comment found"];
+        } 
+    }
+
+    function createComment(Request $request){
+        $comment = Comment::create([
+            'user_id' => $request->user_id,
+            'body' => $request->body,
+            'commentable_type' => $request->commentable_type,
+            'commentable_id' => $request->commentable_id,
+        ]);
+
+        $result = $comment->save();
+        if($result)
+        {
+            return ["Result" => "Data has been saved"];
+        }
+        else
+        {
+            return ["Result" => "Operation failed"];
+        }
+    }
+
+    function updateComment(Request $request) {
+        $data = Comment::find($request->id);
+        $data->user_id = $request->user_id;
+        $data->body = $request->body;
+        $data->commentable_type = $request->commentable_type;
+        $data->commentable_id = $request->commentable_id;
+
+        $result = $data->save();
+        if($result)
+        {
+            return ["Result" => "Data has been updated"];
+        }
+        else
+        {
+            return ["Result" => "Operation failed"];
+        }
+    }
+
+    function deleteComment($id){
+        $data = Comment::find($id);
+        $result = $data->delete();
+        if($result)
+        {
+            return ["Result" => "Data has been deleted"];
+        }
+        else
+        {
+            return ["Result" => "Operation failed"];
+        }
+    }
 
 
 }

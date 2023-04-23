@@ -45,3 +45,10 @@ Route::get("/tickets/{id}", [API::class, "getTicketById"]);
 Route::post("/tickets", [API::class, "createTicket"]);
 Route::put("/tickets", [API::class, "updateTicket"]);
 Route::delete("/tickets/{id}", [API::class, "deleteTicket"]);
+
+
+Route::get("/comments", [API::class, "getAllComments"]);
+Route::get("/comments/{id}", [API::class, "getCommentById"]);
+Route::post("/comments", [API::class, "createComment"]);
+Route::put("/comments", [API::class, "updateComment"]);
+Route::delete("/comments/{id}", [API::class, "deleteComment"]);
