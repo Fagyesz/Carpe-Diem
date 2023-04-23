@@ -31,11 +31,11 @@ class EventController extends Controller
     {
         //dd($request -> file('event_image'));
         $formFields = $request->validate([
-            'title' => 'required',
-            'description' => 'required',
+            'title' => 'required|string',
+            'description' => 'required|string',
             'start_time' => 'required',
             'end_time' => 'required',
-            'location' => 'required',
+            'location' => 'required|string',
             'ticket_price' => 'required|numeric',
             'tickets_available' => 'required|numeric'
         ]);
@@ -46,6 +46,14 @@ class EventController extends Controller
         if($formFields['end_time'] < $formFields['start_time'])
         {
             return back()->with('message', 'End time can not be earlier, then the Start time!');
+        }
+        if($formFields['ticket_price'] <= 0) 
+        {
+            return back()->with('message', 'Ticket price can not be 0 or negative!');
+        }
+        if($formFields['ticket_available'] <= 0) 
+        {
+            return back()->with('message', ' Available tickets can not be 0 or negative!');
         }
 
         $formFields['organizer_id'] = $request->user()->id;
