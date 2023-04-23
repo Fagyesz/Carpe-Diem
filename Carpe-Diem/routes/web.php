@@ -3,6 +3,7 @@
 use App\Mail\TestEmail;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Auth\LoginController;
@@ -55,6 +56,16 @@ Route::middleware(['auth'])->group(function () {
 
     //Show contact page
     Route::get('/contact', [ContactController::class, 'showContactPage']);
+
+    //show the logged in user profile page
+    Route::get('/profile', [UserController::class, 'show']);
+
+    //show profile edit page
+    Route::get('/profile/edit', [UserController::class, 'showEdit']);
+
+    //update profile 
+    Route::put('/profile/edit', [UserController::class, 'update']);
+
 
 });
 
