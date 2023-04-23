@@ -15,6 +15,7 @@ Ebben a dokumentumban lesz felsorolva az elvégzett tesztek elvárásai és ered
 | Ticket vásárlás egy eventre, amikor "Unavailabe" státuszban van | 2023.04.23. | Művelet nem hajtódik végre. Üzenetben jelezni a felhasználónak a problémát. | Művelet nem hajtódik végre. Üzenetben jelezni a felhasználónak a problémát. | Nem találtam problémát. |
 | Esemény meghirdetése hamarabbi végdátummal, mint kezdő dátummal | 2023.04.23. | Művelet nem hajtódik végre. Üzenetben jelezni a felhasználónak a problémát. | A művelet végrehajtódik, sikeres üzenettel | Orvosoltam a problémát |
 | Az url mezőt átírva megpróbálni elérni más felhasználó jegyeit | 2023.04.23. | Művelet nem hajtódik végre. Minden felhasználó csak a saját jegyeit láthatja | Művelet nem hajtódik végre. Minden felhasználó csak a saját jegyeit láthatja  |  Nem találtam problémát. |
+| Ha a jegyvásárlások során elfogynak a jegyek, akkor onnantól kezdve nem lehet több jegyet venni ahoz az eventhez | 2023.04.23. |Művelet nem hajtódik végre. Üzenetben jelezni a felhasználónak a problémát. | Művelet nem hajtódik végre. Üzenetben jelezni a felhasználónak a problémát.  |  Nem találtam problémát. |
 
 Az Alfa tesztelés során a vizsgált elemek között volt ami nem megfelelően működött, ezt később javítottam.
 
