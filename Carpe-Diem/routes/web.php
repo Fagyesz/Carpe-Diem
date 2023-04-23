@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use App\Mail\TestEmail;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
@@ -55,6 +56,9 @@ Route::middleware(['auth'])->group(function () {
 
     //Show contact page
     Route::get('/contact', [ContactController::class, 'showContactPage']);
+
+    //Show profile page
+    Route::get('/profile',[ProfileController::class,'showUserProfile'])->name('profile');
 
 });
 
