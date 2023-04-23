@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Event;
 use App\Models\Ticket;
+use App\Models\Post;
 use Illuminate\Support\Facades\Hash;
 
 class API extends Controller
@@ -199,6 +200,75 @@ class API extends Controller
 
     function deleteTicket($id){
         $data = Ticket::find($id);
+        $result = $data->delete();
+        if($result)
+        {
+            return ["Result" => "Data has been deleted"];
+        }
+        else
+        {
+            return ["Result" => "Operation failed"];
+        }
+    }
+
+    function getAllPosts(){
+        $posts = DB::table('posts')->get();
+        if(!empty($posts) && $posts->count()>0){
+            return ["Result" => $posts];
+        } else {
+            return ["Result" => "No posts found"];
+        } 
+    }
+
+    function getPostById($id)
+    {
+        $post = DB::table('posts')->where('id', $id)->get();
+        if(!empty($post) && $post->count()>0){
+            return ["Result" => $post];
+        } else {
+            return ["Result" => "No post found"];
+        } 
+    }
+
+    function createPost(Request $request){
+        $post = Post::create([
+            'user_id' => $request->user_id,
+            'category_id' => $request->category_id,
+            'title' => $request->title,
+            'content' => $request->content,
+        ]);
+
+        $result = $post->save();
+        if($result)
+        {
+            return ["Result" => "Data has been saved"];
+        }
+        else
+        {
+            return ["Result" => "Operation failed"];
+        }
+    }
+
+    function updatePost(Request $request) {
+        $data = Post::find($request->id);
+        $data->user_id = $request->user_id;
+        $data->category_id = $request->category_id;
+        $data->title = $request->title;
+        $data->content = $request->content;
+
+        $result = $data->save();
+        if($result)
+        {
+            return ["Result" => "Data has been updated"];
+        }
+        else
+        {
+            return ["Result" => "Operation failed"];
+        }
+    }
+
+    function deletePost($id){
+        $data = Post::find($id);
         $result = $data->delete();
         if($result)
         {
