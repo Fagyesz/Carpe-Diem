@@ -43,6 +43,10 @@ class EventController extends Controller
         if ($request->hasFile('event_image')) {
             $formFields['event_image'] = $request->file('event_image')->store('event_images', 'public');
         }
+        if($formFields['end_time'] < $formFields['start_time'])
+        {
+            return back()->with('message', 'End time can not be earlier, then the Start time!');
+        }
 
         $formFields['organizer_id'] = $request->user()->id;
 
