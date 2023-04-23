@@ -152,7 +152,11 @@ class API extends Controller
         $query = $request->input('q');
         
         $ticket = DB::table('tickets')->where('ticket_type', 'like', '%'.$query.'%')->get();
-        return ["Result" => $ticket];
+        if(!empty($ticket) && $ticket->count()>0){
+            return ["Result" => $ticket];
+        } else {
+            return ["Result" => "No tickets found"];
+        } 
     }
 
     function getPosts(Request $request){
@@ -161,14 +165,22 @@ class API extends Controller
         $title = DB::table('posts')->where('title', 'like', '%'.$query.'%')->get();
         $content = DB::table('posts')->where('content', 'like', '%'.$query.'%')->get();
         $result = $title->merge($content);
-        return ["Result" => $result];
+        if(!empty($result) && $result->count()>0){
+            return ["Result" => $result];
+        } else {
+            return ["Result" => "No posts found"];
+        } 
     }
 
     function getComments(Request $request){
         $query = $request->input('q');
         
-        $ticket = DB::table('comments')->where('body', 'like', '%'.$query.'%')->get();
-        return ["Result" => $ticket];
+        $comment = DB::table('comments')->where('body', 'like', '%'.$query.'%')->get();
+        if(!empty($comment) && $comment->count()>0){
+            return ["Result" => $comment];
+        } else {
+            return ["Result" => "No comments found"];
+        } 
     }
 
     function getEvents(Request $request){
@@ -178,7 +190,11 @@ class API extends Controller
         $desc = DB::table('events')->where('description', 'like', '%'.$query.'%')->get();
         $location = DB::table('events')->where('location', 'like', '%'.$query.'%')->get();
         $result = $title->merge($desc)->merge($location);
-        return ["Result" => $result];
+        if(!empty($result) && $result->count()>0){
+            return ["Result" => $result];
+        } else {
+            return ["Result" => "No events found"];
+        } 
     }
 
 
