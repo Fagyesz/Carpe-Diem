@@ -36,8 +36,8 @@ class EventController extends Controller
             'start_time' => 'required',
             'end_time' => 'required',
             'location' => 'required',
-            'ticket_price' => 'required',
-            'tickets_available' => 'required'
+            'ticket_price' => 'required|numeric',
+            'tickets_available' => 'required|numeric'
         ]);
 
         if ($request->hasFile('event_image')) {
