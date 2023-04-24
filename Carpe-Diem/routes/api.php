@@ -54,6 +54,12 @@ Route::put("/tickets", [API::class, "updateTicket"]);
 Route::delete("/tickets/{id}", [API::class, "deleteTicket"]);
 
 
+Route::get("/posts", [API::class, "getAllPosts"]);
+Route::get("/posts/{id}", [API::class, "getPostById"]);
+Route::post("/posts", [API::class, "createPost"]);
+Route::put("/posts", [API::class, "updatePost"]);
+Route::delete("/posts/{id}", [API::class, "deletePost"]);
+
 
 Route::get("/comments", [API::class, "getAllComments"]);
 Route::get("/comments/{id}", [API::class, "getCommentById"]);
