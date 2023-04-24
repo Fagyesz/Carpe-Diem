@@ -23,7 +23,11 @@ class API extends Controller
     function getUserById($id)
     {
         $user = DB::table('users')->where('id', $id)->get();
-        return $user;
+        if(!empty($user) && $user->count()>0){
+            return ["Result" => $user];
+        } else {
+            return ["Result" => "No user found"];
+        } 
     }
 
     function createUser(Request $request)
@@ -49,32 +53,40 @@ class API extends Controller
     function updateUser(Request $request)
     {
         $data = User::find($request->id);
-        $data->username = $request->username;
-        $data->name = $request->name;
-        $data->email = $request->email;
-        $data->password = Hash::make($request->password);
-        $result = $data->save();
-        if($result)
-        {
-            return ["Result" => "Data has been updated"];
-        }
-        else
-        {
-            return ["Result" => "Operation failed"];
+        if(!empty($data) && $data->count()>0){
+            $data->username = $request->username;
+            $data->name = $request->name;
+            $data->email = $request->email;
+            $data->password = Hash::make($request->password);
+            $result = $data->save();
+            if($result)
+            {
+                return ["Result" => "Data has been updated"];
+            }
+            else
+            {
+                return ["Result" => "Operation failed"];
+            }
+        } else {
+            return ["Result" => "No user found"];
         }
     }
 
     function deleteUser($id)
     {
         $data = User::find($id);
-        $result = $data->delete();
-        if($result)
-        {
-            return ["Result" => "Data has been deleted"];
-        }
-        else
-        {
-            return ["Result" => "Operation failed"];
+        if(!empty($data) && $data->count()>0){
+            $result = $data->delete();
+            if($result)
+            {
+                return ["Result" => "Data has been deleted"];
+            }
+            else
+            {
+                return ["Result" => "Operation failed"];
+            }
+        } else {
+            return ["Result" => "No user found"];
         }
     }
 
@@ -86,7 +98,11 @@ class API extends Controller
     function getEventById($id)
     {
         $event = DB::table('events')->where('id', $id)->get();
-        return $event;
+        if(!empty($event) && $event->count()>0){
+            return $event;
+        } else {
+            return ["Result" => "No event found"];
+        }
     }
 
     function createEvent(Request $request)
@@ -116,37 +132,45 @@ class API extends Controller
     function updateEvent(Request $request)
     {
         $data = Event::find($request->id);
-        $data->title = $request->title;
-        $data->description = $request->description;
-        $data->start_time = $request->start_time;
-        $data->end_time = $request->end_time;
-        $data->location = $request->location;
-        $data->organizer_id = $request->organizer_id;
-        $data->ticket_price = $request->ticket_price;
-        $data->tickets_available = $request->tickets_available;
-        
+        if(!empty($data) && $data->count()>0){
+            $data->title = $request->title;
+            $data->description = $request->description;
+            $data->start_time = $request->start_time;
+            $data->end_time = $request->end_time;
+            $data->location = $request->location;
+            $data->organizer_id = $request->organizer_id;
+            $data->ticket_price = $request->ticket_price;
+            $data->tickets_available = $request->tickets_available;
+            
 
-        $result = $data->save();
-        if($result)
-        {
-            return ["Result" => "Data has been updated"];
-        }
-        else
-        {
-            return ["Result" => "Operation failed"];
+            $result = $data->save();
+            if($result)
+            {
+                return ["Result" => "Data has been updated"];
+            }
+            else
+            {
+                return ["Result" => "Operation failed"];
+            }
+        } else {
+            return ["Result" => "No event found"];
         }
     }
 
     function deleteEvent($id){
         $data = Event::find($id);
-        $result = $data->delete();
-        if($result)
-        {
-            return ["Result" => "Data has been deleted"];
-        }
-        else
-        {
-            return ["Result" => "Operation failed"];
+        if(!empty($data) && $data->count()>0){
+            $result = $data->delete();
+            if($result)
+            {
+                return ["Result" => "Data has been deleted"];
+            }
+            else
+            {
+                return ["Result" => "Operation failed"];
+            }
+        } else {
+            return ["Result" => "No event found"];
         }
     }
 
