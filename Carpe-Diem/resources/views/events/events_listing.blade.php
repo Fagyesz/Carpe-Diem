@@ -3,7 +3,7 @@
     @section('content')
         
 
-        <div class="flex-1 bg-cover bg-center bg-no-repeat" style="background-image: url('images/events_page.jpg')">
+        <div class="flex-1 flex-col min-h-screen bg-cover bg-center bg-no-repeat" style="background-image: url('images/events_page.jpg')">
         @if (!auth()->user())
             @include('partials.hero')
         @endif
