@@ -88,12 +88,13 @@
                 <label class="block font-bold mb-2" for="avatar">
                     Avatar
                 </label>
+                <h6 class="pb-2">*Optional</h6>
                 <input
                     class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     id="avatar"
                     type="file"
                     name="avatar"
-                    required
+                    
                 >
                 @error('avatar')
                     <p class="text-red-500 text-xs italic">{{ $message }}</p>
