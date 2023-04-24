@@ -40,8 +40,16 @@ Route::put("/events", [API::class, "updateEvent"]);
 
 Route::delete("/events/{id}", [API::class, "deleteEvent"]);
 
+
+
+Route::get("/search/tickets", [API::class, "getTickets"]);
+Route::get("/search/posts", [API::class, "getPosts"]);
+Route::get("/search/comments", [API::class, "getComments"]);
+Route::get("/search/events", [API::class, "getEvents"]);
+
 Route::get("/tickets", [API::class, "getAllTickets"]);
 Route::get("/tickets/{id}", [API::class, "getTicketById"]);
 Route::post("/tickets", [API::class, "createTicket"]);
 Route::put("/tickets", [API::class, "updateTicket"]);
 Route::delete("/tickets/{id}", [API::class, "deleteTicket"]);
+

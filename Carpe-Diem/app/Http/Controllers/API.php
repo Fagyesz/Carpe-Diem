@@ -147,6 +147,57 @@ class API extends Controller
         }
     }
 
+
+    function getTickets(Request $request){
+        $query = $request->input('q');
+        
+        $ticket = DB::table('tickets')->where('ticket_type', 'like', '%'.$query.'%')->get();
+        if(!empty($ticket) && $ticket->count()>0){
+            return ["Result" => $ticket];
+        } else {
+            return ["Result" => "No tickets found"];
+        } 
+    }
+
+    function getPosts(Request $request){
+        $query = $request->input('q');
+        
+        $title = DB::table('posts')->where('title', 'like', '%'.$query.'%')->get();
+        $content = DB::table('posts')->where('content', 'like', '%'.$query.'%')->get();
+        $result = $title->merge($content);
+        if(!empty($result) && $result->count()>0){
+            return ["Result" => $result];
+        } else {
+            return ["Result" => "No posts found"];
+        } 
+    }
+
+    function getComments(Request $request){
+        $query = $request->input('q');
+        
+        $comment = DB::table('comments')->where('body', 'like', '%'.$query.'%')->get();
+        if(!empty($comment) && $comment->count()>0){
+            return ["Result" => $comment];
+        } else {
+            return ["Result" => "No comments found"];
+        } 
+    }
+
+    function getEvents(Request $request){
+        $query = $request->input('q');
+        
+        $title = DB::table('events')->where('title', 'like', '%'.$query.'%')->get();
+        $desc = DB::table('events')->where('description', 'like', '%'.$query.'%')->get();
+        $location = DB::table('events')->where('location', 'like', '%'.$query.'%')->get();
+        $result = $title->merge($desc)->merge($location);
+        if(!empty($result) && $result->count()>0){
+            return ["Result" => $result];
+        } else {
+            return ["Result" => "No events found"];
+        } 
+    }
+
+
     function getAllTickets(){
         $tickets = DB::table('tickets')->get();
         return $tickets;
@@ -210,7 +261,6 @@ class API extends Controller
         }
     }
     
-
 
 
 }
