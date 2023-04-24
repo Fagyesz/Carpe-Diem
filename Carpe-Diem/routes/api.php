@@ -40,14 +40,30 @@ Route::put("/events", [API::class, "updateEvent"]);
 
 Route::delete("/events/{id}", [API::class, "deleteEvent"]);
 
+
+
+Route::get("/search/tickets", [API::class, "getTickets"]);
+Route::get("/search/posts", [API::class, "getPosts"]);
+Route::get("/search/comments", [API::class, "getComments"]);
+Route::get("/search/events", [API::class, "getEvents"]);
+
 Route::get("/tickets", [API::class, "getAllTickets"]);
 Route::get("/tickets/{id}", [API::class, "getTicketById"]);
 Route::post("/tickets", [API::class, "createTicket"]);
 Route::put("/tickets", [API::class, "updateTicket"]);
 Route::delete("/tickets/{id}", [API::class, "deleteTicket"]);
 
+
 Route::get("/posts", [API::class, "getAllPosts"]);
 Route::get("/posts/{id}", [API::class, "getPostById"]);
 Route::post("/posts", [API::class, "createPost"]);
 Route::put("/posts", [API::class, "updatePost"]);
 Route::delete("/posts/{id}", [API::class, "deletePost"]);
+
+
+Route::get("/comments", [API::class, "getAllComments"]);
+Route::get("/comments/{id}", [API::class, "getCommentById"]);
+Route::post("/comments", [API::class, "createComment"]);
+Route::put("/comments", [API::class, "updateComment"]);
+Route::delete("/comments/{id}", [API::class, "deleteComment"]);
+
