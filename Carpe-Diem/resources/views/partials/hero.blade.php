@@ -25,7 +25,7 @@ class="relative h-72 bg-laravel flex flex-col justify-center align-center text-c
     
     
     <h1 class="text-6xl font-bold uppercase text-black">
-        CarpeDiem
+        Carpe Diem
     </h1>
     {{-- @endif --}}
     <p class="text-2xl text-black-200 font-bold my-4">
