@@ -17,13 +17,13 @@
             theme: {
                 extend: {
                     colors: {
-                        laravel: "#efe52d",
+                        laravel: "#f59e0b",
                     },
                 },
             },
         };
     </script>
-    <title>CarpeDiem</title>
+    <title>Carpe Diem</title>
 </head>
 <body>
     <x-navbar :links="['Events', 'Contact', 'Profile']" />
