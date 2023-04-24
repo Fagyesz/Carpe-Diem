@@ -31,17 +31,29 @@ class EventController extends Controller
     {
         //dd($request -> file('event_image'));
         $formFields = $request->validate([
-            'title' => 'required',
-            'description' => 'required',
+            'title' => 'required|string',
+            'description' => 'required|string',
             'start_time' => 'required',
             'end_time' => 'required',
-            'location' => 'required',
-            'ticket_price' => 'required',
-            'tickets_available' => 'required'
+            'location' => 'required|string',
+            'ticket_price' => 'required|numeric',
+            'tickets_available' => 'required|numeric'
         ]);
 
         if ($request->hasFile('event_image')) {
             $formFields['event_image'] = $request->file('event_image')->store('event_images', 'public');
+        }
+        if($formFields['end_time'] < $formFields['start_time'])
+        {
+            return back()->with('message', 'End time can not be earlier, then the Start time!');
+        }
+        if($formFields['ticket_price'] <= 0) 
+        {
+            return back()->with('message', 'Ticket price can not be 0 or negative!');
+        }
+        if($formFields['ticket_available'] <= 0) 
+        {
+            return back()->with('message', ' Available tickets can not be 0 or negative!');
         }
 
         $formFields['organizer_id'] = $request->user()->id;
@@ -61,8 +73,8 @@ class EventController extends Controller
             'start_time' => 'required',
             'end_time' => 'required',
             'location' => 'required',
-            'ticket_price' => 'required',
-            'tickets_available' => 'required'
+            'ticket_price' => 'required|numeric',
+            'tickets_available' => 'required|numeric'
         ]);
 
         if ($request->hasFile('event_image')) {

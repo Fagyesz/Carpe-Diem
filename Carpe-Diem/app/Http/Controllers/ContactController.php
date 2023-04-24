@@ -13,7 +13,7 @@ class ContactController extends Controller
         // Validate the request data, process the form, etc.
 
         $request->validate([
-            'message' => 'required'
+            'message' => 'required|string'
         ]);
 
 

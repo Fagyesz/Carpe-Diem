@@ -1,11 +1,12 @@
 @extends('layout')
 
 @section('content')
-<div class="flex justify-center items-center h-screen">
+<div class="flex bg-cover bg-no-repeat bg-center h-screen font-sans" style="background-image: url('images/login_register_page.jpg'); font-family: Roboto">
+<div class="flex justify-center items-center" style="margin: 0 auto">
     <div class="w-full max-w-md">
-        <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data" class="bg-white shadow-lg rounded px-8 pt-6 pb-8 mb-4">
+        <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data" class="bg-orange-100 shadow-lg rounded-lg px-8 pt-6 pb-8 mb-4 text-center">
             @csrf
-            <h2 class="text-center text-2xl font-medium mb-6">Create Account</h2>
+            <h2 class="text-center text-2xl font-black mb-6">Create Account</h2>
             <div class="mb-4">
                 <label class="block font-bold mb-2" for="name">
                     Full Name
@@ -115,5 +116,6 @@
             </div>
         </form>
     </div>
+</div>
 </div>
 @endsection

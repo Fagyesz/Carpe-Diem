@@ -5,11 +5,13 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css">
 
 <!-- Login form -->
-<div class="flex justify-center items-center h-screen bg-gray-100">
+<div class="flex bg-cover bg-no-repeat bg-center h-screen font-sans" style="background-image: url('images/login_register_page.jpg'); font-family: Roboto">
+
+<div class="flex items-center" style="margin: 0 auto">
     <div class="w-full max-w-md">
-        <form class="bg-gray shadow-lg rounded px-8 pt-6 pb-8 mb-4" method="POST" action="{{ route('login') }}">
+        <form class="bg-orange-100 shadow-lg rounded px-8 pt-6 pb-8 mb-4 text-center" method="POST" action="{{ route('login') }}">
             @csrf
-            <h3 class="text-2xl font-medium mb-6">Login</h3>
+            <h3 class="text-2xl font-medium mb-6 font-black">Login</h3>
             <div class="mb-4">
                 <label class="block font-bold mb-2" for="email">
                     Email
@@ -67,6 +69,7 @@
         </form>
     </div>
 
+</div>
 </div>
 
 
