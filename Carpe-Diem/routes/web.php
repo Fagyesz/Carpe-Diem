@@ -3,6 +3,7 @@
 use App\Mail\TestEmail;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\QrCodeController;
 use App\Http\Controllers\TicketController;
@@ -58,6 +59,7 @@ Route::middleware(['auth'])->group(function () {
     //Show contact page
     Route::get('/contact', [ContactController::class, 'showContactPage']);
 
+
     //Show ticket
     Route::get('/tickets/{ticket}', [QrCodeController::class, 'index']);
 
@@ -66,6 +68,15 @@ Route::middleware(['auth'])->group(function () {
 
     //Show personal ticket list
     Route::get('/tickets', [TicketController::class, 'showTickets']);  
+
+    //show the logged in user profile page
+    Route::get('/profile', [UserController::class, 'show']);
+
+    //show profile edit page
+    Route::get('/profile/edit', [UserController::class, 'showEdit']);
+
+    //update profile 
+    Route::put('/profile/edit', [UserController::class, 'update']);
 
 
 });
