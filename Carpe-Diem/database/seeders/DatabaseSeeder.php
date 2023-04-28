@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Database\Factories\UserFactory;
 use Database\Factories\EventFactory;
-use Database\Factories\TicketFactory;
+//use Database\Factories\TicketFactory;
 use Database\Factories\PostFactory;
 use Database\Factories\CommentFactory;
 use Database\Factories\CategoryFactory;
@@ -31,9 +31,9 @@ class DatabaseSeeder extends Seeder
 
         // Create events and tickets for each user
         User::all()->each(function ($user) {
-            EventFactory::new()->organizerId($user->id)->count(2)->create()->each(function ($event) {
-                TicketFactory::new(['event_id' => $event->id, 'user_id' => $event->organizer_id])->count(5)->create();
-            });
+            EventFactory::new()->organizerId($user->id)->count(2)->create();/* ->each(function ($event) {
+                TicketFactory::new(['event_id' => $event->id, 'user_id' => $event->organizer_id])->count(5)->create(); 
+            });*/
         });
 
         // Create posts for each user with categories and tags

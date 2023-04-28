@@ -16,7 +16,10 @@ class CreateTicketTable extends Migration {
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('ticket_type');
             $table->decimal('ticket_price', 15, 2);
-            $table->integer('ticket_quantity');
+			$table->string('ticket_code');
+			$table->string('ticket_image_url');
+			$table->string('ticket_status');
+
             $table->timestamps();
 
 		});

@@ -1,5 +1,5 @@
 <section
-class="relative h-72 bg-laravel flex flex-col justify-center align-center text-center space-y-3 mb-3"
+class="relative h-68 bg-laravel flex flex-col justify-center align-center text-center space-y-3 mb-3"
 >
 <div
     class="absolute top-0 left-0 w-full h-full opacity-25 bg-no-repeat bg-center"
@@ -9,8 +9,8 @@ class="relative h-72 bg-laravel flex flex-col justify-center align-center text-c
             $admin = \App\Http\Controllers\AdminController::check(\Illuminate\Support\Facades\Auth::id());
         @endphp --}}
        <div class="flex justify-start relative h-2">
-        <div class="w-11 relative left-10">
-            <a href="/"><img src="images/calendar_logo.png" alt=" h-12 "></a>
+        <div class="w-40 relative left-10">
+            <a href="/"><img src="images/CD-logo2.png" alt=" h-40 "></a>
              
         </div>
         
@@ -31,7 +31,7 @@ class="relative h-72 bg-laravel flex flex-col justify-center align-center text-c
     <p class="text-2xl text-black-200 font-bold my-4">
         Find an event for your taste!
     </p>
-    <div>
+    <div class="pb-2">
        {{-- @guest --}} 
             <a
                 href="/register"

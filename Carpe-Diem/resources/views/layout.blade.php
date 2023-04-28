@@ -19,7 +19,8 @@
                 extend: {
                     colors: {
 
-                        laravel: "#4895fa",
+                        laravel: "#f97316",
+
 
                     },
                 },
@@ -29,7 +30,7 @@
     <title>Carpe Diem</title>
 </head>
 <body>
-    <x-navbar :links="['Events', 'Contact', 'Profile']" />
+    <x-navbar :links="['Events', 'Contact', 'Profile', 'Tickets']" />
     <main>
         @yield('content')
     </main>

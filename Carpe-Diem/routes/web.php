@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\QrCodeController;
+use App\Http\Controllers\TicketController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\SocialController;
@@ -56,6 +58,16 @@ Route::middleware(['auth'])->group(function () {
 
     //Show contact page
     Route::get('/contact', [ContactController::class, 'showContactPage']);
+
+
+    //Show ticket
+    Route::get('/tickets/{ticket}', [QrCodeController::class, 'index']);
+
+    //Generating ticket
+    Route::post('/events/{event}/buy_ticket', [QrCodeController::class, 'store']);
+
+    //Show personal ticket list
+    Route::get('/tickets', [TicketController::class, 'showTickets']);  
 
     //show the logged in user profile page
     Route::get('/profile', [UserController::class, 'show']);
