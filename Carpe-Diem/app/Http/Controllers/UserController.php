@@ -11,11 +11,23 @@ class UserController extends Controller
 {
     public function show() 
     {   
+        $soldTickets = 0;
         $user = Auth::user();
         $listedEvents = DB::table('events')->where('organizer_id', $user['id'])->count();
+        $boughtTickets = DB::table('tickets')->where('user_id', $user['id'])->count();
+        $events = DB::select('select * from events where organizer_id = '.$user['id']);
+
+        foreach($events as $event) 
+        {
+            $soldTickets += DB::table('tickets')->where('event_id', $event->id)->count();
+        }
+        
 
         return view('auth.profile', ['user'=> $user,
-                                    'listedEvents' => $listedEvents]);
+                                    'listedEvents' => $listedEvents,
+                                    'boughtTickets' => $boughtTickets,
+                                    'soldTickets' => $soldTickets
+                                ]);
     }
 
     public function showEdit() 
