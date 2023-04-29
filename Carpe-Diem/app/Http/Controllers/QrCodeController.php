@@ -36,7 +36,7 @@ class QrCodeController extends Controller
         $user = Auth::user();
         $quantity = $request['quantity'];
 
-        if($event['tickets_available'] - $quantity < 0) 
+        if($event['tickets_available'] - $quantity < 0 || $event['tickets_available'] - 1 ) 
         {
           return back()->with('message', 'No remaining tickets! Transaction cancelled!');
         }
