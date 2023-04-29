@@ -7,28 +7,28 @@
   <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg mt-16 opacity-90">
     <div class="px-6">
       <div class="flex flex-wrap justify-center">
-        <div class="w-full px-4 flex justify-center">
-            <div class="relative">
+        <div class="w-full flex justify-center">
+            <div class="flex justify-center">
                 <img alt="" src="{{ $user->avatar ? asset('storage/' . $user->avatar) : asset('/images/avatar_placeholder.png') }}" class="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-150-px">
               </div>
         </div>
-        <div class="w-full px-4 text-center mt-20">
+        <div class="w-full text-center mt-20">
           <div class="flex justify-center py-2 lg:pt-4 pt-8">
-            <div class="mr-4 p-3 text-center">
+            <div class="mr-4 p-3">
               <span class="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
                 {{ $listedEvents}}
               </span>
               <span class="text-sm text-blueGray-400">Your Events</span>
             </div>
-            <div class="mr-4 p-3 text-center">
+            <div class="mr-4 p-3">
               <span class="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
-                22 {{-- ide majd kell egy sold ticket count --}}
+                 {{ $soldTickets }}
               </span>
               <span class="text-sm text-blueGray-400">Sold</span>
             </div>
-            <div class="lg:mr-4 p-3 text-center">
+            <div class="lg:mr-4 p-3">
               <span class="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
-                115 {{-- ide majd kell egy bought ticket count --}}
+                {{ $boughtTickets }}
               </span>
               <span class="text-sm text-blueGray-400">Bought</span>
             </div>
