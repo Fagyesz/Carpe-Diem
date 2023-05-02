@@ -90,7 +90,7 @@ class EventController extends Controller
         }
         if($formFields['tickets_available'] <= 0) 
         {
-            return back()->with('message', ' Available tickets can not be 0 or negative!');
+            return back()->with('message', 'Available tickets can not be 0 or negative!');
         }
 
         $event->update($formFields);
