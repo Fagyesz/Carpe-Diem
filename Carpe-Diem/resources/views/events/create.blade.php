@@ -1,8 +1,9 @@
 @extends('layout')
 
  @section('content')
-    <x-card class="p-10 max-w-lg mx-auto mt-24">
+ <div class="flex bg-cover bg-full bg-center bg-no-repeat" style="background-image: url( '../images/create_event.jpg')">
 
+    <x-card class="p-10 max-w-lg mx-auto mt-24 px-4">
         <header class="text-center">
             <h2 class="text-2xl font-bold uppercase mb-1">
                 Create
@@ -109,4 +110,5 @@
         </form>
         </div>
     </x-card>
+</div>
  @endsection
