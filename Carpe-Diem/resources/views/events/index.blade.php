@@ -1,8 +1,11 @@
 @extends('layout')
 
 @section('content')
+    @if(!auth()->user())
+        @include('partials.hero')
+        @include('partials.footer')
+    @endif
     
-    @include('partials.hero')
     <!-- @include('partials.search') -->
    {{-- @include('events') --}}
 
@@ -18,6 +21,6 @@
         @endforeach
     </div>  --}}
 
-    @include('partials.footer')
+    
 
 @endsection
