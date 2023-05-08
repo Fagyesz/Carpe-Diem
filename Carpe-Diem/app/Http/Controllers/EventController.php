@@ -103,17 +103,46 @@ class EventController extends Controller
         if(count($events) > 0) 
         {
             $randomEvent = Arr::random($events);
-            $randomImage = 'storage/' .$randomEvent->event_image;
+            if($randomEvent->event_image == null) 
+            {
+                $randomImage = "https://source.unsplash.com/random?ux";
+            }else
+            {
+                $randomImage = 'storage/' .$randomEvent->event_image;
+            }
+            
         }
-        else 
+        else
         {
             $randomImage = "https://source.unsplash.com/random?ux";
         }
 
+        $hotEvents = DB::table('tickets')->select('event_id', DB::raw("COUNT('event_id') AS ticket_count"))
+                                         ->join('events', 'event_id', '=', 'event_id')
+                                         ->orderBy('ticket_count', 'desc')
+                                         ->groupBy('event_id')
+                                         ->take(3)
+                                         ->get();
+                                       
+       
+
+        if(count($hotEvents) == 3) 
+        {
+            $number1 = DB::table('events')->where('id', $hotEvents[0]->event_id)->first();
+            $number2 = DB::table('events')->where('id', $hotEvents[1]->event_id)->first();
+            $number3 = DB::table('events')->where('id', $hotEvents[2]->event_id)->first();
+
+            return view('events.index', ['randomImage' => $randomImage,
+                                       'number1' => $number1,
+                                       'number2' => $number2,
+                                       'number3' => $number3,
+                                        'isEmpty'=> false ]);
+        }
 
 
-
-        return view('events.index', ['randomImage' => $randomImage]);
+        return view('events.index', ['randomImage' => $randomImage,
+                                    'isEmpty' => true]);
+                                    //megcsinálni: ha nincsen 3 eventnyi jegy, akkor a 3 legfrissebb event, ha nincs annyi event akkor eltünik
 
     }
 
