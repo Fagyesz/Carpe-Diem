@@ -19,7 +19,7 @@
                 extend: {
                     colors: {
 
-                        laravel: "#f97316",
+                        laravel: "#42c5f5",
 
 
                     },
@@ -29,7 +29,6 @@
     </script>
     <title>Carpe Diem</title>
 </head>
-<body>
 <body class="bg-cover bg-center bg-repeat" style="background-image: url('images/default_background.jpg')">
     <x-navbar :links="['Events', 'Contact', 'Profile', 'Tickets']" />
     <main>
