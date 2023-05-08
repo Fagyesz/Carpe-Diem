@@ -3,7 +3,7 @@
         <div class="flex items-center justify-between h-16">
             <div class="flex items-center">
                 <a href="/" class="flex-shrink-0">
-                    <img class="h-12 w-10" src="images\cd-logo-white2.png" alt="Logo">
+                    <img class="h-12 w-10" src={{asset('images\cd-logo-white2.png')}} alt="Logo">
                 </a>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
