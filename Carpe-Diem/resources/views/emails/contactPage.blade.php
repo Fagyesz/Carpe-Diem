@@ -1,8 +1,5 @@
 
 @extends('layout')
-
-
-
 @section('content')
 
 <body class="bg-no-repeat bg-bottom" style="background-image: url('images/contact_page.jpg'); background-size: cover; background-position: center center">
@@ -31,7 +28,7 @@
                 </div>
                 <div class="mb-6 flex justify-center">
                     <button class="bg-laravel text-black rounded py-2 px-4 hover:bg-black text-white ">
-                        Send message 
+                        Send message
                     </button>
 
                 </div>

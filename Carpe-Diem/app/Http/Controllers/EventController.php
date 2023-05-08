@@ -123,7 +123,9 @@ class EventController extends Controller
     public function index()
     {
         //dd(request());
-        return view('events.index');
+        $topThreeEvents = Event::topThree()->get();
+
+        return view('events.index', compact('topThreeEvents'));
 
     }
     //show single listing
