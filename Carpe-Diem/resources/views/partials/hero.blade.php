@@ -33,10 +33,12 @@ class="relative h-68 bg-laravel flex flex-col justify-center align-center text-c
     </p>
     <div class="pb-2">
        {{-- @guest --}} 
+       @if (!auth()->user())
             <a
                 href="/register"
                 class="inline-block border-2 border-white text-white py-2 px-4 rounded-xl uppercase mt-2 hover:text-black hover:border-black"
                 >Click here to Sign Up</a>
+        @endif
             
         {{-- @endguest --}}
     </div>
