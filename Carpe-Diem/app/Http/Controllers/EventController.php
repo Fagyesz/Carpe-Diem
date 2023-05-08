@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\Event;
+use Illuminate\Support\Arr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -97,10 +98,26 @@ class EventController extends Controller
     //show all listings
     public function index()
     {
-        //dd(request());
-        return view('events.index');
+
+        $events = DB::select('select * from events');
+        if(count($events) > 0) 
+        {
+            $randomEvent = Arr::random($events);
+            $randomImage = 'storage/' .$randomEvent->event_image;
+        }
+        else 
+        {
+            $randomImage = "https://source.unsplash.com/random?ux";
+        }
+
+
+
+
+        return view('events.index', ['randomImage' => $randomImage]);
 
     }
+
+
     //show single listing
     public function show(Event $event)
     {
