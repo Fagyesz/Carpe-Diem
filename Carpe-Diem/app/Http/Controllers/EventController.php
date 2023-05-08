@@ -1,22 +1,25 @@
 <?php
 
 namespace App\Http\Controllers;
-use Carbon\Carbon;
+
 use App\Models\Event;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class EventController extends Controller
 {
     //Show event create form
-    public function create() {
+    public function create()
+    {
         return view('events.create');
     }
 
     //Show event listing page
-    public function showEvents() {
+    public function showEvents()
+    {
         return view('events.events_listing', [
-            'events' => Event::latest()->filter(request(['search']))->paginate(9)
+            'events' => Event::latest()->filter(request(['search']))->paginate(9),
         ]);
     }
 
@@ -37,30 +40,35 @@ class EventController extends Controller
             'end_time' => 'required',
             'location' => 'required|string',
             'ticket_price' => 'required|decimal:0,2',
-            'tickets_available' => 'required|integer'
+            'tickets_available' => 'required|integer',
         ]);
 
         if ($request->hasFile('event_image')) {
             $formFields['event_image'] = $request->file('event_image')->store('event_images', 'public');
         }
-        if($formFields['end_time'] < $formFields['start_time'])
-        {
-            return back()->with('message', 'End time can not be earlier, then the Start time!');
+        if ($formFields['end_time'] < $formFields['start_time']) {
+            toastr()->error('End time can not be earlier, then the Start time!', 'Oops!');
+            return back();
+
         }
-        if($formFields['ticket_price'] <= 0) 
-        {
-            return back()->with('message', 'Ticket price can not be 0 or negative!');
+        if ($formFields['ticket_price'] <= 0) {
+            toastr()->error('Ticket price can not be 0 or negative!', 'Oops!');
+            return back();
+
         }
-        if($formFields['tickets_available'] <= 0) 
-        {
-            return back()->with('message', ' Available tickets can not be 0 or negative!');
+        if ($formFields['tickets_available'] <= 0) {
+            toastr()->error('Available tickets can not be 0 or negative!', 'Oops!');
+            return back();
+
         }
 
         $formFields['organizer_id'] = $request->user()->id;
 
         Event::create($formFields);
 
-        return redirect('/')->with('message', 'Event created succesfully!');
+        toastr()->success('Event created succesfully!', 'Congrats');
+        return redirect('/');
+
     }
 
     //Update events
@@ -74,38 +82,43 @@ class EventController extends Controller
             'end_time' => 'required',
             'location' => 'required',
             'ticket_price' => 'required|decimal:0,2',
-            'tickets_available' => 'required|integer'
+            'tickets_available' => 'required|integer',
         ]);
 
         if ($request->hasFile('event_image')) {
             $formFields['event_image'] = $request->file('event_image')->store('event_images', 'public');
         }
-        if($formFields['end_time'] < $formFields['start_time'])
-        {
-            return back()->with('message', 'End time can not be earlier, then the Start time!');
+        if ($formFields['end_time'] < $formFields['start_time']) {
+            toastr()->error('End time can not be earlier, then the Start time!', 'Oops!');
+            return back();
+
         }
-        if($formFields['ticket_price'] <= 0) 
-        {
-            return back()->with('message', 'Ticket price can not be 0 or negative!');
+        if ($formFields['ticket_price'] <= 0) {
+            toastr()->error('Ticket price can not be 0 or negative!', 'Oops!');
+            return back();
+
         }
-        if($formFields['tickets_available'] <= 0) 
-        {
-            return back()->with('message', 'Available tickets can not be 0 or negative!');
+        if ($formFields['tickets_available'] <= 0) {
+            toastr()->error('Available tickets can not be 0 or negative!', 'Oops!');
+            return back();
+
         }
 
         $event->update($formFields);
+        toastr()->success('Event updated succesfully!');
+        return back();
 
-        return back()->with('message', 'Event updated succesfully!');
     }
 
     //Delete event
     public function destroy(Event $event)
     {
         $event->delete();
+        toastr()->success('Event deleted succesfully!', 'Congrats');
+        return redirect('/events');
 
-        return redirect('/events')->with('message', 'Event deleted succesfully!');
     }
-    
+
     //show all listings
     public function index()
     {
@@ -121,24 +134,22 @@ class EventController extends Controller
 
         $startTime = Carbon::parse($event->start_time);
         $endTime = Carbon::parse($event->end_time);
-    
-        $totalDuration =  $startTime->diffInHours($endTime)." Hours";
-        $shareButtons=\Share::page(
+
+        $totalDuration = $startTime->diffInHours($endTime) . " Hours";
+        $shareButtons = \Share::page(
             url('/events', $event->id)
-            
+
         )
-        ->facebook()
-        ->twitter()
-        ->whatsapp()
-        ->reddit();
+            ->facebook()
+            ->twitter()
+            ->whatsapp()
+            ->reddit();
 
         return view('events.show', [
             'event' => $event,
             'organizer' => $organizer,
-            'totalDuration' => $totalDuration
-        ],compact('shareButtons'));
+            'totalDuration' => $totalDuration,
+        ], compact('shareButtons'));
     }
-
-
 
 }
