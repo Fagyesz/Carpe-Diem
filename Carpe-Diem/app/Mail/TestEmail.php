@@ -37,7 +37,7 @@ class TestEmail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'emails.test',
+            markdown: 'emails.qrcode',
         );
     }
 
