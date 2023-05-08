@@ -5,6 +5,8 @@
 
 
         @include('partials.hero')
+@if (!$isEmpty)
+  
 
     <div class="antialiased w-full h-full bg-black opacity-90 text-gray-400 font-inter p-10">
         <div class="container px-4 mx-auto">
@@ -23,41 +25,30 @@
                 class="rounded-lg text-center overflow-hidden w-full transform hover:shadow-2xl hover:scale-105 transition duration-200 ease-in"
               >
                 <div id="title" class="w-full py-5 border-b border-gray-800">
-                  <h2 class="font-bold text-3xl text-white">Event name</h2>
+                  <h2 class="font-bold text-3xl text-white">{{ $number1->title }}</h2>
                   <h3 class="font-normal text-indigo-500 text-xl mt-2">
-                    $9
+                    ${{ $number1->ticket_price }}
                   </h3>
                 </div>
                 <div id="content" class="">
                   <div id="icon" class="my-5">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-12 w-12 mx-auto fill-stroke text-indigo-600"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="1"
-                        d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                      />
-                    </svg>
+                    <div class="flex flex-row justify-center">
+                      <img src="{{'storage/' .$number1->event_image }}" class="h-64 w-1/2  object-cover rounded-xl " alt="Layout Image">
+                    </div>
                     <p class="text-gray-500 text-sm pt-2">
-                      Valami
+                      {{ $number1->tickets_available }} ticket left!
                     </p>
                   </div>
                   <div id="contain" class="leading-8 mb-10 text-lg font-light">
                     <ul>
-                      <li>location</li>
-                      <li>start</li>
-                      <li>end</li>
-                      <li></li>
+                      <li>{{ $number1->location }}</li>
+                      <li class="pt-2">{{ \Carbon\Carbon::parse($number1->start_time)->format('Y.m.d')}}</li>
+                      <li>-</li>
+                      <li>{{ \Carbon\Carbon::parse($number1->end_time)->format('Y.m.d') }}</li>
                     </ul>
                     <div id="choose" class="w-full mt-10 px-6">
                       <a
-                        href="#"
+                        href="events/{{ $number1->id }}"
                         class="w-full block bg-gray-900 font-medium text-xl py-4 rounded-xl hover:shadow-lg transition duration-200 ease-in-out hover:bg-indigo-600 hover:text-white"
                         >Check out!</a
                       >
@@ -70,41 +61,30 @@
                 class="rounded-lg text-center overflow-hidden w-full transform hover:shadow-2xl hover:scale-105 transition duration-200 ease-in"
               >
                 <div id="title" class="w-full py-5 border-b border-gray-800">
-                  <h2 class="font-bold text-3xl text-white">Event name</h2>
+                  <h2 class="font-bold text-3xl text-white">{{ $number2->title }}</h2>
                   <h3 class="font-normal text-indigo-500 text-xl mt-2">
-                    $12
+                    ${{ $number2->ticket_price }}
                   </h3>
                 </div>
                 <div id="content" class="">
                   <div id="icon" class="my-5">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-12 w-12 mx-auto fill-stroke text-indigo-600"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="1"
-                        d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
-                      />
-                    </svg>
+                    <div class="flex flex-row justify-center">
+                      <img src="{{'storage/' .$number2->event_image }}" class="h-64 w-1/2  object-cover rounded-xl " alt="Layout Image">
+                    </div>
                     <p class="text-gray-500 text-sm pt-2">
-                      Valami
+                      {{ $number2->tickets_available }} ticket left!
                     </p>
                   </div>
                   <div id="contain" class="leading-8 mb-10 text-lg font-light">
                     <ul>
-                      <li>location</li>
-                      <li>start</li>
-                      <li>end</li>
-                      <li></li>
+                      <li>{{ $number2->location }}</li>
+                      <li class="pt-2">{{ \Carbon\Carbon::parse($number2->start_time)->format('Y.m.d')}}</li>
+                      <li>-</li>
+                      <li>{{ \Carbon\Carbon::parse($number2->end_time)->format('Y.m.d') }}</li>
                     </ul>
                     <div id="choose" class="w-full mt-10 px-6">
                       <a
-                        href="#"
+                        href="events/{{ $number2->id }}"
                         class="w-full block bg-gray-900 font-medium text-xl py-4 rounded-xl hover:shadow-lg transition duration-200 ease-in-out hover:bg-indigo-600 hover:text-white"
                         >Check out!</a
                       >
@@ -117,41 +97,30 @@
                 class="rounded-lg text-center overflow-hidden w-full transform hover:shadow-2xl hover:scale-105 transition duration-200 ease-in"
               >
                 <div id="title" class="w-full py-5 border-b border-gray-800">
-                  <h2 class="font-bold text-3xl text-white">Event name</h2>
+                  <h2 class="font-bold text-3xl text-white">{{ $number3->title }}</h2>
                   <h3 class="font-normal text-indigo-500 text-xl mt-2">
-                    $19
+                    ${{ $number3->ticket_price }}
                   </h3>
                 </div>
                 <div id="content" class="">
                   <div id="icon" class="my-5">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-12 w-12 mx-auto fill-stroke text-indigo-600"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="1"
-                        d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
-                      />
-                    </svg>
+                    <div class="flex flex-row justify-center">
+                      <img src="{{'storage/' .$number3->event_image }}" class="h-64 w-1/2  object-cover rounded-xl " alt="Layout Image">
+                    </div>
                     <p class="text-gray-500 text-sm pt-2">
-                      Valami
+                      {{ $number3->tickets_available }} ticket left!
                     </p>
                   </div>
                   <div id="contain" class="leading-8 mb-10 text-lg font-light">
-                    <ul>
-                      <li>location</li>
-                      <li>start</li>
-                      <li>end</li>
-                      <li></li>
+                    <ul >
+                      <li>{{ $number3->location }}</li>
+                      <li class="pt-2">{{ \Carbon\Carbon::parse($number3->start_time)->format('Y.m.d')}}</li>
+                      <li>-</li>
+                      <li>{{ \Carbon\Carbon::parse($number3->end_time)->format('Y.m.d') }}</li>
                     </ul>
                     <div id="choose" class="w-full mt-10 px-6">
                       <a
-                        href="#"
+                        href="events/{{ $number3->id }}"
                         class="w-full block bg-gray-900 font-medium text-xl py-4 rounded-xl hover:shadow-lg transition duration-200 ease-in-out hover:bg-indigo-600 hover:text-white"
                         >Check out!</a
                       >
@@ -165,7 +134,7 @@
       </div>
 
     
-
+@endif
 
         @include('partials.footer')
  
