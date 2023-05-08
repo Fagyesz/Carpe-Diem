@@ -58,7 +58,8 @@ class RegisterController extends Controller
         return redirect()->route('home');
     } else {
         // There was an error saving the user
-        return back()->withInput()->withErrors(['error' => 'There was an error creating your account. Please try again later.']);
+        toastr()->error('There was an error creating your account. Please try again later.', 'Oops!');
+        return back();//->withInput()->withErrors(['error' => 'There was an error creating your account. Please try again later.']);
     }
 }
 
