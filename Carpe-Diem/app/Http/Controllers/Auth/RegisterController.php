@@ -1,11 +1,13 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
+use Illuminate\Auth\Events\Registered;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+
+
 
 class RegisterController extends Controller
 {
@@ -47,6 +49,8 @@ class RegisterController extends Controller
     }
 
     auth()->login($user);
+
+    $user->sendEmailVerificationNotification();
 
     // Check if user was created and returned
     if ($user) {
