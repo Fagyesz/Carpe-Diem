@@ -26,6 +26,7 @@ use App\Http\Controllers\Auth\RegisterController;
 // Public routes
 Route::get('/', [EventController::class, 'index'])->name('home');
 
+
 // Authentication routes
 Route::middleware(['guest'])->group(function () {
     Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
