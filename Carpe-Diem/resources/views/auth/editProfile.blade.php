@@ -5,7 +5,7 @@
     <div class="w-full lg:w-4/12 px-4 mx-auto pt-6">
         <div
             class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg mt-16 opacity-90">
-            <div class="flex px-16 py-8 ">
+            <div class="flex px-16 py-8 justify-center ">
                 <form method="POST" action="/profile/edit" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
@@ -29,7 +29,7 @@
                     </div>
                     <div class="mb-6 pl-4">
                         <label for="email" class="inline-block text-lg mb-2">Email:</label>
-                        <input type="email" class="border border-gray-200 rounded p-2 w-full" name="email"
+                        <input type="text" class="border border-gray-200 rounded p-2 w-full" name="email"
                             value="{{ $user->email }}" />
                         @error('email')
                         <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
@@ -45,7 +45,7 @@
                     </div>
                     <div class="mb-6 pl-4">
                         <label for="phone" class="inline-block text-lg mb-2">Phone:</label>
-                        <input type="tel" pattern="[0-9]{2}-[0-9]{2}-[0-9]{3}-[0-9]{4}"
+                        <input type="tel" 
                             class="border border-gray-200 rounded p-2 w-full" name="phone"
                             placeholder="Format: 00-11-222-3333" value="{{ $user->phone }}" />
                         @error('phone')

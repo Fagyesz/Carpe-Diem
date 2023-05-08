@@ -43,11 +43,11 @@ class UserController extends Controller
         $user = Auth::user();
         $formFields = $request->validate([
             'username' => 'required',
-            'name' => 'required',
-            'email' => 'required',
+            'name' => 'required|regex:/^([^0-9]*)$/',
+            'email' => 'required|email',
             'birthdate' => 'nullable',
-            'phone' => 'nullable',
-            'country' => 'nullable',
+            'phone' => 'nullable|regex:/[0-9]{2}-[0-9]{2}-[0-9]{3}-[0-9]{4}/',
+            'country' => 'nullable|regex:/^([^0-9]*)$/',
             'address' => 'nullable',
             'gender' => 'nullable',
             'bio' => 'nullable'
