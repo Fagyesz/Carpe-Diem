@@ -138,10 +138,32 @@ class EventController extends Controller
                                        'number3' => $number3,
                                         'isEmpty'=> false ]);
         }
+        else
+        {
+            $hotEvents = DB::table('events')->select('id')->orderBy('Start_time')
+                                                          ->take(3)
+                                                          ->get();
+            if(count($hotEvents) == 3)
+            {
+
+            $number1 = DB::table('events')->where('id', $hotEvents[2]->id)->first();
+            $number2 = DB::table('events')->where('id', $hotEvents[1]->id)->first();
+            $number3 = DB::table('events')->where('id', $hotEvents[0]->id)->first();
+
+            return view('events.index', ['randomImage' => $randomImage,
+                                        'number1' => $number1,
+                                        'number2' => $number2,
+                                        'number3' => $number3,
+                                        'isEmpty'=> false ]);
+            }
 
 
-        return view('events.index', ['randomImage' => $randomImage,
-                                    'isEmpty' => true]);
+            return view('events.index', ['randomImage' => $randomImage,
+            'isEmpty' => true]);
+
+        }
+
+
                                     //megcsinálni: ha nincsen 3 eventnyi jegy, akkor a 3 legfrissebb event, ha nincs annyi event akkor eltünik
 
     }
