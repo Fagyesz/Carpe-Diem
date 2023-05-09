@@ -33,7 +33,11 @@
                 <div id="content" class="">
                   <div id="icon" class="my-5">
                     <div class="flex flex-row justify-center">
-                      <img src="{{'storage/' .$number1->event_image }}" class="h-64 w-1/2  object-cover rounded-xl " alt="Layout Image">
+                      @if ($number1->event_image == null)
+                        <img src="../images/CD-logo2.png" class="h-64 w-1/2  object-cover rounded-xl " alt="Layout Image">
+                      @else
+                        <img src="{{'storage/' .$number1->event_image }}" class="h-64 w-1/2  object-cover rounded-xl " alt="Layout Image">
+                      @endif
                     </div>
                     <p class="text-gray-500 text-sm pt-2">
                       {{ $number1->tickets_available }} ticket left!
@@ -69,7 +73,11 @@
                 <div id="content" class="">
                   <div id="icon" class="my-5">
                     <div class="flex flex-row justify-center">
+                      @if ($number2->event_image == null)
+                      <img src="../images/CD-logo2.png" class="h-64 w-1/2  object-cover rounded-xl " alt="Layout Image">
+                    @else
                       <img src="{{'storage/' .$number2->event_image }}" class="h-64 w-1/2  object-cover rounded-xl " alt="Layout Image">
+                    @endif
                     </div>
                     <p class="text-gray-500 text-sm pt-2">
                       {{ $number2->tickets_available }} ticket left!
@@ -105,7 +113,11 @@
                 <div id="content" class="">
                   <div id="icon" class="my-5">
                     <div class="flex flex-row justify-center">
+                      @if ($number3->event_image == null)
+                      <img src="../images/CD-logo2.png" class="h-64 w-1/2  object-cover rounded-xl " alt="Layout Image">
+                    @else
                       <img src="{{'storage/' .$number3->event_image }}" class="h-64 w-1/2  object-cover rounded-xl " alt="Layout Image">
+                    @endif
                     </div>
                     <p class="text-gray-500 text-sm pt-2">
                       {{ $number3->tickets_available }} ticket left!
