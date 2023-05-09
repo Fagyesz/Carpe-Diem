@@ -98,23 +98,35 @@ class EventController extends Controller
     //show all listings
     public function index()
     {
-
+        $count = 0;
         $events = DB::select('select * from events');
         if(count($events) > 0) 
         {
-            $randomEvent = Arr::random($events);
-            if($randomEvent->event_image == null) 
+
+
+            for($i = 0; $i < count($events); $i++) 
             {
-                $randomImage = "https://source.unsplash.com/random?ux";
-            }else
+                $randomEvent = Arr::random($events);
+                $count++;
+                if($randomEvent->event_image != null)
+                {
+                    break;
+                }
+            }
+
+            if($count < count($events)) 
             {
                 $randomImage = 'storage/' .$randomEvent->event_image;
+                
+            }else
+            {
+                $randomImage = "/images/CD-logo2.png";      
             }
             
         }
         else
         {
-            $randomImage = "https://source.unsplash.com/random?ux";
+            $randomImage = "/images/no_event.png";
         }
 
         $hotEvents = DB::table('tickets')->select('event_id', DB::raw("COUNT('event_id') AS ticket_count"))
