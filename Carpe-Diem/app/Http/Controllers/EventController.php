@@ -152,7 +152,7 @@ class EventController extends Controller
         }
         else
         {
-            $hotEvents = DB::table('events')->select('id')->orderBy('Start_time')
+            $hotEvents = DB::table('events')->select('id')->orderBy('created_at', 'desc')
                                                           ->take(3)
                                                           ->get();
             if(count($hotEvents) == 3)
