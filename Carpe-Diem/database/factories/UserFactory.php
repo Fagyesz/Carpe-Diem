@@ -28,7 +28,7 @@ class UserFactory extends Factory
             'bio' => $this->faker->text(200),
             'birthdate' => $this->faker->date(),
             'gender' => $this->faker->randomElement(['male', 'female']),
-            'phone' => $this->faker->phoneNumber,
+            'phone' => $this->faker->bothify('##-##-###-####'),
             'address' => $this->faker->address,
             'country' => $this->faker->country,
             'timezone' => $this->faker->timezone,

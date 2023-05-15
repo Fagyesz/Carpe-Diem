@@ -1,4 +1,7 @@
-@extends('layout')
+@extends('layout') @section('content') @include('partials.hero')
+<!-- @include('partials.search') -->
+{{-- @include('events') --}}
+
 
 @section('content')
 <div class="bg-fixed min-h-screen bg-center bg-cover" style="background-image: url(../images/main_bg.jpg)">
@@ -153,3 +156,4 @@
 
 </div>
 @endsection
+

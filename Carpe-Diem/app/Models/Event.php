@@ -21,6 +21,11 @@ class Event extends Model
         'event_image'
 
     ];
+    public function scopeTopThree($query)
+{
+    return $query->orderBy('end_time', 'desc')->take(3);
+}
+
 
     public function scopeFilter($query, array $filters)
     {

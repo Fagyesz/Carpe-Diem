@@ -22,5 +22,35 @@
                 </div>
         </section>
     </div>
+
+<div class="z-10">
+    
+   {{-- @if($admin)
+    <h1 class="text-6xl font-bold uppercase text-white">
+        Event<span class="text-black">Welcome Admin!</span>
+    </h1> 
+    @else--}} 
+    
+    
+    <h1 class="text-6xl font-bold uppercase text-black">
+        Carpe Diem
+    </h1>
+    {{-- @endif --}}
+    <p class="text-2xl text-black-200 font-bold my-4">
+        Find an event for your taste!
+    </p>
+    <div class="pb-2">
+       {{-- @guest --}} 
+       @if (!auth()->user())
+            <a
+                href="/register"
+                class="inline-block border-2 border-white text-white py-2 px-4 rounded-xl uppercase mt-2 hover:text-black hover:border-black"
+                >Click here to Sign Up</a>
+        @endif
+            
+        {{-- @endguest --}}
+    </div>
+</div>
+
 </section>
 

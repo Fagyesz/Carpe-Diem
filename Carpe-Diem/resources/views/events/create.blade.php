@@ -1,8 +1,9 @@
 @extends('layout')
 
  @section('content')
-    <x-card class="p-10 max-w-lg mx-auto mt-24">
+ <div class="flex bg-cover bg-full bg-center bg-no-repeat" style="background-image: url( '../images/create_event.jpg')">
 
+    <x-card class="p-10 max-w-lg mx-auto mt-24 px-4">
         <header class="text-center">
             <h2 class="text-2xl font-bold uppercase mb-1">
                 Create
@@ -60,7 +61,7 @@
 
             <div class="mb-6">
                 <label for="event_image" class="inline-block text-lg mb-2">
-                    Image
+                    Image <p class="text-sm">*Optional</p>
                 </label>
                 <input type="file" class="border border-gray-200 rounded p-2 w-full" name="event_image" />
                 @error('event_image')
@@ -109,4 +110,5 @@
         </form>
         </div>
     </x-card>
+</div>
  @endsection

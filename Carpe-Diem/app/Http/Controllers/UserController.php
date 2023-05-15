@@ -9,19 +9,19 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    public function show() 
-    {   
+    public function show()
+    {
         $soldTickets = 0;
         $user = Auth::user();
         $listedEvents = DB::table('events')->where('organizer_id', $user['id'])->count();
         $boughtTickets = DB::table('tickets')->where('user_id', $user['id'])->count();
         $events = DB::select('select * from events where organizer_id = '.$user['id']);
 
-        foreach($events as $event) 
+        foreach($events as $event)
         {
             $soldTickets += DB::table('tickets')->where('event_id', $event->id)->count();
         }
-        
+
 
         return view('auth.profile', ['user'=> $user,
                                     'listedEvents' => $listedEvents,
@@ -30,7 +30,7 @@ class UserController extends Controller
                                 ]);
     }
 
-    public function showEdit() 
+    public function showEdit()
     {
         $user = Auth::user();
 
@@ -43,11 +43,11 @@ class UserController extends Controller
         $user = Auth::user();
         $formFields = $request->validate([
             'username' => 'required',
-            'name' => 'required',
-            'email' => 'required',
+            'name' => 'required|regex:/^([^0-9]*)$/',
+            'email' => 'required|email',
             'birthdate' => 'nullable',
-            'phone' => 'nullable',
-            'country' => 'nullable',
+            'phone' => 'nullable|regex:/[0-9]{2}-[0-9]{2}-[0-9]{3}-[0-9]{4}/',
+            'country' => 'nullable|regex:/^([^0-9]*)$/',
             'address' => 'nullable',
             'gender' => 'nullable',
             'bio' => 'nullable'
@@ -58,7 +58,7 @@ class UserController extends Controller
         }
 
         $user->update($formFields);
-
-        return back()->with('message', 'Profile edited succesfully!');
+        toastr()->success('Profile edited succesfully!', 'Congrats');
+        return back();
     }
 }

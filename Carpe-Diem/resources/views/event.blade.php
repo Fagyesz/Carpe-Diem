@@ -9,4 +9,5 @@
     {{ $event['description'] }}
 </p>
 
+
 @endsection
