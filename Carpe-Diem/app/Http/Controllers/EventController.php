@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
+use Illuminate\Support\Arr;
 use Carbon\Carbon;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -122,12 +124,91 @@ class EventController extends Controller
     //show all listings
     public function index()
     {
-        //dd(request());
-        $topThreeEvents = Event::topThree()->get();
 
-        return view('events.index', compact('topThreeEvents'));
+        $count = 0;
+        $events = DB::select('select * from events');
+        if(count($events) > 0) 
+        {
+
+
+            for($i = 0; $i < count($events); $i++) 
+            {
+                $randomEvent = Arr::random($events);
+                $count++;
+                if($randomEvent->event_image != null)
+                {
+                    break;
+                }
+            }
+
+            if($count < count($events)) 
+            {
+                $randomImage = 'storage/' .$randomEvent->event_image;
+                
+            }else
+            {
+                $randomImage = "/images/CD-logo2.png";      
+            }
+            
+        }
+        else
+        {
+            $randomImage = "/images/no_event.png";
+        }
+
+        $hotEvents = DB::table('tickets')->select('event_id', DB::raw("COUNT('event_id') AS ticket_count"))
+                                         ->join('events', 'event_id', '=', 'event_id')
+                                         ->orderBy('ticket_count', 'desc')
+                                         ->groupBy('event_id')
+                                         ->take(3)
+                                         ->get();
+                                       
+       
+
+        if(count($hotEvents) == 3) 
+        {
+            $number1 = DB::table('events')->where('id', $hotEvents[0]->event_id)->first();
+            $number2 = DB::table('events')->where('id', $hotEvents[1]->event_id)->first();
+            $number3 = DB::table('events')->where('id', $hotEvents[2]->event_id)->first();
+
+            return view('events.index', ['randomImage' => $randomImage,
+                                       'number1' => $number1,
+                                       'number2' => $number2,
+                                       'number3' => $number3,
+                                        'isEmpty'=> false ]);
+        }
+        else
+        {
+            $hotEvents = DB::table('events')->select('id')->orderBy('created_at', 'desc')
+                                                          ->take(3)
+                                                          ->get();
+            if(count($hotEvents) == 3)
+            {
+
+            $number1 = DB::table('events')->where('id', $hotEvents[2]->id)->first();
+            $number2 = DB::table('events')->where('id', $hotEvents[1]->id)->first();
+            $number3 = DB::table('events')->where('id', $hotEvents[0]->id)->first();
+
+            return view('events.index', ['randomImage' => $randomImage,
+                                        'number1' => $number1,
+                                        'number2' => $number2,
+                                        'number3' => $number3,
+                                        'isEmpty'=> false ]);
+            }
+
+
+            return view('events.index', ['randomImage' => $randomImage,
+            'isEmpty' => true]);
+
+        }
+
+
+                                    //megcsinálni: ha nincsen 3 eventnyi jegy, akkor a 3 legfrissebb event, ha nincs annyi event akkor eltünik
+
 
     }
+
+
     //show single listing
     public function show(Event $event)
     {
