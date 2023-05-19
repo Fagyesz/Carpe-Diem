@@ -1,18 +1,17 @@
-@extends('layout') @section('content') @include('partials.hero')
-<!-- @include('partials.search') -->
-{{-- @include('events') --}}
-
-
+@extends('layout') 
 @section('content')
-<div class="bg-fixed min-h-screen bg-center bg-cover" style="background-image: url(../images/main_bg.jpg)">
+
+<!-- @include('partials.search') -->
+
+<div class="bg-fixed min-h-screen bg-center bg-cover" style="">
 
 
         @include('partials.hero')
 @if (!$isEmpty)
   
 
-    <div class="antialiased w-full h-full bg-black opacity-90 text-gray-400 font-inter p-10">
-        <div class="container px-4 mx-auto">
+    <div class="antialiased w-full h-full bg-yellow-600/75 text-gray-400 font-inter p-10">
+        <div class="container px-4 mx-auto bg-stone-900/75">
           <div>
             <div id="title" class="text-center my-10">
               <h1 class="font-bold text-4xl text-white">Hot events</h1>
@@ -156,4 +155,3 @@
 
 </div>
 @endsection
-
