@@ -5,9 +5,9 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css">
 
 <!-- Login form -->
-<div class="flex bg-cover bg-no-repeat bg-center h-screen font-sans" style="background-image: url('images/login_register_page.jpg'); font-family: Roboto">
+<div class="flex bg-cover bg-no-repeat bg-center h-screen font-sans justify-center" style="background-image: url('images/login_register_page.jpg'); font-family: Roboto">
 
-<div class="flex items-center" style="margin: 0 auto">
+<div class="flex items-center">
     <div class="w-full max-w-md">
         <form class="bg-orange-100 shadow-lg rounded px-8 pt-6 pb-8 mb-4 text-center" method="POST" action="{{ route('login') }}">
             @csrf
