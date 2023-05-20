@@ -74,24 +74,20 @@
                 </div>
 
             </div>
-        </x-card>
-        @if (auth()->user()->id == $event['organizer_id'])
-
-
-        <x-card class="mt-4 p-2 flex space-x-6">
-            <a class="flex justify-start" href="/events/{{ $event->id }}/edit">
+            @if (auth()->user()->id == $event['organizer_id'])
+            <a class="flex justify-center" href="/events/{{ $event->id }}/edit">
                 <i class="fa-solid fa-pencil"></i>Edit
             </a>
 
-            <form method="POST" action="/events/{{ $event->id }}">
+            <form method="POST" action="/events/{{ $event->id }}" class="flex justify-center">
                 @csrf
                 @method('DELETE')
                 <button class="text-red-500">
                     <i class="fa-solid fa-trash"></i>Delete
                 </button>
             </form>
+            @endif
         </x-card>
-        @endif
     </div>
 </div>
 @endsection
