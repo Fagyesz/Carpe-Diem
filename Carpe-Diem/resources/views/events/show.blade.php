@@ -2,12 +2,12 @@
 
 @section('content')
 
-<body class="bg-scroll"
-    style="background-image:url({{ url('images/single_listing_bg.jpg') }}); background-size: cover; background-position: center center">
-    <div class="mx-6" style="margin-left: 30rem; margin-right: 30rem; margin-top: 5%; ">
-        <x-card class="p-5">
-            <div class="mx-20 flex flex-col justify-items-start text-start">
-                <img class="hidden w-80 mr-6 md:block"
+<div class="bg-scroll justify-center bg-cover bg-center bg-no-repeat"
+    style="background-image: {{ url('/images/single_listing_bg.jpg') }}">
+    <div class="flex flex-1  mx-6 max-w-md w-full mt-2 place-content-center" style="margin: 0 auto;">
+        <x-card class="p-5 flex-row shrink">
+            <div class="mx-20 flex flex-col text-xs justify-center text-start">
+                <img class="w-80 mr-6"
                     src="{{ $event->event_image ? asset('storage/' . $event->event_image) : asset('/images/no_image.jpg') }}"
                     alt="" />
 
@@ -93,5 +93,5 @@
         </x-card>
         @endif
     </div>
-</body>
+</div>
 @endsection
