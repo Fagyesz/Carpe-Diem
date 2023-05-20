@@ -9,7 +9,7 @@
                 <form method="POST" action="/profile/edit" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
-                    <div class="flex justify-center text-center text-2xl font-bold mb-16 pl-4">Edit your personal datas
+                    <div class="flex justify-center text-center text-2xl font-bold mb-16 pl-4">Edit your personal information
                     </div>
                     <div class="mb-6 pl-4">
                         <label for="username" class="inline-block text-lg mb-2">Username:</label>
