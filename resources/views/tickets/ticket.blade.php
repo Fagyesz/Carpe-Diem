@@ -89,6 +89,15 @@
 								<div class="flex justify-center text-center italic pt-8">
 									Ticket bought: {{ \Carbon\Carbon::parse($ticket->created_at)->format('Y.m.d H:m:i') }}
 								</div>
+								
+								<div title="Add to Calendar" class="addeventatc">
+									Add to Calendar
+									<span class="start">{{ \Carbon\Carbon::parse($event->start_time)->format('m/d/Y g:i A')}}</span>
+									<span class="end">{{ \Carbon\Carbon::parse($event->end_time)->format('m/d/Y g:i A')}}</span>
+									<span class="title">{{$event->title}} </span>
+									<span class="description">{{$event->description}}</span>
+									<span class="location">{{$event->location}}</span>
+								</div>
 							</div>
 						</div>
 					</div>

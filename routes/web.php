@@ -30,6 +30,7 @@ use Illuminate\Support\Facades\Route;
 // Public routes
 Route::get('/', [EventController::class, 'index'])->name('home');
 
+
 Auth::routes(['verify' => true]);
 
 Route::get('/email/verify', function () {
@@ -48,6 +49,7 @@ Route::post('/email/verification-notification', function (Request $request) {
     toastr()->success('Verification link sent!');
     return back();//->with('message', 'Verification link sent!');
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
+
 
 // Authentication routes
 Route::middleware(['guest'])->group(function () {

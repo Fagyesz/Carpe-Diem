@@ -2,9 +2,10 @@
 @extends('layout')
 @section('content')
 
-<body class="bg-no-repeat bg-bottom" style="background-image: url('images/contact_page.jpg'); background-size: cover; background-position: center center">
+<div class="flex min-h-screen bg-cover bg-center bg-no-repeat justify-center" style="background-image: url('images/contact_page.jpg')">
 
-    <x-card class="p-10 max-w-lg mx-auto mt-24">
+<div class="pt-24 w-max max-w-md">
+    <x-card class="p-10 max-w-lg mx-auto">
     <div class="mx-6">
 
         <header class="text-center">
@@ -36,8 +37,9 @@
         </form>
     </div>
     </x-card>
+</div>
 
-
+</div>
 @endsection
-</body>
+
 

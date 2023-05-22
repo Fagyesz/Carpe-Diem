@@ -1,9 +1,9 @@
 @extends('layout')
 
 @section('content')
-<div class="flex bg-cover bg-center bg-no-repeat" style="background-image: url('images/single_listing_bg.jpg')">
+<div class="flex min-h-screen bg-cover bg-center bg-no-repeat" style="background-image: url('images/single_listing_bg.jpg')">
 
-<div class="w-full lg:w-4/12 px-4 mx-auto pt-6">
+<div class="w-full max-w-md lg:w-4/12 px-4 mx-auto pt-6">
   <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg mt-16 opacity-90">
     <div class="px-6">
       <div class="flex flex-wrap justify-center">
