@@ -1,12 +1,16 @@
+
 <div class="bg-sky-400 sm:flex-1">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex">
         <div class="flex sm:flex-1 sm:flex-row items-center justify-between h-full">
             <div class="flex sm:flex-1 items-center">
+
                 <a href="/" class="flex-shrink-0">
                     <img class="h-12 w-10" src="{{asset('images\cd-logo-white2.png')}}" alt="Logo">
                 </a>
+
                 <div class="flex sm:flex-1 items-center">
                     <div class="ml-10 items-baseline space-x-4 ">
+
                         <a href="/" class="text-white hover:bg-amber-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Main</a>
                         @foreach ($links as $link)
                             <a href="/{{ strtolower($link) }}" class="text-white hover:bg-amber-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">{{ $link }}</a>
