@@ -2,10 +2,10 @@
 
 @section('content')
 
-<body class="bg-scroll"
-    style="background-image:url({{ url('images/single_listing_bg.jpg') }}); background-size: cover; background-position: center center">
-
-    <x-card class="p-10 max-w-lg mx-auto mt-24">
+<div class="bg-scroll justify-center bg-cover bg-center bg-no-repeat"
+    style="background-image:url({{ url('images/single_listing_bg.jpg') }})">
+    <div class="flex flex-1  mx-6 max-w-md w-full mt-2 place-content-center" style="margin: 0 auto;">
+    <x-card class="p-10 max-w-lg mx-auto mt-24 shrink">
 
         <header class="text-center">
             <h2 class="text-2xl font-bold uppercase mb-1">
@@ -120,5 +120,6 @@
         </div>
         </div>
     </x-card>
-</body>
+    <div>
+</div>
 @endsection

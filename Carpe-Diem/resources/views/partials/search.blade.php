@@ -1,5 +1,5 @@
-<form action="/events">
-    <div class="relative m-4 rounded-lg bg-yellow-300">
+<form action="/events" class="hidden sm:block">
+    <div class="relative m-4 rounded-lg bg-yellow-300 hidden sm:block">
         <div class="absolute top-4 left-3">
             <i
                 class="fa fa-search text-gray-400 z-20 hover:text-gray-500"

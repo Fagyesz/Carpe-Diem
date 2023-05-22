@@ -26,5 +26,4 @@
             {{ $events->links() }}
         </div>
     </div>
-     <x-footer />
     @endsection

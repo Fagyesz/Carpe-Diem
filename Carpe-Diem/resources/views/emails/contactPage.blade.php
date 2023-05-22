@@ -2,9 +2,9 @@
 @extends('layout')
 @section('content')
 
-<div class="flex-1 flex-col min-h-screen bg-cover bg-center bg-no-repeat" style="background-image: url('images/contact_page.jpg')">
+<div class="flex min-h-screen bg-cover bg-center bg-no-repeat justify-center" style="background-image: url('images/contact_page.jpg')">
 
-<div class="pt-24">
+<div class="pt-24 w-max max-w-md">
     <x-card class="p-10 max-w-lg mx-auto">
     <div class="mx-6">
 
