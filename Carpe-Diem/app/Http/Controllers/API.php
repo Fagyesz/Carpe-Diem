@@ -17,7 +17,9 @@ class API extends Controller
     function getAllUsers()
     {
         $users = DB::table('users')->get();
-        return $users;
+        return response()->json([
+            'Result' => $users,
+        ], 200);
     }
 
     function getUserById($id)
@@ -26,7 +28,9 @@ class API extends Controller
         if(!empty($user) && $user->count()>0){
             return ["Result" => $user];
         } else {
-            return ["Result" => "No user found"];
+            return response()->json([
+                'Result' => 'No user found',
+            ], 400);
         } 
     }
 
@@ -43,14 +47,23 @@ class API extends Controller
             $result = $user->save();
             if($result)
             {
-                return ["Result" => "Data has been saved"];
+                                return response()->json([
+                    'Result' => 'Data has been saved',
+                ], 200);
+
             }
             else
             {
-                return ["Result" => "Operation failed"];
+                                return response()->json([
+                    'Result' => 'Operation failed',
+                    
+                ], 400);
             }
         } else {
-            return ["Result" => "Please fill all the fields"];
+                            return response()->json([
+                    'Result' => 'Please fill the fields',
+                    
+                ], 400);
         }
     
     }
@@ -67,17 +80,29 @@ class API extends Controller
                 $result = $data->save();
                 if($result)
                 {
-                    return ["Result" => "Data has been updated"];
+                    return response()->json([
+                        'Result' => 'User saved successfully',
+                        
+                    ], 200);
                 }
                 else
                 {
-                    return ["Result" => "Operation failed"];
+                    return response()->json([
+                        'Result' => 'Operation failed',
+                        
+                    ], 400);
                 }
             } else {
-                return ["Result" => "Please fill all the fields"];
+                return response()->json([
+                    'Result' => 'Please fill the fields',
+                    
+                ], 400);
             }
         } else {
-            return ["Result" => "No user found"];
+            return response()->json([
+                'Result' => 'No user found',
+                
+            ], 400);
         }
     }
 
@@ -88,14 +113,23 @@ class API extends Controller
             $result = $data->delete();
             if($result)
             {
-                return ["Result" => "Data has been deleted"];
+                return response()->json([
+                    'Result' => 'Data has been deleted',
+                    
+                ], 200);
             }
             else
             {
-                return ["Result" => "Operation failed"];
+                return response()->json([
+                    'Result' => 'Operation failed',
+                    
+                ], 400);
             }
         } else {
-            return ["Result" => "No user found"];
+            return response()->json([
+                'Result' => 'No user found',
+                
+            ], 400);
         }
     }
 
@@ -110,7 +144,9 @@ class API extends Controller
         if(!empty($event) && $event->count()>0){
             return $event;
         } else {
-            return ["Result" => "No event found"];
+            return response()->json([
+                'Result' => 'No user found',
+            ], 400);
         }
     }
 
@@ -131,14 +167,22 @@ class API extends Controller
             $result = $event->save();
             if($result)
             {
-                return ["Result" => "Data has been saved"];
+                                return response()->json([
+                    'Result' => 'Data has been saved',
+                ], 200);
             }
             else
             {
-                return ["Result" => "Operation failed"];
+                                return response()->json([
+                    'Result' => 'Operation ',
+                    
+                ], 400);
             }
         } else {
-            return ["Result" => "Please fill all the fields"];
+                            return response()->json([
+                    'Result' => 'Please fill the fields',
+                    
+                ], 400);
         }
     }
 
@@ -160,14 +204,22 @@ class API extends Controller
                 $result = $data->save();
                 if($result)
                 {
-                    return ["Result" => "Data has been updated"];
+                    return response()->json([
+                        'Result' => 'Data has been saved',
+                    ], 200);
                 }
                 else
                 {
-                    return ["Result" => "Operation failed"];
+                                    return response()->json([
+                    'Result' => 'Operation ',
+                    
+                ], 400);
                 }
             } else {
-                return ["Result" => "Please fill all the fields"];
+                                return response()->json([
+                    'Result' => 'Please fill the fields',
+                    
+                ], 400);
             }
         } else {
             return ["Result" => "No event found"];
@@ -180,14 +232,21 @@ class API extends Controller
             $result = $data->delete();
             if($result)
             {
-                return ["Result" => "Data has been deleted"];
+                return response()->json([
+                    'Result' => 'Data has been deleted',
+                ], 200);
             }
             else
             {
-                return ["Result" => "Operation failed"];
+                                return response()->json([
+                    'Result' => 'Operation ',
+                    
+                ], 400);
             }
         } else {
-            return ["Result" => "No event found"];
+            return response()->json([
+                'Result' => 'No event found',
+            ], 400);
         }
     }
 
@@ -197,9 +256,13 @@ class API extends Controller
         
         $ticket = DB::table('tickets')->where('ticket_type', 'like', '%'.$query.'%')->get();
         if(!empty($ticket) && $ticket->count()>0){
-            return ["Result" => $ticket];
+            return response()->json([
+                'Result' => $ticket,
+            ], 200);
         } else {
-            return ["Result" => "No tickets found"];
+            return response()->json([
+                'Result' => 'No tickets found',
+            ], 400);
         } 
     }
 
@@ -210,9 +273,13 @@ class API extends Controller
         $content = DB::table('posts')->where('content', 'like', '%'.$query.'%')->get();
         $result = $title->merge($content);
         if(!empty($result) && $result->count()>0){
-            return ["Result" => $result];
+            return response()->json([
+                'Result' => $result,
+            ], 200);
         } else {
-            return ["Result" => "No posts found"];
+            return response()->json([
+                'Result' => 'No posts found',
+            ], 400);
         } 
     }
 
@@ -221,9 +288,13 @@ class API extends Controller
         
         $comment = DB::table('comments')->where('body', 'like', '%'.$query.'%')->get();
         if(!empty($comment) && $comment->count()>0){
-            return ["Result" => $comment];
+            return response()->json([
+                'Result' => $comment,
+            ], 200);
         } else {
-            return ["Result" => "No comments found"];
+            return response()->json([
+                'Result' => 'No comments found',
+            ], 400);
         } 
     }
 
@@ -235,22 +306,30 @@ class API extends Controller
         $location = DB::table('events')->where('location', 'like', '%'.$query.'%')->get();
         $result = $title->merge($desc)->merge($location);
         if(!empty($result) && $result->count()>0){
-            return ["Result" => $result];
+            return response()->json([
+                'Result' => $result,
+            ], 200);
         } else {
-            return ["Result" => "No events found"];
+            return response()->json([
+                'Result' => 'No events found',
+            ], 400);
         } 
     }
 
 
     function getAllTickets(){
         $tickets = DB::table('tickets')->get();
-        return $tickets;
+        return response()->json([
+            'Result' => $tickets,
+        ], 200);
     }
 
     function getTicketById($id)
     {
         $user = DB::table('tickets')->where('id', $id)->get();
-        return $user;
+        return response()->json([
+            'Result' => $user,
+        ], 200);
     }
 
     function createTicket(Request $request){
@@ -266,14 +345,22 @@ class API extends Controller
             $result = $ticket->save();
             if($result)
             {
-                return ["Result" => "Data has been saved"];
+                                return response()->json([
+                    'Result' => 'Data has been saved',
+                ], 200);
             }
             else
             {
-                return ["Result" => "Operation failed"];
+                                return response()->json([
+                    'Result' => 'Operation ',
+                    
+                ], 400);
             }
         } else {
-            return ["Result" => "Please fill all the fields"];
+                            return response()->json([
+                    'Result' => 'Please fill the fields',
+                    
+                ], 400);
         }
     }
 
@@ -290,17 +377,27 @@ class API extends Controller
                 $result = $data->save();
                 if($result)
                 {
-                    return ["Result" => "Data has been updated"];
+                    return response()->json([
+                        'Result' => 'Data has been updated',
+                    ], 200);
                 }
                 else
                 {
-                    return ["Result" => "Operation failed"];
+                                    return response()->json([
+                    'Result' => 'Operation ',
+                    
+                ], 400);
                 }
             } else {
-                return ["Result" => "No ticket found"];
+                return response()->json([
+                    'Result' => 'No ticket found',
+                ], 400);
             }
         } else {
-            return ["Result" => "Please fill all the fields"];
+                            return response()->json([
+                    'Result' => 'Please fill the fields',
+                    
+                ], 400);
         }
     }
 
@@ -310,23 +407,34 @@ class API extends Controller
             $result = $data->delete();
             if($result)
             {
-                return ["Result" => "Data has been deleted"];
+                return response()->json([
+                    'Result' => 'Data has been deleted',
+                ], 200);
             }
             else
             {
-                return ["Result" => "Operation failed"];
+                                return response()->json([
+                    'Result' => 'Operation ',
+                    
+                ], 400);
             }
         } else {
-            return ["Result" => "No ticket found"];
+            return response()->json([
+                'Result' => 'No tickets found',
+            ], 400);
         }
     }
 
     function getAllPosts(){
         $posts = DB::table('posts')->get();
         if(!empty($posts) && $posts->count()>0){
-            return ["Result" => $posts];
+            return response()->json([
+                'Result' => $posts,
+            ], 200);
         } else {
-            return ["Result" => "No posts found"];
+            return response()->json([
+                'Result' => 'No posts found',
+            ], 400);
         } 
     }
 
@@ -334,9 +442,13 @@ class API extends Controller
     {
         $post = DB::table('posts')->where('id', $id)->get();
         if(!empty($post) && $post->count()>0){
-            return ["Result" => $post];
+            return response()->json([
+                'Result' => $post,
+            ], 200);
         } else {
-            return ["Result" => "No post found"];
+            return response()->json([
+                'Result' => 'No posts found',
+            ], 400);
         } 
     }
 
@@ -352,14 +464,22 @@ class API extends Controller
             $result = $post->save();
             if($result)
             {
-                return ["Result" => "Data has been saved"];
+                                return response()->json([
+                    'Result' => 'Data has been saved',
+                ], 200);
             }
             else
             {
-                return ["Result" => "Operation failed"];
+                                return response()->json([
+                    'Result' => 'Operation ',
+                    
+                ], 400);
             }
         } else {
-            return ["Result" => "Please fill all the fields"];
+                            return response()->json([
+                    'Result' => 'Please fill the fields',
+                    
+                ], 400);
         }
     }
 
@@ -375,17 +495,27 @@ class API extends Controller
                 $result = $data->save();
                 if($result)
                 {
-                    return ["Result" => "Data has been updated"];
+                    return response()->json([
+                        'Result' => 'Data has been updated',
+                    ], 200);
                 }
                 else
                 {
-                    return ["Result" => "Operation failed"];
+                                    return response()->json([
+                    'Result' => 'Operation ',
+                    
+                ], 400);
                 }
             } else {
-                return ["Result" => "No post found"];
+                return response()->json([
+                    'Result' => 'No posts found',
+                ], 400);
             }
         } else {
-            return ["Result" => "Please fill all the fields"];
+                            return response()->json([
+                    'Result' => 'Please fill the fields',
+                    
+                ], 400);
         }
     }
 
@@ -395,23 +525,34 @@ class API extends Controller
             $result = $data->delete();
             if($result)
             {
-                return ["Result" => "Data has been deleted"];
+                return response()->json([
+                    'Result' => 'Data has been deleted',
+                ], 200);
             }
             else
             {
-                return ["Result" => "Operation failed"];
+                                return response()->json([
+                    'Result' => 'Operation ',
+                    
+                ], 400);
             }
         } else {
-            return ["Result" => "No post found"];
+            return response()->json([
+                'Result' => 'No posts found',
+            ], 400);
         }
     }
     
     function getAllComments(){
         $comments = DB::table('comments')->get();
         if(!empty($comments) && $comments->count()>0){
-            return ["Result" => $comments];
+            return response()->json([
+                'Result' => $comments,
+            ], 200);
         } else {
-            return ["Result" => "No comments found"];
+            return response()->json([
+                'Result' => 'No comments found',
+            ], 400);
         } 
     }
 
@@ -421,7 +562,9 @@ class API extends Controller
         if(!empty($comment) && $comment->count()>0){
             return ["Result" => $comment];
         } else {
-            return ["Result" => "No comment found"];
+            return response()->json([
+                'Result' => 'No comment found',
+            ], 400);
         } 
     }
 
@@ -437,14 +580,22 @@ class API extends Controller
             $result = $comment->save();
             if($result)
             {
-                return ["Result" => "Data has been saved"];
+                                return response()->json([
+                    'Result' => 'Data has been saved',
+                ], 200);
             }
             else
             {
-                return ["Result" => "Operation failed"];
+                                return response()->json([
+                    'Result' => 'Operation failed',
+                    
+                ], 400);
             }
         } else {
-            return ["Result" => "Please fill all the fields"];
+                            return response()->json([
+                    'Result' => 'Please fill the fields',
+                    
+                ], 400);
         }
     }
 
@@ -460,17 +611,27 @@ class API extends Controller
                 $result = $data->save();
                 if($result)
                 {
-                    return ["Result" => "Data has been updated"];
+                    return response()->json([
+                        'Result' => 'Data has been updated',
+                    ], 200);
                 }
                 else
                 {
-                    return ["Result" => "Operation failed"];
+                                    return response()->json([
+                    'Result' => 'Operation ',
+                    
+                ], 400);
                 }
             } else {
-                return ["Result" => "Please fill all the fields"];
+                                return response()->json([
+                    'Result' => 'Please fill the fields',
+                    
+                ], 400);
             }
         } else {
-            return ["Result" => "No comment found"];
+            return response()->json([
+                'Result' => 'No comment found',
+            ], 400);
         }
     }
 
@@ -480,14 +641,21 @@ class API extends Controller
             $result = $data->delete();
             if($result)
             {
-                return ["Result" => "Data has been deleted"];
+                return response()->json([
+                    'Result' => 'Data has been deleted',
+                ], 400);
             }
             else
             {
-                return ["Result" => "Operation failed"];
+                                return response()->json([
+                    'Result' => 'Operation ',
+                    
+                ], 400);
             }
         } else {
-            return ["Result" => "No comment found"];
+            return response()->json([
+                'Result' => 'No comment found',
+            ], 400);
         }
     }
 
