@@ -9,7 +9,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use League\Flysystem\Filesystem;
-use Endroid\QrCode;
+use Endroid\QrCode\QrCode;
+use Endroid\QrCode\ErrorCorrectionLevel;
+use Endroid\QrCode\LabelAlignment;
 use Illuminate\Support\Facades\DB;
 
 class QRcodeControllerEndroid extends Controller
