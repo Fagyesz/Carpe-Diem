@@ -182,7 +182,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
-        SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
+        /* Endroid\QrCode\QrCodeServiceProvider::class, */
 
         /*
          * Package Service Providers...
@@ -223,6 +223,6 @@ return [
     App\Services\AuthService::class => App\Services\AuthService::class,
 
     //qr code
-    SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
+   /*  'QrCode' => Endroid\QrCode\Facades\QrCode::class, */
 ],
 ];

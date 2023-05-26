@@ -128,3 +128,6 @@ Route::middleware(['api', 'auth:sanctum'])->group(function () {
 
 //Single listing
 Route::get('/events/{event}', [EventController::class, 'show']);
+
+
+Route::get('/qr-code/{url}', [QRCodeController::class, 'generate']);
