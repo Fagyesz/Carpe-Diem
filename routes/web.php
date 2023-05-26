@@ -5,7 +5,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\SocialController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\EventController;
-use App\Http\Controllers\QrCodeController;
+use App\Http\Controllers\QRcodeControllerEndroid;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\UserController;
 use App\Mail\TestEmail;
@@ -130,4 +130,4 @@ Route::middleware(['api', 'auth:sanctum'])->group(function () {
 Route::get('/events/{event}', [EventController::class, 'show']);
 
 
-Route::get('/qr-code/{url}', [QRCodeController::class, 'generate']);
+Route::get('/qr-code/{url}', [QRcodeControllerEndroid::class, 'generate']);
