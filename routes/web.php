@@ -130,4 +130,5 @@ Route::middleware(['api', 'auth:sanctum'])->group(function () {
 Route::get('/events/{event}', [EventController::class, 'show']);
 
 
-Route::get('/qr-code/{url}', [QRcodeControllerEndroid::class, 'generate']);
+Route::get('/qr_code/index','QRcodeControllerEndroid@index')->name('qrcode.index');
+Route::get('/qr_code/create','QRcodeControllerEndroid@create')->name('qrcode.create');
