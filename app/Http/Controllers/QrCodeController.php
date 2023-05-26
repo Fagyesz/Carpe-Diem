@@ -77,5 +77,10 @@ class QrCodeController extends Controller
         return back()->with('message', $quantity.'x Ticket generated succesfully!');
     }
 
-
+    public function generate($url)
+    {
+        $qrCode = new QrCode($url);
+        header('Content-Type: '.$qrCode->getContentType());
+        return $qrCode->writeString();
+    }
 }
